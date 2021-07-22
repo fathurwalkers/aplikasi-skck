@@ -23,6 +23,11 @@ class BackController extends Controller
         return view('register');
     }
 
+    public function profile()
+    {
+        return view('profile');
+    }
+
     public function postLogin(Request $request)
     {
         $cariUser = Login::where('username', $request->username)->get();
