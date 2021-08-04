@@ -45,19 +45,13 @@ class BackController extends Controller
                     }
                 }
                 break;
-            case 'guru':
+            case 'petugas':
                 if ($request->password == $data_login->password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
                 }
                 break;
-            case 'siswa':
-                if ($request->password == $data_login->password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
-                }
-                break;
-            case 'kepsek':
+            case 'pengguna':
                 if ($request->password == $data_login->password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');

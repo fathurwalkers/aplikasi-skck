@@ -40,7 +40,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{{ route('post-login') }}" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -60,7 +60,6 @@
                                         <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
-                                        <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -82,14 +81,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('vendor/sbadmin/') }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ asset('vendor/sbadmin/') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('vendor/sbadmin/') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('vendor/sbadmin/') }}/js/sb-admin-2.min.js"></script>
 
 </body>
 
