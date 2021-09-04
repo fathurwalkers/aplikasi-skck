@@ -58,6 +58,7 @@ class BackController extends Controller
                 }
                 break;
         }
+        return back()->with('status_fail', 'Maaf username atau password salah!')->withInput();
     }
 
     public function postRegister(Request $request)
