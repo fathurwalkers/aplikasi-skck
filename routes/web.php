@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login', [BackController::class, 'postLogin'])->name('post-login');
