@@ -10,7 +10,7 @@ class BackController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('admin.index');
     }
 
     public function login()
@@ -25,7 +25,7 @@ class BackController extends Controller
 
     public function profile()
     {
-        return view('profile');
+        return view('admin.profile');
     }
 
     public function postLogin(Request $request)
