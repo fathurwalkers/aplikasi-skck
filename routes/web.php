@@ -17,4 +17,6 @@ Route::group(['prefix' => '/'], function () {
 Route::group(['prefix' =>'/dashboard'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::get('/profile', [BackController::class, 'profile'])->name('profile');
+    Route::get('/print-skck-baru', [BackController::class, 'print_baru'])->name('print-skck-baru');
+    Route::get('/print-skck-perpanjang', [BackController::class, 'print_perpanjang'])->name('print-skck-perpanjang');
 });

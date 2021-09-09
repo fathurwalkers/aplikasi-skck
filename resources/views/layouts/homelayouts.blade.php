@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
+        <title>Aplikasi SKCK</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('vendor/home') }}/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Beranda</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Petunjuk</a></li>
-                        <li class="nav-item mx-0 mx-lg-1 active"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">MASUK</a></li>
+                        <li class="nav-item mx-0 mx-lg-1 active"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('dashboard') }}">MASUK</a></li>
                     </ul>
                 </div>
             </div>
@@ -252,7 +252,7 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
+            <div class="container"><small>Copyright &copy; Aplikasi SKCK Online 2021</small></div>
         </div>
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->

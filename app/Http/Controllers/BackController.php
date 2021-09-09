@@ -86,4 +86,14 @@ class BackController extends Controller
         $login_data->save();
         return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
+
+    public function print_baru()
+    {
+        return view('admin.print-skck-baru');
+    }
+
+    public function print_perpanjang()
+    {
+        return view('admin.print-skck-perpanjang');
+    }
 }
