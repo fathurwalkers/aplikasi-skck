@@ -12,6 +12,7 @@ Route::post('/register', [BackController::class, 'postRegister'])->name('post-re
 // Home Route
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/petunjuk', [HomeController::class, 'petunjuk'])->name('petunjuk');
 });
 
 Route::group(['prefix' =>'/dashboard'], function () {

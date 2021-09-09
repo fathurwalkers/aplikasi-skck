@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Beranda</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Petunjuk</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('petunjuk') }}">Petunjuk</a></li>
                         <li class="nav-item mx-0 mx-lg-1 active"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('dashboard') }}">MASUK</a></li>
                     </ul>
                 </div>
