@@ -19,6 +19,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('vendor/sbadmin/') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/datatables/') }}/datatables.min.css"/>
+
+    @stack('css')
 
 </head>
 
@@ -57,23 +60,47 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            <li class="nav-item my-1 py-0">
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pendaftaran</span>
+                </a>
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Perpanjangan</span>
+                </a>
+                <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Laporan</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                    <div class="bg-white py-1 collapse-inner rounded">
+                        <h6 class="collapse-header">Menu : </h6>
+                        <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
+                        <a class="collapse-item" href="cards.html">- Perpanjangan SKCK</a>
                     </div>
                 </div>
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Verifikasi User</span>
+                </a>
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Ganti Password</span>
+                </a>
+                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Logout</span>
+                </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -89,7 +116,7 @@
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -201,7 +228,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container">
 
                     <!-- Page Heading -->
                     <div class="row">
@@ -265,6 +292,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('vendor/sbadmin/') }}/js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/datatables/') }}/datatables.min.js"></script>
+    @stack('js')
 
 </body>
 

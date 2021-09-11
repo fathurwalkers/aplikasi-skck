@@ -28,6 +28,11 @@ class BackController extends Controller
         return view('admin.profile');
     }
 
+    public function daftar_skck()
+    {
+        return view('admin.daftar-skck');
+    }
+
     public function postLogin(Request $request)
     {
         $cariUser = Login::where('username', $request->username)->get();
