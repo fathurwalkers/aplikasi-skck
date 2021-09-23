@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
 
+// Misc Route
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login', [BackController::class, 'postLogin'])->name('post-login');
 Route::get('/register', [BackController::class, 'register'])->name('register');
@@ -15,6 +16,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/petunjuk', [HomeController::class, 'petunjuk'])->name('petunjuk');
 });
 
+// Dashboard Route
 Route::group(['prefix' =>'/dashboard'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::get('/profile', [BackController::class, 'profile'])->name('profile');
