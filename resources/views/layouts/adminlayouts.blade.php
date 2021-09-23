@@ -82,7 +82,7 @@
                     <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Menu : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
-                        <a class="collapse-item" href="cards.html">- Perpanjangan SKCK</a>
+                        <a class="collapse-item" href="{{ route('daftar-skck') }}">- Perpanjangan SKCK</a>
                     </div>
                 </div>
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">

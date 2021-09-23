@@ -29,7 +29,7 @@
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
                                         <a class="btn btn-info btn-sm" href="#" role="button">Lihat</a>
-                                        <a class="btn btn-success btn-sm" href="#" role="button">Cetak</a>
+                                        <a class="btn btn-success btn-sm" href="{{ route('print-skck-baru') }}" role="button">Cetak</a>
                                         <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
                                         <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
                                     </div>
@@ -47,7 +47,7 @@
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
                                         <a class="btn btn-info btn-sm" href="#" role="button">Lihat</a>
-                                        <a class="btn btn-success btn-sm" href="#" role="button">Cetak</a>
+                                        <a class="btn btn-success btn-sm" href="{{ route('print-skck-baru') }}" role="button">Cetak</a>
                                         <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
                                         <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
                                     </div>
