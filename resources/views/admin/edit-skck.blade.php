@@ -1,7 +1,11 @@
 @extends('layouts.adminlayouts')
 
 @push('css')
-    
+<style>
+    #output_image {
+    max-width:300px;
+    }
+</style>
 @endpush
 
 {{-- // 'nama_lengkap' --}}
@@ -59,6 +63,22 @@
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
                             <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap">
                             <small class="form-text text-muted">contoh : Risky Yatno</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <img id="output_image" class="border border-1"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Foto : </label>
+                            <input type="file" class="form-control-file" onchange="preview_image(event)">
+                            <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
                         </div>
                     </div>
                 </div>
@@ -243,9 +263,14 @@
 @endsection
 
 @push('js')
-    <script>
-        $(document).ready(function() {
-            $('#example1').DataTable();
-        } );
+    <script type='text/javascript'>
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                    var output = document.getElementById('output_image');
+                    output.src = reader.result;
+                }
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 @endpush

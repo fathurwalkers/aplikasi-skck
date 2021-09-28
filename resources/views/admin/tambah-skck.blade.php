@@ -1,7 +1,11 @@
 @extends('layouts.adminlayouts')
 
 @push('css')
-    
+<style>
+    #output_image {
+    max-width:300px;
+    }
+</style>
 @endpush
 
 {{-- // 'nama_lengkap' --}}
@@ -64,6 +68,22 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <img id="output_image" class="border border-1"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Foto : </label>
+                            <input type="file" class="form-control-file" onchange="preview_image(event)">
+                            <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat Sekarang : </label>
@@ -109,7 +129,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Tempat/Tanggal Lahir : </label>
                             <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl">
-                            <small class="form-text text-muted">contoh : 18 Desember 1997</small>
+                            <small class="form-text text-muted">contoh : BAUBAU, 18 Desember 1997</small>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
@@ -243,9 +263,14 @@
 @endsection
 
 @push('js')
-    <script>
-        $(document).ready(function() {
-            $('#example1').DataTable();
-        } );
+    <script type='text/javascript'>
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                    var output = document.getElementById('output_image');
+                    output.src = reader.result;
+                }
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 @endpush

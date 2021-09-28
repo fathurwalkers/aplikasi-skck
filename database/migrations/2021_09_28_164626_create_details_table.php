@@ -10,6 +10,8 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('data_skck', function (Blueprint $table) {
             $table->id();
+            $table->string('foto');
+            $table->string('status_skck'); // Verified - Unverified 
             $table->string('nama_lengkap');
             $table->string('ttl');
             $table->string('agama');
