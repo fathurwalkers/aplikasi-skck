@@ -109,7 +109,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Tempat/Tanggal Lahir : </label>
                             <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl">
-                            <small class="form-text text-muted">contoh : 18 Desember 1997</small>
+                            <small class="form-text text-muted">contoh : BAUBAU, 18 Desember 1997</small>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
