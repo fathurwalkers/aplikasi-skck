@@ -3,16 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Detail;
+use App\Models\Laporan;
+use App\Models\Login;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //
     }
 }
