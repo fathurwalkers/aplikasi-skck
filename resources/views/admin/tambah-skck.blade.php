@@ -196,6 +196,23 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat : </label>
+                            <input type="text" class="form-control" placeholder="Masukkan alamat..." name="alamat_pasangan">
+                            <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
+                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan..." name="pekerjaan_pasangan">
+                            <small class="form-text text-muted">contoh : PNS</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Umur : </label>
@@ -218,24 +235,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan alamat..." name="alamat_pasangan">
-                            <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan..." name="pekerjaan_pasangan">
-                            <small class="form-text text-muted">contoh : PNS</small>
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
         </div>
