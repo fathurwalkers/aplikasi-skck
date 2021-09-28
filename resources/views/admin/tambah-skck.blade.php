@@ -49,7 +49,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan Nama Lengkap anda... ">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan Nama Lengkap anda... " name="nama_lengkap">
                             <small id="emailHelp" class="form-text text-muted">contoh : Risky Yatno</small>
                         </div>
                     </div>
@@ -59,14 +59,14 @@
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Kebangsaan : </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan tempat dan tanggal lahir anda... ">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan tempat dan tanggal lahir anda... " name="kebangsaan">
                             <small id="emailHelp" class="form-text text-muted">contoh : INDONESIA</small>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan agama anda... ">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan agama anda... " name="agama">
                             {{-- <small id="emailHelp" class="form-text text-muted"></small> --}}
                         </div>
                     </div>
@@ -76,17 +76,17 @@
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Tempat/Tanggal Lahir : </label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan tempat dan tanggal lahir anda... ">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="masukkan tempat dan tanggal lahir anda... " name="ttl">
                             <small id="emailHelp" class="form-text text-muted">contoh : 18 Desember 1997</small>
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Jenis Kelamin : </label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Pilih jenis Kelamin...</option>
-                                <option>LAKI - LAKI</option>
-                                <option>PEREMPUAN</option>
+                            <select id="inputState" class="form-control" name="jenis_kelamin">
+                                <option selected="null">Pilih jenis Kelamin...</option>
+                                <option value="Laki - laki">LAKI - LAKI</option>
+                                <option value="Perempuan">PEREMPUAN</option>
                             </select>
                             {{-- <small id="emailHelp" class="form-text text-muted"></small> --}}
                         </div>
@@ -94,10 +94,10 @@
                     <div class="col-sm-3 col-md-3 col-lg-3">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Kawin : </label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Pilih status...</option>
-                                <option>KAWIN</option>
-                                <option>TIDAK KAWIN</option>
+                            <select id="inputState" class="form-control" name="status_kawin">
+                                <option selected="null">Pilih status...</option>
+                                <option value="Kawin">KAWIN</option>
+                                <option value="Tidak Kawin">TIDAK KAWIN</option>
                             </select>
                             {{-- <small id="emailHelp" class="form-text text-muted"></small> --}}
                         </div>
