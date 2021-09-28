@@ -11,6 +11,7 @@ class CreateLaporansTable extends Migration
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
             $table->string('laporan_header');
+            $table->string('laporan_jeniskeperluan'); // Pendaftaran - Perpanjangan
             $table->string('laporan_body');
             $table->string('laporan_kode');
             $table->string('laporan_pengirim');

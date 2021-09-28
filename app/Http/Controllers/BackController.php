@@ -43,6 +43,11 @@ class BackController extends Controller
         return view('admin.tambah-skck');
     }
 
+    public function edit_skck()
+    {
+        return view('admin.edit-skck');
+    }
+
     public function laporan_masuk()
     {
         return view('admin.laporan-masuk');

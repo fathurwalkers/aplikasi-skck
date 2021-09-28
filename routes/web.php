@@ -25,6 +25,7 @@ Route::group(['prefix' =>'/dashboard'], function () {
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');
     Route::get('/tambah-skck', [BackController::class, 'tambah_skck'])->name('tambah-skck');
     Route::get('/perpanjangan-skck', [BackController::class, 'perpanjangan_skck'])->name('perpanjangan-skck');
+    Route::get('/edit-skck', [BackController::class, 'edit_skck'])->name('edit-skck');
 
     // Laporan Route
     Route::get('/laporan-masuk', [BackController::class, 'laporan_masuk'])->name('laporan-masuk');
