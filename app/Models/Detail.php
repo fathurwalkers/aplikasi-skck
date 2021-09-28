@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Login;
+use App\Models\Laporan;
 
 class Detail extends Model
 {
@@ -17,5 +18,10 @@ class Detail extends Model
     public function login()
     {
         return $this->hasOne(Login::class);
+    }
+
+    public function laporan()
+    {
+        return $this->hasOne(Laporan::class);
     }
 }
