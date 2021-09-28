@@ -18,8 +18,8 @@ class CreateLoginsTable extends Migration
             $table->string('login_level'); // ADMIN - PETUGAS - USER
             $table->string('login_status'); // unverified / verified
             
-            $table->unsignedBigInteger('detail_id')->nullable();
-            $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
+            $table->unsignedBigInteger('skck_id')->nullable();
+            $table->foreign('skck_id')->references('id')->on('data_skck')->onDelete('cascade');
 
             $table->timestamps();
         });

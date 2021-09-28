@@ -15,8 +15,8 @@ class CreateLaporansTable extends Migration
             $table->string('laporan_kode');
             $table->string('laporan_pengirim');
 
-            $table->unsignedBigInteger('detail_id')->nullable();
-            $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
+            $table->unsignedBigInteger('skck_id')->nullable();
+            $table->foreign('skck_id')->references('id')->on('data_skck')->onDelete('cascade');
             $table->timestamps();
         });
     }
