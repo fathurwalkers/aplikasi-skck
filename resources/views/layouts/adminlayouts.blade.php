@@ -76,14 +76,15 @@
                 <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Laporan</span>
+                    <span>Menu Navigasi</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Menu : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
-                        <a class="collapse-item" href="{{ route('daftar-skck') }}">- Laporan Masuk</a>
-                        {{-- <a class="collapse-item" href="{{ route('daftar-skck') }}">- Perpanjangan SKCK</a> --}}
+                        <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
+                        <a class="collapse-item" href="{{ route('tambah-skck') }}">- Buat SKCK</a>
+                        <a class="collapse-item" href="{{ route('perpanjangan-skck') }}">- Perpanjangan SKCK</a>
                     </div>
                 </div>
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">

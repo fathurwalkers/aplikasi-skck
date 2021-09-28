@@ -33,6 +33,21 @@ class BackController extends Controller
         return view('admin.daftar-skck');
     }
 
+    public function perpanjangan_skck()
+    {
+        return view('admin.perpanjangan-skck');
+    }
+
+    public function tambah_skck()
+    {
+        return view('admin.tambah-skck');
+    }
+
+    public function laporan_masuk()
+    {
+        return view('admin.laporan-masuk');
+    }
+
     public function postLogin(Request $request)
     {
         $cariUser = Login::where('username', $request->username)->get();
