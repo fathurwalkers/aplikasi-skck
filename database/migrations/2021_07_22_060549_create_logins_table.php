@@ -15,8 +15,8 @@ class CreateLoginsTable extends Migration
             $table->string('login_password');
             $table->string('login_email');
             $table->text('login_token');
-            $table->string('login_level');
-            $table->string('login_status');
+            $table->string('login_level'); // ADMIN - PETUGAS - USER
+            $table->string('login_status'); // unverified / verified
             
             $table->unsignedBigInteger('detail_id')->nullable();
             $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
