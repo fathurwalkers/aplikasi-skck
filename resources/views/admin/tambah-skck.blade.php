@@ -33,7 +33,14 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
         <div class="card-header">
-            <h4>Pembuatan SKCK</h4>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <h4>Pembuatan SKCK</h4>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <a href="{{ route('dashboard') }}" class="btn btn-primary float-right">Kembali</a>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="container">
