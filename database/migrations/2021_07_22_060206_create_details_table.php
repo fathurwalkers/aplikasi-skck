@@ -6,14 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateDetailsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('detail', function (Blueprint $table) {
+        Schema::create('data_skck', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
             $table->string('ttl');
@@ -43,13 +38,8 @@ class CreateDetailsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('detail');
+        Schema::dropIfExists('data_skck');
     }
 }

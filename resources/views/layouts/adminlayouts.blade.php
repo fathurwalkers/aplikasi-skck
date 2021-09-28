@@ -65,14 +65,14 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Pendaftaran</span>
                 </a>
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Perpanjangan</span>
-                </a>
+                </a> --}}
                 <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -82,12 +82,13 @@
                     <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Menu : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
-                        <a class="collapse-item" href="{{ route('daftar-skck') }}">- Perpanjangan SKCK</a>
+                        <a class="collapse-item" href="{{ route('daftar-skck') }}">- Laporan Masuk</a>
+                        {{-- <a class="collapse-item" href="{{ route('daftar-skck') }}">- Perpanjangan SKCK</a> --}}
                     </div>
                 </div>
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Verifikasi User</span>
+                    <span>Verifikasi Pengguna</span>
                 </a>
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>

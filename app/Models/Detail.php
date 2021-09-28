@@ -11,7 +11,7 @@ class Detail extends Model
 {
     use HasFactory;
 
-    protected $table = 'detail';
+    protected $table = 'data_skck';
 
     protected $guarded = [];
 
