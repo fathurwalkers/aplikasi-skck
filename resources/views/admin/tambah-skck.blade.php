@@ -49,6 +49,9 @@
         <div class="card-body">
             <div class="container">
 
+                <form action="" method="POST" enctype="multipart/form-data">
+                @csrf
+
                 {{-- Start DATA DIRI PENDAFTAR  --}}
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -253,6 +256,15 @@
                             <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_pasangan">
                             {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-lg btn-success"> SELESAI </button>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+                        <small class="form-text text-muted">Tekan tombol "SELESAI" Jika semua data telah benar</small>
                     </div>
                 </div>
 
