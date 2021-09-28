@@ -29,6 +29,16 @@ class CreateDetailsTable extends Migration
             $table->string('no_telepon');
 
             $table->string('status_hubungan'); // Suami - Istri
+            $table->string('nama_pasangan');
+            $table->string('umur_pasangan');
+            $table->string('agama_pasangan');
+            $table->string('kebangsaan_pasangan');
+            $table->string('pekerjaan_pasangan');
+            $table->string('alamat_pasangan');
+
+            $table->string('nama_ayah');
+            $table->string('umur_ayah');
+            $table->string('agama_ayah');
             $table->timestamps();
         });
     }
