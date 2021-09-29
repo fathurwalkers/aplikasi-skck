@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Models\Detail;
 use App\Models\Login;
 
@@ -56,6 +58,11 @@ class BackController extends Controller
     public function buat_laporan()
     {
         return view('admin.buat-laporan');
+    }
+
+    public function post_buat_laporan(Request $request)
+    {
+        // 
     }
 
     public function postLogin(Request $request)

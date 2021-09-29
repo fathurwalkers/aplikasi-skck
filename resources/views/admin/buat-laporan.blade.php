@@ -79,6 +79,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
@@ -92,7 +93,16 @@
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-md btn-success mt-2"> LANJUTKAN </button>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+                            <small class="form-text text-muted">Tekan tombol "LANJUTKAN" Jika laporan telah selesai dimasukkan</small>
+                        </div>
+                    </div>
+
                 </form>
 
             </div>
