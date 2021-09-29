@@ -82,39 +82,75 @@ class BackController extends Controller
 
     public function post_tambah_skck(Request $request)
     {
+        $laporan_id = session('laporan_id');
+        $validatedData = $request->validate([ 
+            "nama_lengkap"          => 'required',
+            "ttl"                   => 'required',
+            "agama"                 => 'required',
+            "kebangsaan"            => 'required',
+            "jenis_kelamin"         => 'required|filled',
+            "status_kawin"          => 'required|filled',
+            "pekerjaan"             => 'required',
+            "alamat_lengkap"        => 'required',
+            "no_ktp"                => 'required',
+            "no_telepon"            => 'required',
+            "status_hubungan"       => 'required|filled',
+            "nama_pasangan"         => 'required',
+            "umur_pasangan"         => 'required',
+            "agama_pasangan"        => 'required',
+            "kebangsaan_pasangan"   => 'required',
+            "pekerjaan_pasangan"    => 'required',
+            "alamat_pasangan"       => 'required',
+            "nama_ayah"             => 'required',
+            "umur_ayah"             => 'required',
+            "agama_ayah"            => 'required',
+        ]);
+
+        dd($validatedData);
+
+        $gambar_cek = $request->file('foto');
+        if (!$gambar_cek) {
+            $gambar = "null;";
+        } else {
+            $randomNamaGambar = Str::random(10) . '.jpg';
+            $gambar = $request->file('foto')->move(public_path('foto'), strtolower($randomNamaGambar));
+        }
 
         $data_skck = new Detail;
         $saveDataSkck = $data_skck->create([
-            "foto" => $dadada,
-            "status_skck" => $dadada, 
-            "nama_lengkap" => $dadada,
-            "ttl" => $dadada,
-            "agama" => $dadada,
-            "kebangsaan" => $dadada,
-            "jenis_kelamin" => $dadada,
-            "status_kawin" => $dadada,
-            "pekerjaan" => $dadada,
-            "alamat_lengkap" => $dadada,
-            "no_ktp" => $dadada,
-            "no_passport" => $dadada,
-            "no_kitaskitap" => $dadada,
-            "no_telepon" => $dadada,
-
-            "status_hubungan" => $dadada,
-            "nama_pasangan" => $dadada,
-            "umur_pasangan" => $dadada,
-            "agama_pasangan" => $dadada,
-            "kebangsaan_pasangan" => $dadada,
-            "pekerjaan_pasangan" => $dadada,
-            "alamat_pasangan" => $dadada,
-
-            "nama_ayah" => $dadada,
-            "umur_ayah" => $dadada,
-            "agama_ayah" => $dadada,
+            "foto" => $gambar->getFileName(),
+            "status_skck" => "unverified", 
+            "nama_lengkap" => $validatedData["nama_lengkap"],
+            "ttl" => $validatedData["ttl"],
+            "agama" => $validatedData["agama"],
+            "kebangsaan" => $validatedData["kebangsaan"],
+            "jenis_kelamin" => $validatedData["jenis_kelamin"],
+            "status_kawin" => $validatedData["status_kawin"],
+            "pekerjaan" => $validatedData["pekerjaan"],
+            "alamat_lengkap" => $validatedData["alamat_lengkap"],
+            "no_ktp" => $validatedData["no_ktp"],
+            "no_passport" => $validatedData["no_passport"],
+            "no_kitaskitap" => $validatedData["no_kitaskitap"],
+            "no_telepon" => $validatedData["no_telepon"],
+            "status_hubungan" => $validatedData["status_hubungan"],
+            "nama_pasangan" => $validatedData["nama_pasangan"],
+            "umur_pasangan" => $validatedData["umur_pasangan"],
+            "agama_pasangan" => $validatedData["agama_pasangan"],
+            "kebangsaan_pasangan" => $validatedData["kebangsaan_pasangan"],
+            "pekerjaan_pasangan" => $validatedData["pekerjaan_pasangan"],
+            "alamat_pasangan" => $validatedData["alamat_pasangan"],
+            "nama_ayah" => $validatedData["nama_ayah"],
+            "umur_ayah" => $validatedData["umur_ayah"],
+            "agama_ayah" => $validatedData["agama_ayah"],
             "created_at" => now(),
             "updated_at" => now()
         ]);
-
+        $saveDataSkck->save(); 
+        $saveDataSkck->laporan()->attach($laporan_id);
+        dump($saveDataSkck);
+        dd($saveDataSkck);
+        // $sessionLaporan_forget = session()->forget(['laporan_id']);
+        // dump($sessionLaporan_forget);
     }
 
     public function edit_skck()

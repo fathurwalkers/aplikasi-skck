@@ -26,16 +26,139 @@
 
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
+
+                      @error("nama_lengkap") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("ttl") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("agama") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("kebangsaan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("jenis_kelamin") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("status_kawin") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("pekerjaan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("alamat_lengkap") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("no_ktp") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("no_telepon") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("status_hubungan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("nama_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("umur_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("agama_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("kebangsaan_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+
+                      @error("pekerjaan_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("alamat_pasangan") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("nama_ayah") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("umur_ayah") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+                      @error("agama_ayah") 
+                      <div class="alert alert-danger">
+                          {{ $message }} 
+                      </div>
+                      @enderror
+                      
+
                         @if (session('laporan_telah_ada'))
                             <div class="alert alert-success">
                                 {{ session('laporan_telah_ada') }}
                             </div>
                         @endif
+
                     </div>
                 </div>
 
                 <form action="{{ route('post-tambah-skck') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+                    @csrf
 
                     {{-- Start DATA DIRI PENDAFTAR  --}}
                     <div class="row">
@@ -49,7 +172,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap">
+                                <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap" required autofocus>
                                 <small class="form-text text-muted">contoh : Risky Yatno</small>
                             </div>
                         </div>
@@ -65,7 +188,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Foto : </label>
-                                <input type="file" class="form-control-file" onchange="preview_image(event)">
+                                <input type="file" class="form-control-file" onchange="preview_image(event)" name="foto">
                                 <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
                             </div>
                         </div>
@@ -99,7 +222,7 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>No. Telepon : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon">
+                                <input type="number" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon">
                                 <small class="form-text text-muted">contoh : 085932219482</small>
                             </div>
                         </div>
@@ -124,7 +247,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Jenis Kelamin : </label>
                                 <select id="inputState" class="form-control" name="jenis_kelamin">
-                                    <option selected="null">Pilih jenis Kelamin...</option>
+                                    <option selected="null" disabled>Pilih jenis Kelamin...</option>
                                     <option value="Laki - laki">LAKI - LAKI</option>
                                     <option value="Perempuan">PEREMPUAN</option>
                                 </select>
@@ -135,7 +258,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Kawin : </label>
                                 <select id="inputState" class="form-control" name="status_kawin">
-                                    <option selected="null">Pilih status...</option>
+                                    <option selected="null" disabled>Pilih status...</option>
                                     <option value="Kawin">KAWIN</option>
                                     <option value="Tidak Kawin">TIDAK KAWIN</option>
                                 </select>
@@ -148,21 +271,21 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nomor Kartu Penduduk : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan No. KTP anda..." name="no_ktp">
+                                <input type="number" class="form-control" placeholder="Masukkan No. KTP anda..." name="no_ktp">
                                 <small class="form-text text-muted">No. KTP Wajib di Masukkan</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor Passport : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan No. Passport anda... " name="no_passport">
+                                <input type="number" class="form-control" placeholder="Masukkan No. Passport anda... " name="no_passport" value="-">
                                 <small class="form-text text-muted">Kosongkan jika tidak ada </small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>No. KITAS/KITAP : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan No. KITAS / KITAP anda... " name="no_kitaskitap">
+                                <input type="number" class="form-control" placeholder="Masukkan No. KITAS / KITAP anda... " name="no_kitaskitap" value="-">
                                 <small class="form-text text-muted">Kosongkan jika tidak ada </small>
                             </div>
                         </div>
@@ -194,7 +317,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Hubungan : </label>
                                 <select id="inputState" class="form-control" name="status_hubungan">
-                                    <option selected="null">Pilih status...</option>
+                                    <option selected="null" disabled>Pilih status...</option>
                                     <option value="Suami">Suami (Husband)</option>
                                     <option value="Istri">Istri (Wife)</option>
                                 </select>
@@ -244,6 +367,45 @@
                         </div>
                     </div>
 
+                    {{-- END STATUS HUBUNGAN KEKELUARGAAN  --}}
+
+                    <hr> 
+
+                    {{-- START DATA AYAH  --}}
+
+                    <div class="row mt-4">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <h5>
+                                Data Bapak Sendiri : 
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="nama_ayah">
+                                <small class="form-text text-muted">contoh : Muh. Ismail </small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Umur : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan umur..." name="umur_ayah">
+                                <small class="form-text text-muted">contoh : 35 Tahun</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_ayah">
+                                {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
+                            </div>
+                        </div>
+                    </div>
+                    {{-- END DATA AYAH  --}}
+
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
                             <button type="submit" class="btn btn-lg btn-success"> SELESAI </button>
@@ -252,6 +414,7 @@
                             <small class="form-text text-muted">Tekan tombol "SELESAI" Jika semua data telah benar</small>
                         </div>
                     </div>
+
                 </form>
 
             </div>
