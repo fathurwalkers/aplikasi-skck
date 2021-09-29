@@ -60,9 +60,9 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item my-1 py-0">
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                <a class="nav-link py-2" href="{{ route('profile') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span>Profile</span>
                 </a>
                 {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
