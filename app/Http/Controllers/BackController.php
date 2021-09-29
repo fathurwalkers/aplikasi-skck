@@ -59,9 +59,11 @@ class BackController extends Controller
         $users = session('data_login');
         $laporan_id = session('laporan_id');
         if (!$laporan_id) {
-            return redirect()->route()->with('laporan_belum_ada', 'Maaf, silahkan mengisi laporan terlebih dahulu!');
+            return redirect()->route('buat-laporan')->with('laporan_belum_ada', 'Laporan belum dibuat, silahkan mengisi laporan terlebih dahulu!');
         } else {
-            return view('admin.tambah-skck');
+            return view('admin.tambah-skck', [
+                'users' => $users
+            ]);
         }
     }
 
