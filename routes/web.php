@@ -5,6 +5,7 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
 
 // Misc Route
+Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login', [BackController::class, 'postLogin'])->name('post-login');
 Route::get('/register', [BackController::class, 'register'])->name('register');
@@ -17,7 +18,7 @@ Route::group(['prefix' => '/'], function () {
 });
 
 // Dashboard Route
-Route::group(['prefix' =>'/dashboard'], function () {
+Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::get('/profile', [BackController::class, 'profile'])->name('profile');
 

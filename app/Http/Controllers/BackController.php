@@ -20,11 +20,19 @@ class BackController extends Controller
 
     public function login()
     {
+        $users = session('data_login');
+        if ($users !== null) {
+            return redirect('dashboard')->with('gagal_beralih', 'Anda telah login, tidak dapat beralih ke halaman login!');
+        }
         return view('login');
     }
 
     public function register()
     {
+        $users = session('data_login');
+        if ($users !== null) {
+            return redirect('dashboard')->with('gagal_beralih', 'Anda telah login, tidak dapat beralih ke halaman login!');
+        }
         return view('register');
     }
 
@@ -63,6 +71,13 @@ class BackController extends Controller
         return view('admin.buat-laporan');
     }
 
+    public function logout(Request $request)
+    {
+        $request->session()->forget(['data_login']);
+        $request->session()->flush();
+        return redirect()->route('login')->with('berhasil_logout', 'Anda telah logout!');
+    }
+
     public function post_buat_laporan(Request $request)
     {
         $validatedData = $request->validate([
@@ -89,14 +104,14 @@ class BackController extends Controller
 
     public function postLogin(Request $request)
     {
-        $cariUser = Login::where('username', $request->username)->get();
+        $cariUser = Login::where('login_username', $request->login_username)->get();
         if ($cariUser->isEmpty()) {
             return back()->with('status_fail', 'Maaf username atau password salah!')->withInput();
         }
-        $data_login = Login::where('username', $request->username)->firstOrFail();
-        switch ($data_login->level) {
+        $data_login = Login::where('login_username', $request->login_username)->firstOrFail();
+        switch ($data_login->login_level) {
             case 'admin':
-                $cek_password = Hash::check($request->password, $data_login->password);
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
@@ -105,13 +120,13 @@ class BackController extends Controller
                 }
                 break;
             case 'petugas':
-                if ($request->password == $data_login->password) {
+                if ($request->login_password == $data_login->login_password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
                 }
                 break;
-            case 'pengguna':
-                if ($request->password == $data_login->password) {
+            case 'user':
+                if ($request->login_password == $data_login->login_password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
                 }

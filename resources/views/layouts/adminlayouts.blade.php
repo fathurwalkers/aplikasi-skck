@@ -95,10 +95,17 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Ganti Password</span>
                 </a>
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Logout</span>
-                </a>
+                </a> --}}
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <a class="btn btn-sm btn-danger my-2 d-flex justify-content-center mx-5" href="#" data-toggle="modal" data-target="#logoutModal">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -278,8 +285,11 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <a class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                        <button class="btn btn-primary" type="submit">Logout</button>
+                    </form>
                 </div>
             </div>
         </div>
