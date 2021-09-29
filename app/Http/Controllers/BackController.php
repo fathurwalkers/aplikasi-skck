@@ -82,8 +82,9 @@ class BackController extends Controller
 
     public function post_tambah_skck(Request $request)
     {
+        
         $table->string('foto');
-        $table->string('status_skck'); // Verified - Unverified 
+        $table->string('status_skck'); 
         $table->string('nama_lengkap');
         $table->string('ttl');
         $table->string('agama');
@@ -93,11 +94,11 @@ class BackController extends Controller
         $table->string('pekerjaan');
         $table->string('alamat_lengkap');
         $table->string('no_ktp');
-        $table->string('no_passport')->nullable();
-        $table->string('no_kitaskitap')->nullable();
+        $table->string('no_passport');
+        $table->string('no_kitaskitap');
         $table->string('no_telepon');
 
-        $table->string('status_hubungan'); // Suami - Istri
+        $table->string('status_hubungan');
         $table->string('nama_pasangan');
         $table->string('umur_pasangan');
         $table->string('agama_pasangan');
@@ -108,6 +109,7 @@ class BackController extends Controller
         $table->string('nama_ayah');
         $table->string('umur_ayah');
         $table->string('agama_ayah');
+
     }
 
     public function edit_skck()
