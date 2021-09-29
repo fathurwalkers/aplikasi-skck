@@ -10,6 +10,7 @@ use App\Models\Detail;
 use App\Models\Login;
 use App\Models\Laporan;
 
+
 class BackController extends Controller
 {
     public function index()
