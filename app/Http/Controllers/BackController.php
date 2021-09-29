@@ -49,6 +49,14 @@ class BackController extends Controller
         return view('admin.daftar-skck');
     }
 
+    public function verifikasi_pengguna()
+    {
+        $users = session('data_login');
+        return view('admin.verifikasi-pengguna', [
+            'users' => $users
+        ]);
+    }
+
     public function perpanjangan_skck()
     {
         return view('admin.perpanjangan-skck');
