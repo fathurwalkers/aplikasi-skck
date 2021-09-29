@@ -64,7 +64,15 @@ class BackController extends Controller
 
     public function perpanjangan_skck()
     {
-        return view('admin.perpanjangan-skck');
+        $users = session('data_login');
+        $laporan_id = session('laporan_id');
+        if (!$laporan_id) {
+            return redirect()->route('buat-laporan')->with('laporan_belum_ada', 'Laporan belum dibuat, silahkan mengisi laporan terlebih dahulu!');
+        } else {
+            return view('admin.perpanjangan-skck', [
+                'users' => $users
+            ]);
+        }
     }
 
     public function tambah_skck()
@@ -191,7 +199,7 @@ class BackController extends Controller
         $laporan = new Laporan; 
         $saveLaporan = $laporan->create([
             "laporan_header"            => $validatedData["laporan_header"],
-            "laporan_jeniskeperluan"    => $validatedData["laporan_jeniskeperluan"],
+            "laporan_jeniskeperluan"    => strtoupper($validatedData["laporan_jeniskeperluan"]),
             "laporan_body"              => $validatedData["laporan_body"],
             "laporan_kode"              => $laporan_kode,
             "laporan_pengirim"          => $pengirim,
@@ -200,7 +208,16 @@ class BackController extends Controller
         ]);
         $saveLaporan->save();
         $laporan_id = session(['laporan_id' => $saveLaporan->id]);
-        return redirect()->route('tambah-skck');
+
+        switch ($saveLaporan->laporan_jeniskeperluan) {
+            case "PENDAFTARAN":
+                return redirect()->route('tambah-skck');
+                break;
+            case "PERPANJANGAN":
+                return redirect()->route('perpanjangan-skck');
+                break;
+        }
+        // return redirect()->route('tambah-skck');
     }
 
     public function postLogin(Request $request)
