@@ -144,7 +144,6 @@ class BackController extends Controller
         ]);
         $saveDataSkck->save(); 
         $saveDataSkck->laporan()->attach($laporan_id);
-
         $request->session()->forget(['laporan_id']);
         return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
     }
@@ -201,10 +200,7 @@ class BackController extends Controller
         ]);
         $saveLaporan->save();
         $laporan_id = session(['laporan_id' => $saveLaporan->id]);
-
         return redirect()->route('tambah-skck');
-        // dump($validatedData);
-        // dd($laporan_kode);
     }
 
     public function postLogin(Request $request)
@@ -225,11 +221,6 @@ class BackController extends Controller
                 }
                 break;
             case 'petugas':
-                // if ($request->login_password == $data_login->login_password) {
-                //     $users = session(['data_login' => $data_login]);
-                //     return redirect()->route('dashboard');
-                // }
-                // break;
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
                     if ($cek_password) {
@@ -239,11 +230,6 @@ class BackController extends Controller
                 }
                 break;
             case 'user':
-                // if ($request->login_password == $data_login->login_password) {
-                //     $users = session(['data_login' => $data_login]);
-                //     return redirect()->route('dashboard');
-                // }
-                // break;
                 $cek_password = Hash::check($request->login_password, $data_login->login_password);
                 if ($data_login) {
                     if ($cek_password) {
@@ -258,28 +244,28 @@ class BackController extends Controller
 
     public function postRegister(Request $request)
     {
-        $login_data = new Login;
-        $validatedLogin = $request->validate([
-            'email' => 'required',
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-        $hashPassword = Hash::make($request->password, [
-            'rounds' => 12,
-        ]);
-        $token = Str::random(16);
-        $level = "admin";
-        $login_data = Login::create([
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => $hashPassword,
-            'level' => $level,
-            'token' => $token,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $login_data->save();
-        return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
+        // $login_data = new Login;
+        // $validatedLogin = $request->validate([
+        //     'email' => 'required',
+        //     'username' => 'required',
+        //     'password' => 'required'
+        // ]);
+        // $hashPassword = Hash::make($request->password, [
+        //     'rounds' => 12,
+        // ]);
+        // $token = Str::random(16);
+        // $level = "admin";
+        // $login_data = Login::create([
+        //     'email' => $request->email,
+        //     'username' => $request->username,
+        //     'password' => $hashPassword,
+        //     'level' => $level,
+        //     'token' => $token,
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // $login_data->save();
+        // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
     public function print_baru()
