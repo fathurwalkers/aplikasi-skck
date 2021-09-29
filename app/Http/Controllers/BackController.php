@@ -15,7 +15,10 @@ class BackController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $users = session('data_login');
+        return view('admin.index', [
+            'users' => $users
+        ]);
     }
 
     public function login()
@@ -120,15 +123,31 @@ class BackController extends Controller
                 }
                 break;
             case 'petugas':
-                if ($request->login_password == $data_login->login_password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
+                // if ($request->login_password == $data_login->login_password) {
+                //     $users = session(['data_login' => $data_login]);
+                //     return redirect()->route('dashboard');
+                // }
+                // break;
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
                 }
                 break;
             case 'user':
-                if ($request->login_password == $data_login->login_password) {
-                    $users = session(['data_login' => $data_login]);
-                    return redirect()->route('dashboard');
+                // if ($request->login_password == $data_login->login_password) {
+                //     $users = session(['data_login' => $data_login]);
+                //     return redirect()->route('dashboard');
+                // }
+                // break;
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
                 }
                 break;
         }
