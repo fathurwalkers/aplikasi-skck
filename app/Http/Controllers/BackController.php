@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Detail;
 use App\Models\Login;
+use App\Models\Laporan;
+
 
 class BackController extends Controller
 {
@@ -62,7 +65,22 @@ class BackController extends Controller
 
     public function post_buat_laporan(Request $request)
     {
-        // 
+        $validatedData = $request->validate([
+            'laporan_header' => 'required',
+            'laporan_body' => 'required',
+            'laporan_jeniskeperluan' => 'required|filled',
+        ]);
+
+        dd($validatedData);
+
+        // $laporan = new Laporan; 
+
+
+        // "laporan_header",
+        // "laporan_jeniskeperluan",
+        // "laporan_body",
+        // "laporan_kode",
+        // "laporan_pengirim",
     }
 
     public function postLogin(Request $request)

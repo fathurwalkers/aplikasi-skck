@@ -29,6 +29,7 @@ Route::group(['prefix' =>'/dashboard'], function () {
 
     // Laporan Route
     Route::get('/buat-laporan', [BackController::class, 'buat_laporan'])->name('buat-laporan');
+    Route::post('/buat-laporan/post', [BackController::class, 'post_buat_laporan'])->name('post-buat-laporan');
     Route::get('/laporan-masuk', [BackController::class, 'laporan_masuk'])->name('laporan-masuk');
 
     // Print Route

@@ -49,7 +49,7 @@
         <div class="card-body">
             <div class="container">
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('post-buat-laporan') }}" method="POST">
                 @csrf
 
                     {{-- Start DATA DIRI PENDAFTAR  --}}
@@ -64,8 +64,12 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Judul Laporan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan judul laporan... " name="laporan_header">
-                                <small class="form-text text-muted">contoh : Risky Yatno</small>
+                                <input type="text" class="form-control @error('laporan_header') is-invalid @enderror" placeholder="Masukkan judul laporan... " name="laporan_header" required autofocus value="{{ old('laporan_header') }}">
+                                @error('laporan_header')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>                                    
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -74,8 +78,12 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Isi Laporan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan isi laporan... " name="laporan_body">
-                                <small class="form-text text-muted">contoh : Risky Yatno</small>
+                                <input type="text" class="form-control @error('laporan_body') is-invalid @enderror" placeholder="Masukkan isi laporan... " name="laporan_body" value="{{ old('laporan_body') }}">
+                                @error('laporan_body')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>                                    
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -84,12 +92,16 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Jenis Keperluan : </label>
-                                <select id="inputState" class="form-control" name="laporan_jeniskeperluan">
-                                    <option selected="null">Pilih jenis keperluan...</option>
+                                <select id="inputState" class="form-control @error('laporan_jeniskeperluan') is-invalid @enderror" name="laporan_jeniskeperluan" value="{{ old('laporan_jeniskeperluan') }}" required>
+                                    <option selected="null" disabled>Pilih jenis keperluan...</option>
                                     <option value="Pendaftaran">Pendaftaran</option>
                                     <option value="Perpanjangan">Perpanjangan</option>
                                 </select>
-                                {{-- <small class="form-text text-muted"></small> --}}
+                                @error('laporan_jeniskeperluan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>                                    
+                                @enderror
                             </div>
                         </div>
                     </div>
