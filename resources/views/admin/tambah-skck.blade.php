@@ -406,7 +406,7 @@
                     </div>
                     {{-- END DATA AYAH  --}}
 
-                    <div class="row">
+                    <div class="row mt-3 mb-4">
                         <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
                             <button type="submit" class="btn btn-lg btn-success"> SELESAI </button>
                         </div>

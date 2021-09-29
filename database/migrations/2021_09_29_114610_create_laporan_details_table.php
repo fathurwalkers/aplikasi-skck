@@ -13,7 +13,7 @@ class CreateLaporanDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('laporan_detail', function (Blueprint $table) {
+        Schema::create('detail_laporan', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('laporan_id');
@@ -32,6 +32,6 @@ class CreateLaporanDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporan_detail');
+        Schema::dropIfExists('detail_laporan');
     }
 }

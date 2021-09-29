@@ -105,9 +105,6 @@ class BackController extends Controller
             "umur_ayah"             => 'required',
             "agama_ayah"            => 'required',
         ]);
-
-        dd($validatedData);
-
         $gambar_cek = $request->file('foto');
         if (!$gambar_cek) {
             $gambar = "null;";
@@ -129,8 +126,8 @@ class BackController extends Controller
             "pekerjaan" => $validatedData["pekerjaan"],
             "alamat_lengkap" => $validatedData["alamat_lengkap"],
             "no_ktp" => $validatedData["no_ktp"],
-            "no_passport" => $validatedData["no_passport"],
-            "no_kitaskitap" => $validatedData["no_kitaskitap"],
+            "no_passport" => $request->no_passport,
+            "no_kitaskitap" => $request->no_kitaskitap,
             "no_telepon" => $validatedData["no_telepon"],
             "status_hubungan" => $validatedData["status_hubungan"],
             "nama_pasangan" => $validatedData["nama_pasangan"],
