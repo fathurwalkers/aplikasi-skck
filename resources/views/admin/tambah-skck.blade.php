@@ -49,6 +49,16 @@
         <div class="card-body">
             <div class="container">
 
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        @if (session('laporan_telah_ada'))
+                            <div class="alert alert-success">
+                                {{ session('laporan_telah_ada') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
                 <form action="{{ route('post-tambah-skck') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 

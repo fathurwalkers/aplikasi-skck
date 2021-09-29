@@ -57,7 +57,12 @@ class BackController extends Controller
     public function tambah_skck()
     {
         $users = session('data_login');
-        return view('admin.tambah-skck');
+        $laporan_id = session('laporan_id');
+        if (!$laporan_id) {
+            return redirect()->route()->with('laporan_belum_ada', 'Maaf, silahkan mengisi laporan terlebih dahulu!');
+        } else {
+            return view('admin.tambah-skck');
+        }
     }
 
     public function post_tambah_skck(Request $request)
@@ -78,9 +83,14 @@ class BackController extends Controller
     public function buat_laporan()
     {
         $users = session('data_login');
-        return view('admin.buat-laporan', [
-            'users' => $users
-        ]);
+        $laporan_id = session('laporan_id');
+        if ($laporan_id) {
+            return redirect()->route('tambah-skck')->with('laporan_telah_ada', 'Laporan telah dibuat, silahkan selesaikan pembuatan skck.');
+        } else {
+            return view('admin.buat-laporan', [
+                'users' => $users
+            ]);
+        }
     }
 
     public function logout(Request $request)
@@ -109,10 +119,9 @@ class BackController extends Controller
             "updated_at" => now()
         ]);
         $saveLaporan->save();
-        dd($saveLaporan->id);
-        $laporan_id = session(['id_laporan' => $saveLaporan->id]);
+        $laporan_id = session(['laporan_id' => $saveLaporan->id]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('tambah-skck');
         // dump($validatedData);
         // dd($laporan_kode);
     }
