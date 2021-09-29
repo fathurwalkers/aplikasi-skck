@@ -144,10 +144,9 @@ class BackController extends Controller
         ]);
         $saveDataSkck->save(); 
         $saveDataSkck->laporan()->attach($laporan_id);
-        dump($saveDataSkck);
-        dd($saveDataSkck);
-        // $sessionLaporan_forget = session()->forget(['laporan_id']);
-        // dump($sessionLaporan_forget);
+
+        $request->session()->forget(['laporan_id']);
+        return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
     }
 
     public function edit_skck()
@@ -182,6 +181,8 @@ class BackController extends Controller
 
     public function post_buat_laporan(Request $request)
     {
+        $users = session('data_login');
+        $pengirim = $users->login_nama;
         $validatedData = $request->validate([
             'laporan_header' => 'required',
             'laporan_body' => 'required',
@@ -194,7 +195,7 @@ class BackController extends Controller
             "laporan_jeniskeperluan" => $validatedData["laporan_jeniskeperluan"],
             "laporan_body" => $validatedData["laporan_body"],
             "laporan_kode" => $laporan_kode,
-            "laporan_pengirim" => "admin",
+            "laporan_pengirim" => $pengirim,
             "created_at" => now(),
             "updated_at" => now()
         ]);

@@ -83,8 +83,8 @@
                         <h6 class="collapse-header">Menu : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
                         <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
-                        <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pendaftaran SKCK</a>
-                        <a class="collapse-item" href="{{ route('perpanjangan-skck') }}">- Perpanjangan SKCK</a>
+                        <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a>
+                        {{-- <a class="collapse-item" href="{{ route('perpanjangan-skck') }}">- Perpanjangan SKCK</a> --}}
                     </div>
                 </div>
                 <a class="nav-link py-2" href="{{ route('verifikasi-pengguna') }}">

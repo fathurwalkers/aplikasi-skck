@@ -27,125 +27,125 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
 
-                      @error("nama_lengkap") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("ttl") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("agama") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("kebangsaan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("jenis_kelamin") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("status_kawin") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("pekerjaan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("alamat_lengkap") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("no_ktp") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("no_telepon") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("status_hubungan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("nama_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("umur_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("agama_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("kebangsaan_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
+                        @error("nama_lengkap") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("ttl") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("agama") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("kebangsaan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("jenis_kelamin") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("status_kawin") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("pekerjaan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("alamat_lengkap") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("no_ktp") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("no_telepon") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("status_hubungan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("nama_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("umur_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("agama_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("kebangsaan_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
 
-                      @error("pekerjaan_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("alamat_pasangan") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("nama_ayah") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("umur_ayah") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
-                      
-                      @error("agama_ayah") 
-                      <div class="alert alert-danger">
-                          {{ $message }} 
-                      </div>
-                      @enderror
+                        @error("pekerjaan_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("alamat_pasangan") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("nama_ayah") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("umur_ayah") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
+                        
+                        @error("agama_ayah") 
+                        <div class="alert alert-danger">
+                            {{ $message }} 
+                        </div>
+                        @enderror
                       
 
                         @if (session('laporan_telah_ada'))

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'rounds' => 12,
         ]);
         Login::create([
+            'login_nama' => 'FathurWalkers',
             'login_username' => 'fathurwalkers',
             'login_password' => $hashPassword,
             'login_email' => 'fathurwalkers44@gmail.com',
@@ -46,6 +47,7 @@ class DatabaseSeeder extends Seeder
             'rounds' => 12,
         ]);
         Login::create([
+            'login_nama' => 'Petugas 1',
             'login_username' => 'petugas',
             'login_password' => $hashPassword,
             'login_email' => 'petugas@gmail.com',
@@ -68,6 +70,7 @@ class DatabaseSeeder extends Seeder
             'rounds' => 12,
         ]);
         Login::create([
+            'login_nama' => 'User 1',
             'login_username' => 'user1',
             'login_password' => $hashPassword,
             'login_email' => 'user1@gmail.com',
@@ -90,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'rounds' => 12,
         ]);
         Login::create([
+            'login_nama' => 'User 2',
             'login_username' => 'user2',
             'login_password' => $hashPassword,
             'login_email' => 'user2@gmail.com',

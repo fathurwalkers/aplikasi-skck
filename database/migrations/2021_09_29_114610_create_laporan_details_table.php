@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateLaporanDetailsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('detail_laporan', function (Blueprint $table) {
@@ -18,18 +13,13 @@ class CreateLaporanDetailsTable extends Migration
 
             $table->unsignedBigInteger('laporan_id');
             $table->foreign('laporan_id')->references('id')->on('laporan')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('skck_id');
-            $table->foreign('skck_id')->references('id')->on('data_skck')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('detail_id');
+            $table->foreign('detail_id')->references('id')->on('data_skck')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('detail_laporan');
