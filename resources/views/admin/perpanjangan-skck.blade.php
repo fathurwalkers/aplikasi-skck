@@ -17,7 +17,10 @@
                     <h4>Perpanjangan SKCK</h4>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <a href="{{ route('dashboard') }}" class="btn btn-primary float-right">Kembali</a>
+                    <form action="{{ route('batalkan') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger float-right">Batalkan Perpanjangan</button>
+                    </form>
                 </div>
             </div>
         </div>

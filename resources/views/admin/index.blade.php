@@ -12,6 +12,11 @@
                     {{ session('berhasil_buat_skck') }}
                 </div>
             @endif
+            @if (session('batalkan_pembuatan'))
+                <div class="alert alert-info">
+                    {{ session('batalkan_pembuatan') }}
+                </div>
+            @endif
         </div>
     </div>
 </div>
