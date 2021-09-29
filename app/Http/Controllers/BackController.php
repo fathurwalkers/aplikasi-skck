@@ -57,6 +57,11 @@ class BackController extends Controller
         ]);
     }
 
+    public function post_verifikasi_pengguna(Request $request)
+    {
+        echo "VERIFIKASI PENGGUNA"; 
+    }
+
     public function perpanjangan_skck()
     {
         return view('admin.perpanjangan-skck');

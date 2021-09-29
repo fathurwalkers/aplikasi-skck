@@ -11,7 +11,34 @@
             <h4>Format Header </h4>
         </div>
         <div class="card-body">
-            
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="d-flex justify-content-center">
+                            <p>
+                                Silahkan tekan tombol "VERIFIKASI" untuk mengirim verifikasi pengguna langsung ke Email anda yang telah terdaftar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="d-flex justify-content-center">
+                            <form action="{{ route('post-verifikasi-pengguna') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-md btn-primary">
+                                    VERIFIKASI
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
