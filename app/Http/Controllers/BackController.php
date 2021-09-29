@@ -15,10 +15,11 @@ class BackController extends Controller
 {
     public function index()
     {
-        $users = session('data_login');
-        return view('admin.index', [
-            'users' => $users
-        ]);
+        // $users = session('data_login');
+        // return view('admin.index', [
+        //     'users' => $users
+        // ]);
+        return view('admin.index');
     }
 
     public function login()
