@@ -82,7 +82,7 @@ class BackController extends Controller
 
     public function post_tambah_skck(Request $request)
     {
-        // 
+        
     }
 
     public function edit_skck()

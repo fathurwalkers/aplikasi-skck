@@ -8,31 +8,6 @@
 </style>
 @endpush
 
-{{-- // 'nama_lengkap' --}}
-{{-- // 'ttl' --}}
-{{-- // 'agama' --}}
-{{-- // 'kebangsaan' --}}
-{{-- // 'jenis_kelamin' --}}
-{{-- // 'status_kawin' --}}
-{{-- // 'pekerjaan' --}}
-{{-- // 'alamat_lengkap' --}}
-{{-- // 'no_ktp' --}}
-{{-- // 'no_passport' --}}
-{{-- // 'no_kitaskitap' --}}
-{{-- // 'no_telepon' --}}
-
-{{-- // 'status_hubungan'  Suami - Istri --}}
-{{-- // 'nama_pasangan' --}}
-{{-- // 'umur_pasangan' --}}
-{{-- // 'agama_pasangan' --}}
-{{-- // 'kebangsaan_pasangan' --}}
-{{-- // 'pekerjaan_pasangan' --}}
-{{-- // 'alamat_pasangan' --}}
-
-{{-- // 'nama_ayah' --}}
-{{-- // 'umur_ayah' --}}
-{{-- // 'agama_ayah' --}}
-
 @section('main-content')
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
