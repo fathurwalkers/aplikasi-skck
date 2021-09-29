@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-{{ dump($users) }}
+{{-- {{ dump($users) }} --}}
 
 <div class="container">
     <div class="row">

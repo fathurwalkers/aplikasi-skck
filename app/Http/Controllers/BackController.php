@@ -52,7 +52,7 @@ class BackController extends Controller
 
     public function verifikasi_pengguna()
     {
-        $users = session('data_login');
+        // $users = session('data_login');
         return view('admin.verifikasi-pengguna', [
             'users' => $users
         ]);
