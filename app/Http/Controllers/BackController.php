@@ -82,33 +82,38 @@ class BackController extends Controller
 
     public function post_tambah_skck(Request $request)
     {
-        
-        $table->string('foto');
-        $table->string('status_skck'); 
-        $table->string('nama_lengkap');
-        $table->string('ttl');
-        $table->string('agama');
-        $table->string('kebangsaan');
-        $table->string('jenis_kelamin');
-        $table->string('status_kawin');
-        $table->string('pekerjaan');
-        $table->string('alamat_lengkap');
-        $table->string('no_ktp');
-        $table->string('no_passport');
-        $table->string('no_kitaskitap');
-        $table->string('no_telepon');
 
-        $table->string('status_hubungan');
-        $table->string('nama_pasangan');
-        $table->string('umur_pasangan');
-        $table->string('agama_pasangan');
-        $table->string('kebangsaan_pasangan');
-        $table->string('pekerjaan_pasangan');
-        $table->string('alamat_pasangan');
+        $data_skck = new Detail;
+        $saveDataSkck = $data_skck->create([
+            "foto" => $dadada,
+            "status_skck" => $dadada, 
+            "nama_lengkap" => $dadada,
+            "ttl" => $dadada,
+            "agama" => $dadada,
+            "kebangsaan" => $dadada,
+            "jenis_kelamin" => $dadada,
+            "status_kawin" => $dadada,
+            "pekerjaan" => $dadada,
+            "alamat_lengkap" => $dadada,
+            "no_ktp" => $dadada,
+            "no_passport" => $dadada,
+            "no_kitaskitap" => $dadada,
+            "no_telepon" => $dadada,
 
-        $table->string('nama_ayah');
-        $table->string('umur_ayah');
-        $table->string('agama_ayah');
+            "status_hubungan" => $dadada,
+            "nama_pasangan" => $dadada,
+            "umur_pasangan" => $dadada,
+            "agama_pasangan" => $dadada,
+            "kebangsaan_pasangan" => $dadada,
+            "pekerjaan_pasangan" => $dadada,
+            "alamat_pasangan" => $dadada,
+
+            "nama_ayah" => $dadada,
+            "umur_ayah" => $dadada,
+            "agama_ayah" => $dadada,
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
 
     }
 
