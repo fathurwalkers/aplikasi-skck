@@ -108,6 +108,9 @@ class BackController extends Controller
             "created_at" => now(),
             "updated_at" => now()
         ]);
+        $saveLaporan->save();
+        dd($saveLaporan->id);
+        $laporan_id = session(['id_laporan' => $saveLaporan->id]);
 
         return redirect()->route('dashboard');
         // dump($validatedData);
