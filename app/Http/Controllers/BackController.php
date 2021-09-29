@@ -56,7 +56,13 @@ class BackController extends Controller
 
     public function tambah_skck()
     {
+        $users = session('data_login');
         return view('admin.tambah-skck');
+    }
+
+    public function post_tambah_skck(Request $request)
+    {
+        // 
     }
 
     public function edit_skck()
@@ -71,7 +77,10 @@ class BackController extends Controller
 
     public function buat_laporan()
     {
-        return view('admin.buat-laporan');
+        $users = session('data_login');
+        return view('admin.buat-laporan', [
+            'users' => $users
+        ]);
     }
 
     public function logout(Request $request)

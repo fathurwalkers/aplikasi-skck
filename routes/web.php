@@ -25,6 +25,7 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     // SKCK Route
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');
     Route::get('/tambah-skck', [BackController::class, 'tambah_skck'])->name('tambah-skck');
+    Route::post('/tambah-skck/post', [BackController::class, 'post_tambah_skck'])->name('post-tambah-skck');
     Route::get('/perpanjangan-skck', [BackController::class, 'perpanjangan_skck'])->name('perpanjangan-skck');
     Route::get('/edit-skck', [BackController::class, 'edit_skck'])->name('edit-skck');
 

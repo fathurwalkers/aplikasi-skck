@@ -49,7 +49,7 @@
         <div class="card-body">
             <div class="container">
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('post-tambah-skck') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                     {{-- Start DATA DIRI PENDAFTAR  --}}
