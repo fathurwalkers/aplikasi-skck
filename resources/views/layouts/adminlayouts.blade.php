@@ -87,7 +87,7 @@
                         <a class="collapse-item" href="{{ route('perpanjangan-skck') }}">- Perpanjangan SKCK</a>
                     </div>
                 </div>
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                <a class="nav-link py-2" href="{{ route('verifikasi-pengguna') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Verifikasi Pengguna</span>
                 </a>
