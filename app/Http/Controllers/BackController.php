@@ -53,6 +53,11 @@ class BackController extends Controller
         return view('admin.laporan-masuk');
     }
 
+    public function buat_laporan()
+    {
+        return view('admin.buat-laporan');
+    }
+
     public function postLogin(Request $request)
     {
         $cariUser = Login::where('username', $request->username)->get();
