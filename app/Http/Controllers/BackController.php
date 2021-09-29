@@ -70,17 +70,21 @@ class BackController extends Controller
             'laporan_body' => 'required',
             'laporan_jeniskeperluan' => 'required|filled',
         ]);
+        $laporan_kode = strtoupper(Str::random(5) . "-" . Str::random(5));
+        $laporan = new Laporan; 
+        $saveLaporan = $laporan->create([
+            "laporan_header" => $validatedData["laporan_header"],
+            "laporan_jeniskeperluan" => $validatedData["laporan_jeniskeperluan"],
+            "laporan_body" => $validatedData["laporan_body"],
+            "laporan_kode" => $laporan_kode,
+            "laporan_pengirim" => "admin",
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
 
-        dd($validatedData);
-
-        // $laporan = new Laporan; 
-
-
-        // "laporan_header",
-        // "laporan_jeniskeperluan",
-        // "laporan_body",
-        // "laporan_kode",
-        // "laporan_pengirim",
+        return redirect()->route('dashboard');
+        // dump($validatedData);
+        // dd($laporan_kode);
     }
 
     public function postLogin(Request $request)

@@ -12,10 +12,12 @@ class Laporan extends Model
 
     protected $table = 'laporan';
 
+    protected $primaryKey = 'id';
+
     protected $guarded = [];
 
     public function detail()
     {
-        return $this->hasMany(Detail::class);
+        return $this->belongsToMany(Detail::class);
     }
 }

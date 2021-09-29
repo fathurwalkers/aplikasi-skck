@@ -13,6 +13,8 @@ class Detail extends Model
 
     protected $table = 'data_skck';
 
+    protected $primaryKey = 'id';
+
     protected $guarded = [];
 
     public function login()
@@ -22,6 +24,6 @@ class Detail extends Model
 
     public function laporan()
     {
-        return $this->belongsTo(Laporan::class);
+        return $this->belongsToMany(Laporan::class);
     }
 }
