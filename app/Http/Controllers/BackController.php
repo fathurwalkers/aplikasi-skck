@@ -10,7 +10,6 @@ use App\Models\Detail;
 use App\Models\Login;
 use App\Models\Laporan;
 
-
 class BackController extends Controller
 {
     public function index()
@@ -115,32 +114,32 @@ class BackController extends Controller
 
         $data_skck = new Detail;
         $saveDataSkck = $data_skck->create([
-            "foto" => $gambar->getFileName(),
-            "status_skck" => "unverified", 
-            "nama_lengkap" => $validatedData["nama_lengkap"],
-            "ttl" => $validatedData["ttl"],
-            "agama" => $validatedData["agama"],
-            "kebangsaan" => $validatedData["kebangsaan"],
-            "jenis_kelamin" => $validatedData["jenis_kelamin"],
-            "status_kawin" => $validatedData["status_kawin"],
-            "pekerjaan" => $validatedData["pekerjaan"],
-            "alamat_lengkap" => $validatedData["alamat_lengkap"],
-            "no_ktp" => $validatedData["no_ktp"],
-            "no_passport" => $request->no_passport,
-            "no_kitaskitap" => $request->no_kitaskitap,
-            "no_telepon" => $validatedData["no_telepon"],
-            "status_hubungan" => $validatedData["status_hubungan"],
-            "nama_pasangan" => $validatedData["nama_pasangan"],
-            "umur_pasangan" => $validatedData["umur_pasangan"],
-            "agama_pasangan" => $validatedData["agama_pasangan"],
-            "kebangsaan_pasangan" => $validatedData["kebangsaan_pasangan"],
-            "pekerjaan_pasangan" => $validatedData["pekerjaan_pasangan"],
-            "alamat_pasangan" => $validatedData["alamat_pasangan"],
-            "nama_ayah" => $validatedData["nama_ayah"],
-            "umur_ayah" => $validatedData["umur_ayah"],
-            "agama_ayah" => $validatedData["agama_ayah"],
-            "created_at" => now(),
-            "updated_at" => now()
+            "foto"                  => $gambar->getFileName(),
+            "status_skck"           => "unverified", 
+            "nama_lengkap"          => $validatedData["nama_lengkap"],
+            "ttl"                   => $validatedData["ttl"],
+            "agama"                 => $validatedData["agama"],
+            "kebangsaan"            => $validatedData["kebangsaan"],
+            "jenis_kelamin"         => $validatedData["jenis_kelamin"],
+            "status_kawin"          => $validatedData["status_kawin"],
+            "pekerjaan"             => $validatedData["pekerjaan"],
+            "alamat_lengkap"        => $validatedData["alamat_lengkap"],
+            "no_ktp"                => $validatedData["no_ktp"],
+            "no_passport"           => $request->no_passport,
+            "no_kitaskitap"         => $request->no_kitaskitap,
+            "no_telepon"            => $validatedData["no_telepon"],
+            "status_hubungan"       => $validatedData["status_hubungan"],
+            "nama_pasangan"         => $validatedData["nama_pasangan"],
+            "umur_pasangan"         => $validatedData["umur_pasangan"],
+            "agama_pasangan"        => $validatedData["agama_pasangan"],
+            "kebangsaan_pasangan"   => $validatedData["kebangsaan_pasangan"],
+            "pekerjaan_pasangan"    => $validatedData["pekerjaan_pasangan"],
+            "alamat_pasangan"       => $validatedData["alamat_pasangan"],
+            "nama_ayah"             => $validatedData["nama_ayah"],
+            "umur_ayah"             => $validatedData["umur_ayah"],
+            "agama_ayah"            => $validatedData["agama_ayah"],
+            "created_at"            => now(),
+            "updated_at"            => now()
         ]);
         $saveDataSkck->save(); 
         $saveDataSkck->laporan()->attach($laporan_id);
@@ -183,20 +182,20 @@ class BackController extends Controller
         $users = session('data_login');
         $pengirim = $users->login_nama;
         $validatedData = $request->validate([
-            'laporan_header' => 'required',
-            'laporan_body' => 'required',
-            'laporan_jeniskeperluan' => 'required|filled',
+            'laporan_header'            => 'required',
+            'laporan_body'              => 'required',
+            'laporan_jeniskeperluan'    => 'required|filled',
         ]);
         $laporan_kode = strtoupper(Str::random(5) . "-" . Str::random(5));
         $laporan = new Laporan; 
         $saveLaporan = $laporan->create([
-            "laporan_header" => $validatedData["laporan_header"],
-            "laporan_jeniskeperluan" => $validatedData["laporan_jeniskeperluan"],
-            "laporan_body" => $validatedData["laporan_body"],
-            "laporan_kode" => $laporan_kode,
-            "laporan_pengirim" => $pengirim,
-            "created_at" => now(),
-            "updated_at" => now()
+            "laporan_header"            => $validatedData["laporan_header"],
+            "laporan_jeniskeperluan"    => $validatedData["laporan_jeniskeperluan"],
+            "laporan_body"              => $validatedData["laporan_body"],
+            "laporan_kode"              => $laporan_kode,
+            "laporan_pengirim"          => $pengirim,
+            "created_at"                => now(),
+            "updated_at"                => now()
         ]);
         $saveLaporan->save();
         $laporan_id = session(['laporan_id' => $saveLaporan->id]);
