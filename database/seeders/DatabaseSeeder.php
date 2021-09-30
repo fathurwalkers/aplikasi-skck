@@ -35,6 +35,26 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
 
+        $token = Str::random(16);
+        $role = "admin";
+        $hashPassword = Hash::make('11223344', [
+            'rounds' => 12,
+        ]);
+        $hashToken = Hash::make($token, [
+            'rounds' => 12,
+        ]);
+        Login::create([
+            'login_nama' => 'Indar',
+            'login_username' => 'indar',
+            'login_password' => $hashPassword,
+            'login_email' => 'indar@gmail.com',
+            'login_token' => $hashToken,
+            'login_level' => $role,
+            'login_status' => "verified",
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
         // ---------------------------------------------------------------------------
 
         // Petugas 
