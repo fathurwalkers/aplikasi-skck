@@ -20,10 +20,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     @foreach ($data_skck as $skck)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
 
                         @foreach ($skck->laporan as $laporan)
                             <td>{{ $laporan->laporan_jeniskeperluan}}</td>
