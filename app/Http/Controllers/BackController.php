@@ -212,7 +212,6 @@ class BackController extends Controller
                 return redirect()->route('perpanjangan-skck');
                 break;
         }
-        // return redirect()->route('tambah-skck');
     }
 
     public function postLogin(Request $request)
