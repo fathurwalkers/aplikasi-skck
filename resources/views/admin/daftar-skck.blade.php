@@ -20,14 +20,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @foreach ($data_skck as $skck)
-                        
-                    @endforeach
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $skck->dsdsds }}</td>
-                        <td>{{ $skck->dsdsdsd }}</td>
-                        <td>{{ $skck->sdsdds }}</td>
+
+                        @foreach ($skck->laporan as $laporan)
+                            <td>{{ $laporan->laporan_jeniskeperluan}}</td>
+                        @endforeach
+
+                        <td>{{ $skck->nama_lengkap }}</td>
+                        <td>{{ $skck->no_ktp }}</td>
+                        <td>{{ $skck->no_telepon }}</td>
                         <td>
                             <div class="container">
                                 <div class="row m-0 p-0">
@@ -41,24 +45,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Perpanjangan SKCK</td>
-                        <td>Wallow Stier</td>
-                        <td>04/10/2001</td>
-                        <td>
-                            <div class="container">
-                                <div class="row m-0 p-0">
-                                    <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
-                                        <a class="btn btn-info btn-sm" href="#" role="button">Lihat</a>
-                                        <a class="btn btn-success btn-sm" href="{{ route('print-skck-baru') }}" role="button">Cetak</a>
-                                        <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
-                                        <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
