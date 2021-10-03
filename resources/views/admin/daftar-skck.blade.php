@@ -12,18 +12,22 @@
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th>No</th>
-                        <th>Jenis Keperluan</th>
-                        <th>Nama</th>
-                        <th>Tempat Lahir</th>
+                        <th>Jenis SKCK</th>
+                        <th>Nama Pemilik</th>
+                        <th>No KTP</th>
+                        <th>No Telepon</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($data_skck as $skck)
+                        
+                    @endforeach
                     <tr>
-                        <td>1</td>
-                        <td>Pendaftaran SKCK</td>
-                        <td>Edinburgh</td>
-                        <td>16/02/1989</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $skck->dsdsds }}</td>
+                        <td>{{ $skck->dsdsdsd }}</td>
+                        <td>{{ $skck->sdsdds }}</td>
                         <td>
                             <div class="container">
                                 <div class="row m-0 p-0">

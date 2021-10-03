@@ -10,7 +10,6 @@ use App\Models\Detail;
 use App\Models\Login;
 use App\Models\Laporan;
 
-
 class BackController extends Controller
 {
     public function index()
@@ -43,7 +42,10 @@ class BackController extends Controller
 
     public function daftar_skck()
     {
-        return view('admin.daftar-skck');
+        $data_skck = Detail::all();
+        return view('admin.daftar-skck', [
+            'data_skck' => $data_skck
+        ]);
     }
 
     public function verifikasi_pengguna()
@@ -53,13 +55,13 @@ class BackController extends Controller
 
     public function post_verifikasi_pengguna(Request $request)
     {
-        echo "VERIFIKASI PENGGUNA"; 
+        echo "VERIFIKASI PENGGUNA";
     }
 
     public function batalkan(Request $request)
     {
         $request->session()->forget(['laporan_id']);
-        return redirect()->route('dashboard')->with('batalkan_pembuatan', 'Permintaan Pembuatan / Perpanjangan anda telah dibatalkan.'); 
+        return redirect()->route('dashboard')->with('batalkan_pembuatan', 'Permintaan Pembuatan / Perpanjangan anda telah dibatalkan.');
     }
 
     public function perpanjangan_skck()
@@ -87,7 +89,7 @@ class BackController extends Controller
     {
         $users = session('data_login');
         $laporan_id = session('laporan_id');
-        $validatedData = $request->validate([ 
+        $validatedData = $request->validate([
             "nama_lengkap"          => 'required',
             "ttl"                   => 'required',
             "agama"                 => 'required',
@@ -120,7 +122,7 @@ class BackController extends Controller
         $data_skck = new Detail;
         $saveDataSkck = $data_skck->create([
             "foto"                  => $gambar->getFileName(),
-            "status_skck"           => "unverified", 
+            "status_skck"           => "unverified",
             "nama_lengkap"          => $validatedData["nama_lengkap"],
             "ttl"                   => $validatedData["ttl"],
             "agama"                 => $validatedData["agama"],
@@ -146,7 +148,7 @@ class BackController extends Controller
             "created_at"            => now(),
             "updated_at"            => now()
         ]);
-        $saveDataSkck->save(); 
+        $saveDataSkck->save();
         $saveDataSkck->laporan()->attach($laporan_id);
         $request->session()->forget(['laporan_id']);
         return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
@@ -189,7 +191,7 @@ class BackController extends Controller
             'laporan_jeniskeperluan'    => 'required|filled',
         ]);
         $laporan_kode = strtoupper(Str::random(5) . "-" . Str::random(5));
-        $laporan = new Laporan; 
+        $laporan = new Laporan;
         $saveLaporan = $laporan->create([
             "laporan_header"            => $validatedData["laporan_header"],
             "laporan_jeniskeperluan"    => strtoupper($validatedData["laporan_jeniskeperluan"]),
