@@ -163,7 +163,7 @@
                     <td class="list">a.</td>
                     <td class="question">Nama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Jaimal Suhrin, SH</td>
+                    <td class="jawaban">{{ $detail->nama_lengkap }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -174,7 +174,7 @@
                     <td class="list">b.</td>
                     <td class="question">Tempat/Tanggal Lahir</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">BAU-BAU, 15 MARET 1983</td>
+                    <td class="jawaban">{{ $detail->ttl }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -185,7 +185,7 @@
                     <td class="list">c.</td>
                     <td class="question">Agama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">ISLAM</td>
+                    <td class="jawaban">{{ $detail->agama }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -196,7 +196,7 @@
                     <td class="list">d.</td>
                     <td class="question">Kebangsaan</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Indonesia</td>
+                    <td class="jawaban">{{ $detail->kebangsaan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -207,7 +207,7 @@
                     <td class="list">e.</td>
                     <td class="question">Jenis Kelamin</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">LAKI-LAKI</td>
+                    <td class="jawaban">{{ $detail->jenis_kelamin }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -218,7 +218,7 @@
                     <td class="list">f.</td>
                     <td class="question">Kawin/Tidak kawin</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Kawin</td>
+                    <td class="jawaban">{{ $detail->status_kawin }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -229,7 +229,7 @@
                     <td class="list">g.</td>
                     <td class="question">Pekerjaan</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">PNS</td>
+                    <td class="jawaban">{{ $detail->pekerjaan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -240,7 +240,7 @@
                     <td class="list">h.</td>
                     <td class="question">Alamat</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">JL. KELAPA NO. 54 KEL. WANGKANAPI KEC WOLIO KOTA BAUBAU</td>
+                    <td class="jawaban">{{ $detail->alamat_lengkap }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -251,7 +251,7 @@
                     <td class="list">i.</td>
                     <td class="question">No.Kartu Penduduk</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">7472021503840001</td>
+                    <td class="jawaban">{{ $detail->no_ktp }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -262,7 +262,7 @@
                     <td class="list">j.</td>
                     <td class="question">Nomor Passport</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">-</td>
+                    <td class="jawaban">{{ $detail->no_passport }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -273,7 +273,7 @@
                     <td class="list">k.</td>
                     <td class="question">No KITAS/KITAP</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">-</td>
+                    <td class="jawaban">{{ $detail->no_kitaskitap }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -284,7 +284,7 @@
                     <td class="list">l.</td>
                     <td class="question">Nomor Telp/ HP</td>
                     <td class="titik">:</td>
-                    <td  class="jawaban">085234567890</td>
+                    <td  class="jawaban">{{ $detail->no_telepon }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -300,14 +300,31 @@
         <div class="keluarga">
             <p class="family">Hubungan Kekeluargaan <em>(Relationship)</em></p>
             <ol>
+
+                @switch($detail->status_hubungan)
+                    @case('Istri')
+                    <li><p class="daftar">Istri/ <s>suami</s> <em>(wife/husband)</em> : </p></li>
+                        @break
+                    @case('Istri')
+                    <li><p class="daftar">Istri/ <s>suami</s> <em>(wife/husband)</em> : </p></li>
+                        @break
+                @endswitch
+
+                {{-- @if ($detail->status_hubungan == 'Istri')
                 <li><p class="daftar">Istri/ <s>suami</s> <em>(wife/husband)</em> : </p></li>
+                @else
+                    
+                @endif --}}
+
+
             </ol>
+
             <table class="anak" rules="none">
                 <tr>
                     <td class="list">a.</td>
                     <td class="question">Nama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Anisa Razak</td>
+                    <td class="jawaban">{{ $detail->nama_pasangan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -318,7 +335,7 @@
                     <td class="list">b.</td>
                     <td class="question">Umur</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">25 Tahun</td>
+                    <td class="jawaban">{{ $detail->umur_pasangan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -329,7 +346,7 @@
                     <td class="list">c.</td>
                     <td class="question">Agama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Islam</td>
+                    <td class="jawaban">{{ $detail->agama_pasangan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -340,7 +357,7 @@
                     <td class="list">d.</td>
                     <td class="question">Pekerjaan</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">PNS</td>
+                    <td class="jawaban">{{ $detail->pekerjaan_pasangan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -351,7 +368,7 @@
                     <td class="list">e.</td>
                     <td class="question">Alamat</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">JL. KELAPA NO. 54 KEL. WANGKANAPI KEC WOLIO KOTA BAUBAU</td>
+                    <td class="jawaban">{{ $detail->alamat_pasangan }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -367,7 +384,7 @@
                     <td class="list">a.</td>
                     <td class="question">Nama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Suharmin</td>
+                    <td class="jawaban">{{ $detail->nama_ayah }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -378,7 +395,7 @@
                     <td class="list">b.</td>
                     <td class="question">Umur</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">54 Tahun</td>
+                    <td class="jawaban">{{ $detail->umur_ayah }}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -389,7 +406,7 @@
                     <td class="list">c.</td>
                     <td class="question">Agama</td>
                     <td class="titik">:</td>
-                    <td class="jawaban">Islam</td>
+                    <td class="jawaban">{{ $detail->agama_ayah }}</td>
                 </tr>
                 <tr>
                     <td></td>

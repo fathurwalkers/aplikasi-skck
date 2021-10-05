@@ -282,13 +282,12 @@ class BackController extends Controller
     public function print_baru(Request $request)
     {
         $id_skck = $request->skck;
-        dd($id_skck);
         $users = session('data_login');
         $alldetail = Detail::all();
-        // $detail = $alldetail->login()->where('id', $users->id);
-        // dd($detail);
-        $detail = $alldetail->where();
-        return view('admin.print-skck-baru');
+        $detail = $alldetail->where('id', $id_skck)->first();
+        return view('admin.print-skck-baru', [
+            'detail' => $detail
+        ]);
     }
 
     public function print_perpanjang()
