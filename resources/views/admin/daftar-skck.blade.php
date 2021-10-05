@@ -36,14 +36,14 @@
                             <div class="container">
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center btn-group">
-                                        <a class="btn btn-info btn-sm" href="#" role="button">Lihat</a>
+                                        <a class="btn btn-info btn-sm mr-1" href="#" role="button">Lihat</a>
 
                                         <form action="{{ route('print-skck-baru') }}" method="POST">
                                             <input type="hidden" value="{{ $skck->id }}">
-                                            <button class="btn btn-success btn-sm" type="submit" role="button">Cetak</button>
+                                            <button class="btn btn-success btn-sm mr-1" type="submit" role="button">Cetak</button>
                                         </form>
 
-                                        <a class="btn btn-primary btn-sm" href="#" role="button">Edit</a>
+                                        <a class="btn btn-primary btn-sm mr-1" href="#" role="button">Edit</a>
                                         <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
                                     </div>
                                 </div>
