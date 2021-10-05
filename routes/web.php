@@ -38,6 +38,6 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     Route::get('/laporan-masuk', [BackController::class, 'laporan_masuk'])->name('laporan-masuk');
 
     // Print Route
-    Route::get('/print-skck-baru', [BackController::class, 'print_baru'])->name('print-skck-baru');
+    Route::post('/print-skck-baru', [BackController::class, 'print_baru'])->name('print-skck-baru');
     Route::get('/print-skck-perpanjang', [BackController::class, 'print_perpanjang'])->name('print-skck-perpanjang');
 });

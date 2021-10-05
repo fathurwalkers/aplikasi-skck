@@ -39,7 +39,8 @@
                                         <a class="btn btn-info btn-sm mr-1" href="#" role="button">Lihat</a>
 
                                         <form action="{{ route('print-skck-baru') }}" method="POST">
-                                            <input type="hidden" value="{{ $skck->id }}">
+                                            @csrf
+                                            <input type="hidden" value="{{ $skck->id }}" name="skck">
                                             <button class="btn btn-success btn-sm mr-1" type="submit" role="button">Cetak</button>
                                         </form>
 
