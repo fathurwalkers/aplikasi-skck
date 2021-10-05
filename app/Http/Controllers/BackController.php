@@ -279,7 +279,7 @@ class BackController extends Controller
         // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
-    public function print_baru()
+    public function print_baru(Request $request)
     {
         $id_skck = $request->skck;
         dd($id_skck);
