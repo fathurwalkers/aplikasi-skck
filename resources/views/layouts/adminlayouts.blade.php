@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php 
+$users = session('data_login');
+@endphp
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Aplikasi SKCK</title>
+    <title>Aplikasi SKCK - {{ strtoupper($users->login_level) }}</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/sbadmin/') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -80,16 +84,34 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-1 collapse-inner rounded">
                         <h6 class="collapse-header">Menu : </h6>
+
+                        @if ($users->login_level == 'admin')
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
                         <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
                         <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a>
+                        @endif
+
+                        @if ($users->login_level == 'user')
+                        <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a>
+                        @endif
+
+                        @if ($users->login_level == 'petugas')
+                        <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
+                        @endif
+
+
+
                         {{-- <a class="collapse-item" href="{{ route('perpanjangan-skck') }}">- Perpanjangan SKCK</a> --}}
                     </div>
                 </div>
+
+                @if ($users->login_level == 'user')
                 <a class="nav-link py-2" href="{{ route('verifikasi-pengguna') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Verifikasi Pengguna</span>
                 </a>
+                @endif
+                
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Ganti Password</span>
