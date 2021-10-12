@@ -294,4 +294,10 @@ class BackController extends Controller
     {
         return view('admin.print-skck-perpanjang');
     }
+
+    public function hapus_skck(Request $request, $id)
+    {
+        $id_skck = $id;
+        dd($id);
+    }
 }
