@@ -298,6 +298,7 @@ class BackController extends Controller
     public function hapus_skck(Request $request, $id)
     {
         $id_skck = $id;
-        dd($id);
+        $id2 = $request->skckid;
+        dd($id2);
     }
 }

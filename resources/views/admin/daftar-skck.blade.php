@@ -44,8 +44,43 @@
                                             <button class="btn btn-success btn-sm mr-1" type="submit" role="button">Cetak</button>
                                         </form>
 
-                                        <a class="btn btn-primary btn-sm mr-1" href="#" role="button">Edit</a>
-                                        <a class="btn btn-danger btn-sm" href="#" role="button">Hapus</a>
+                                        <a class="btn btn-primary btn-sm mr-1" href="#" value="{{ $skck->id }}" role="button">Edit</a>
+
+                                        <button class="btn btn-sm btn-danger" data-href="{{ route('hapus-skck', $skck->id) }}"
+                                            data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-btn fa-trash-o"></i>Remove
+                                        </button>
+
+                                        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title" id="deleteModal">Confirm Remove</h4>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <p>You are about to remove a team member.</p>
+
+                                                        <p>Do you want to proceed?</p>
+
+                                                        <p class="debug-url"></p>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                                        <form action="{{ route('hapus-skck', $skck->id) }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" value="{{ $skck->id }}" name="skckid">
+                                                            <button class="btn btn-success btn-sm mr-1" type="submit" class="btn btn-danger btn-ok"><i class="fa fa-btn fa-trash-o"></i>Remove</button>
+                                                        </form>
+                                                        {{-- <button type="submit" class="btn btn-danger btn-ok"><i class="fa fa-btn fa-trash-o"></i>Remove
+                                                        </button> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -65,5 +100,13 @@
         $(document).ready(function() {
             $('#example1').DataTable();
         } );
+
+        $(function () {
+            $('#confirm-delete').on('show.bs.modal', function (e) {
+                if ($(document.activeElement).is('button.btn.btn-sm.btn-danger')) {
+                $(this).find('.btn-ok').attr('href', $(document.activeElement).data('href'));
+                }
+            });
+        });
     </script>
 @endpush
