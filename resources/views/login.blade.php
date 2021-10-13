@@ -40,6 +40,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
+                                    @if (session('berhasil_register'))
+                                        <div class="alert alert-success">
+                                            {{ session('berhasil_register') }}
+                                        </div>
+                                    @endif
+                                    @if (session('status_fail'))
+                                        <div class="alert alert-success">
+                                            {{ session('status_fail') }}
+                                        </div>
+                                    @endif
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
                                         <div class="form-group">

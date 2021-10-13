@@ -259,7 +259,8 @@ class BackController extends Controller
         $validatedLogin = $request->validate([
             'login_nama' => 'required',
             'login_username' => 'required',
-            'login_password' => 'required'
+            'login_password' => 'required',
+            'login_email' => 'required'
         ]);
         $hashPassword = Hash::make($validatedLogin["login_password"], [
             'rounds' => 12,
@@ -273,6 +274,7 @@ class BackController extends Controller
             'login_email' => $validatedLogin["login_email"],
             'login_token' => $token,
             'login_level' => $level,
+            'login_status' => $login_status,
             'created_at' => now(),
             'updated_at' => now()
         ]);
