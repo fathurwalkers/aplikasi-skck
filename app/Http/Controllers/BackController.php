@@ -38,11 +38,12 @@ class BackController extends Controller
     public function profile()
     {
         $users = session('data_login');
-        $checkId = $users;
-        dd($checkId);
-        $data_skck = Detail::where('id', $users->skck_id)->first();
-        dd($data_skck);
-        return view('admin.profile');
+        $checkId = $users->id;
+        $data_skck = Detail::where('id', $checkId)->first();
+        return view('admin.profile', [
+            'users' => $users,
+            'data_skck' => $data_skck
+        ]);
     }
 
     public function daftar_skck()
