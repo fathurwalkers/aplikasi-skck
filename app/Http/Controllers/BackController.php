@@ -279,7 +279,6 @@ class BackController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        dd($login_data);
         $login_data->save();
         return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
