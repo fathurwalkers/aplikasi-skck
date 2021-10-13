@@ -105,12 +105,12 @@ $users = session('data_login');
                     </div>
                 </div>
 
-                @if ($users->login_level == 'user')
+                {{-- @if ($users->login_level == 'user')
                 <a class="nav-link py-2" href="{{ route('verifikasi-pengguna') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Verifikasi Pengguna</span>
                 </a>
-                @endif
+                @endif --}}
                 
                 <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>

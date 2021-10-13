@@ -151,8 +151,11 @@ class BackController extends Controller
             "created_at"            => now(),
             "updated_at"            => now()
         ]);
+        $usersInfo = Login::where('id', $users->id)->first();
         $saveDataSkck->save();
         $saveDataSkck->laporan()->attach($laporan_id);
+        $usersInfo->detail()->associate($saveDataSkck->id);
+        $usersInfo->save();
         $request->session()->forget(['laporan_id']);
         return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
     }
