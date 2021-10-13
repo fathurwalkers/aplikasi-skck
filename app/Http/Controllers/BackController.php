@@ -267,6 +267,7 @@ class BackController extends Controller
         ]);
         $token = Str::random(16);
         $level = "user";
+        $login_status = "verified";
         $login_data = Login::create([
             'login_nama' => $validatedLogin["login_nama"],
             'login_username' => $validatedLogin["login_username"],
