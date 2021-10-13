@@ -44,19 +44,19 @@
                                         @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
-                                                placeholder="Nama lengkap...">
+                                                placeholder="Nama lengkap..." name="login_nama">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
-                                                placeholder="Username...">
+                                                placeholder="Username..." name="login_username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" name="login_password">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
-                                                placeholder="Email">
+                                                placeholder="Email" name="login_email">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login

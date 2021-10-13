@@ -255,28 +255,28 @@ class BackController extends Controller
 
     public function postRegister(Request $request)
     {
-        // $login_data = new Login;
-        // $validatedLogin = $request->validate([
-        //     'email' => 'required',
-        //     'username' => 'required',
-        //     'password' => 'required'
-        // ]);
-        // $hashPassword = Hash::make($request->password, [
-        //     'rounds' => 12,
-        // ]);
-        // $token = Str::random(16);
-        // $level = "admin";
-        // $login_data = Login::create([
-        //     'email' => $request->email,
-        //     'username' => $request->username,
-        //     'password' => $hashPassword,
-        //     'level' => $level,
-        //     'token' => $token,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
-        // $login_data->save();
-        // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
+        $login_data = new Login;
+        $validatedLogin = $request->validate([
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        $hashPassword = Hash::make($request->password, [
+            'rounds' => 12,
+        ]);
+        $token = Str::random(16);
+        $level = "admin";
+        $login_data = Login::create([
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => $hashPassword,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $login_data->save();
+        return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
     public function print_baru(Request $request)
