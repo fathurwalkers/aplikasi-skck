@@ -33,13 +33,21 @@
                             @endif
                         @endforeach
 
-                        <td>{{ $skck->nama_lengkap }}</td>
+                        @if ($skck->nama_lengkap == null)
+                            <td> TIDAK ADA DATA</td>
+                        @else
+                            <td>{{ $skck->nama_lengkap }}</td>
+                        @endif
+                        {{-- <td>{{ $skck->nama_lengkap }}</td> --}}
 
+                        @if ($skck->no_ktp == null)
+                            <td> TIDAK ADA DATA</td>
+                        @else
+                            <td>{{ $skck->no_ktp }}</td>
+                        @endif
                         {{-- <td>{{ $skck->no_ktp }}</td> --}}
-                        <td>{{ dump($skck->no_ktp) }}</td>
 
-                        {{-- <td>{{ $skck->no_telepon }}</td> --}}
-                        <td>{{ dump($skck->no_telepon) }}</td>
+                        <td>{{ $skck->no_telepon }}</td>
 
                         <td>
                             <div class="container">
