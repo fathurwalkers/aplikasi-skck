@@ -11,7 +11,21 @@
             <h4>Format Header </h4>
         </div>
         <div class="card-body">
-            
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <p>Cek : </p>
+                    </div>
+
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <p>Cek : </p>
+                    </div>
+                    
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
