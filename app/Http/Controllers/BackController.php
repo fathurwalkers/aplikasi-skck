@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Detail;
 use App\Models\Login;
+use App\Models\LaporanDetail;
 use App\Models\Laporan;
 
 class BackController extends Controller
@@ -48,9 +49,11 @@ class BackController extends Controller
 
     public function daftar_skck()
     {
+        $laporanDetail = LaporanDetail::all();
         $data_skck = Detail::all();
         return view('admin.daftar-skck', [
-            'data_skck' => $data_skck
+            'data_skck' => $data_skck,
+            'laporanDetail' => $laporanDetail
         ]);
     }
 
@@ -170,7 +173,10 @@ class BackController extends Controller
 
     public function laporan_masuk()
     {
-        return view('admin.laporan-masuk');
+        $data_laporan = Laporan::all();
+        return view('admin.laporan-masuk', [
+            'data_laporan' => $data_laporan
+        ]);
     }
 
     public function buat_laporan()

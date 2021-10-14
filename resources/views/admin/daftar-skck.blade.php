@@ -25,24 +25,24 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
 
-                        {{-- @if (!$skck->laporan->contains())
-                        <td> TIDAK ADA DATA</td>
-                        @else
+                        @if ($laporanDetail->where('detail_id', $skck->id)->first())
                             @foreach ($skck->laporan as $laporan)
-                            <td>{{ $laporan->laporan_jeniskeperluan }}</td>
+                                <td>{{ $laporan->laporan_jeniskeperluan }}</td>
                             @endforeach
-                        @endif --}}
+                        @else
+                            <td> TIDAK ADA DATA</td>
+                        @endif
 
                         {{-- {{ dd($skck->laporan) }} --}}
 
-                        @foreach ($skck->laporan as $laporan)
-                        {{-- {{ dump($laporan) }} --}}
+                        {{-- @foreach ($skck->laporan as $laporan)
+                        {{ dump($laporan) }}
                             @if ($laporan->isEmpty())
                                 <td> TIDAK ADA DATA</td>
                             @else
                                 <td>{{ $laporan->laporan_jeniskeperluan }}</td>
                             @endif
-                        @endforeach
+                        @endforeach --}}
 
                         @if ($skck->nama_lengkap == null)
                             <td> TIDAK ADA DATA</td>
