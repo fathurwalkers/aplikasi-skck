@@ -314,4 +314,15 @@ class BackController extends Controller
         $id2 = $request->skckid;
         dd($id2);
     }
+
+    public function lihat_skck()
+    {
+        $users = session('data_login');
+        $checkId = $users->id;
+        $data_skck = Detail::where('id', $checkId)->first();
+        return view('admin.lihat-skck', [
+            'users' => $users,
+            'data_skck' => $data_skck
+        ]);
+    }
 }
