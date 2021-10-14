@@ -25,11 +25,22 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
 
+                        {{-- @if (!$skck->laporan->contains())
+                        <td> TIDAK ADA DATA</td>
+                        @else
+                            @foreach ($skck->laporan as $laporan)
+                            <td>{{ $laporan->laporan_jeniskeperluan }}</td>
+                            @endforeach
+                        @endif --}}
+
+                        {{-- {{ dd($skck->laporan) }} --}}
+
                         @foreach ($skck->laporan as $laporan)
-                            @if ($laporan->laporan_jeniskeperluan == 0)
+                        {{-- {{ dump($laporan) }} --}}
+                            @if ($laporan->isEmpty())
                                 <td> TIDAK ADA DATA</td>
                             @else
-                            <td>{{ $laporan->laporan_jeniskeperluan }}</td>
+                                <td>{{ $laporan->laporan_jeniskeperluan }}</td>
                             @endif
                         @endforeach
 
@@ -47,7 +58,12 @@
                         @endif
                         {{-- <td>{{ $skck->no_ktp }}</td> --}}
 
-                        <td>{{ $skck->no_telepon }}</td>
+                        @if ($skck->no_telepon == null)
+                            <td> TIDAK ADA DATA</td>
+                        @else
+                            <td>{{ $skck->no_telepon }}</td>
+                        @endif
+                        {{-- <td>{{ $skck->no_telepon }}</td> --}}
 
                         <td>
                             <div class="container">
