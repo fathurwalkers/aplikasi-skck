@@ -68,14 +68,6 @@ $users = session('data_login');
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Profile</span>
                 </a>
-                {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Pendaftaran</span>
-                </a>
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Perpanjangan</span>
-                </a> --}}
                 <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
