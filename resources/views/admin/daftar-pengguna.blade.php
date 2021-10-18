@@ -5,30 +5,36 @@
 @endpush
 
 @section('main-content')
+
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
-        <div class="card-header">
-            <h4>Format Header </h4>
-        </div>
         <div class="card-body">
-            <div class="container">
+            <table id="example1" class="table table-bordered" style="width:100%">
+                <thead class="thead-dark">
+                    <tr class="text-center">
+                        <th>No</th>
+                        <th>Nama Lengkap</th>
+                        <th>Nama Pemilik</th>
+                        <th>No KTP</th>
+                        <th>No Telepon</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    @foreach ($daftar_users as $pengguna)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $pengguna->login_nama }}</td>
+                        </tr>
+                    @endforeach
 
-                <div class="row">
-
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        <p>Cek : </p>
-                    </div>
-
-                    <div class="col-sm-8 col-md-8 col-lg-8">
-                        <p>Cek : </p>
-                    </div>
-                    
-                </div>
-
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('js')
