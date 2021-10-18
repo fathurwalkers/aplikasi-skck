@@ -339,4 +339,10 @@ class BackController extends Controller
             'daftar_users' => $daftar_Users
         ]);
     }
+
+    public function hapus_pengguna(Request $request)
+    {
+        $pengguna_id = $request->id;
+        dd($pengguna_id);
+    }
 }

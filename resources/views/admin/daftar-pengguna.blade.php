@@ -44,7 +44,10 @@
                                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
                                         <a class="btn btn-sm btn-info mr-1" href="#">Lihat</a>
                                         <a class="btn btn-sm btn-primary mr-1" href="#">Ubah</a>
-                                        <a class="btn btn-sm btn-danger mr-1" href="#">Hapus</a>
+                                        {{-- <a class="btn btn-sm btn-danger mr-1" href="#">Hapus</a> --}}
+
+                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-id='{{ $pengguna->id }}' data-target="#exampleModalCenter" >Hapus {{ $pengguna->id }}</a>
+
                                     </div>
                                 </div>
                             </td>
@@ -58,12 +61,47 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div role="document">
+        <div >
+            <form action="{{ route('hapus-pengguna') }}" method="POST">
+                @csrf
+                <div >
+                    <button type=button data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div >
+                    <input type=hidden id="id" name=id>
+                    <h5 id="exampleModalLabel">Are you sure want to delete?</h5>
+                </div>
+                <div >
+                    <button type=button data-dismiss="modal">No</button>
+                    <button type=submit >Yes ! Delete it</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+
 @endsection
 
 @push('js')
     <script>
         $(document).ready(function() {
             $('#example1').DataTable();
-        } );
+        });
     </script>
+    
+    <script src=//code.jquery.com/jquery-3.5.1.slim.min.js integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin=anonymous></script>
+
+    <script>
+        $('.addAttr').click(function() {
+            var id = $(this).data('id');   
+            $('#id').val(id); 
+        });
+    </script>
+
 @endpush
