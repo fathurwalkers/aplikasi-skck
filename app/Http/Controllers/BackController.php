@@ -340,9 +340,9 @@ class BackController extends Controller
         ]);
     }
 
-    public function hapus_pengguna(Request $request)
+    public function hapus_pengguna(Request $request, $id)
     {
-        $pengguna_id = $request->id;
+        $pengguna_id = $id;
         dd($pengguna_id);
     }
 }
