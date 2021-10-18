@@ -22,6 +22,9 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::get('/profile', [BackController::class, 'profile'])->name('profile');
 
+    // Pengguna (User) Route
+    Route::get('/daftar-pengguna', [BackController::class, 'daftar_pengguna'])->name('daftar-pengguna');
+
     // SKCK Route
     Route::get('/lihat-skck', [BackController::class, 'lihat_skck'])->name('lihat-skck');
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');

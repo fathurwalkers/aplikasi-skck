@@ -75,12 +75,19 @@ $users = session('data_login');
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-1 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu : </h6>
+                        {{-- <h6 class="collapse-header">Menu : </h6> --}}
 
                         @if ($users->login_level == 'admin')
+                        <h6 class="collapse-header">Kelola SKCK : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
-                        <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
                         <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a>
+                        
+                        <h6 class="collapse-header">Kelola Pengguna : </h6>
+                        <a class="collapse-item" href="{{ route('daftar-pengguna') }}">- Daftar Pengguna</a>
+
+                        <h6 class="collapse-header">Laporan : </h6>
+                        <a class="collapse-item" href="{{ route('laporan-masuk') }}">- Laporan Masuk</a>
+
                         @endif
 
                         @if ($users->login_level == 'user')
