@@ -13,10 +13,10 @@
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th>No</th>
-                        <th>Nama Lengkap</th>
-                        <th>Nama Pemilik</th>
-                        <th>No KTP</th>
-                        <th>No Telepon</th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -26,6 +26,29 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $pengguna->login_nama }}</td>
+                            <td>{{ $pengguna->login_username }}</td>
+                            <td>{{ $pengguna->login_email }}</td>
+
+                            <td>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                        <button class="btn btn-sm btn-success">
+                                            {{ strtoupper($pengguna->login_status) }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
+                                        <a class="btn btn-sm btn-info mr-1" href="#">Lihat</a>
+                                        <a class="btn btn-sm btn-primary mr-1" href="#">Ubah</a>
+                                        <a class="btn btn-sm btn-danger mr-1" href="#">Hapus</a>
+                                    </div>
+                                </div>
+                            </td>
+
                         </tr>
                     @endforeach
 
