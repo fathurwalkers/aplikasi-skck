@@ -96,6 +96,7 @@
                                                         <p>You are about to remove a team member.</p>
 
                                                         <p>Do you want to proceed?</p>
+                                                        <p>{{ $users->id }}</p>
 
                                                         <p class="debug-url"></p>
                                                     </div>
