@@ -331,4 +331,12 @@ class BackController extends Controller
             'data_skck' => $data_skck
         ]);
     }
+
+    public function daftar_pengguna()
+    {
+        $daftar_Users = Login::where('login_level', 'user')->get();
+        return view('admin.daftar-pengguna', [
+            'daftar_users' => $daftar_Users
+        ]);
+    }
 }
