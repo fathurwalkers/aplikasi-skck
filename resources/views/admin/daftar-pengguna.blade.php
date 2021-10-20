@@ -49,11 +49,11 @@
                             <td>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
-                                        <a class="btn btn-sm btn-info mr-1" href="#">Lihat</a>
-                                        <a class="btn btn-sm btn-primary mr-1" href="#">Ubah</a>
+                                        <a class="btn btn-sm btn-info mr-1 rounded" href="#">Lihat</a>
+                                        <a class="btn btn-sm btn-primary mr-1 rounded" href="#">Ubah</a>
                                         {{-- <a class="btn btn-sm btn-danger mr-1" href="#">Hapus</a> --}}
 
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete{{$pengguna->id}}" >Hapus {{ $pengguna->id }}</a>
+                                        <a href="#" class="btn btn-danger rounded btn-sm" data-toggle="modal" data-target="#ModalDelete{{$pengguna->id}}" >Hapus</a>
 
                                         {{-- @include('admin.delete-user') --}}
                                         {{-- <button class="btn btn-sm btn-danger" data-toggle="modal" data-id="{{ $pengguna->id }}" data-target="#deleteModal" >Hapus {{ $pengguna->id }}</button> --}} 
