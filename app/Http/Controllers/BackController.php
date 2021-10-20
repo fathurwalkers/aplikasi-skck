@@ -352,4 +352,62 @@ class BackController extends Controller
         $findSkck->forceDelete();
         return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
     }
+
+    public function update_skck(Request $request, $id)
+    {
+        $skck_id = $id;
+        $users = session('data_login');
+        $laporan_id = session('laporan_id');
+        $data_skck = Detail::findOrFail($skck_id);
+        $validatedData = $request->validate([
+            "nama_lengkap"          => 'required',
+            "ttl"                   => 'required',
+            "agama"                 => 'required',
+            "kebangsaan"            => 'required',
+            "jenis_kelamin"         => 'required|filled',
+            "status_kawin"          => 'required|filled',
+            "pekerjaan"             => 'required',
+            "alamat_lengkap"        => 'required',
+            "no_ktp"                => 'required',
+            "no_telepon"            => 'required',
+            "status_hubungan"       => 'required|filled',
+            "nama_pasangan"         => 'required',
+            "umur_pasangan"         => 'required',
+            "agama_pasangan"        => 'required',
+            "kebangsaan_pasangan"   => 'required',
+            "pekerjaan_pasangan"    => 'required',
+            "alamat_pasangan"       => 'required',
+            "nama_ayah"             => 'required',
+            "umur_ayah"             => 'required',
+            "agama_ayah"            => 'required',
+        ]);
+        $saveDataSkck = $data_skck->create([
+            "foto"                  => $gambar->getFileName(),
+            "status_skck"           => "unverified",
+            "nama_lengkap"          => $validatedData["nama_lengkap"],
+            "ttl"                   => $validatedData["ttl"],
+            "agama"                 => $validatedData["agama"],
+            "kebangsaan"            => $validatedData["kebangsaan"],
+            "jenis_kelamin"         => $validatedData["jenis_kelamin"],
+            "status_kawin"          => $validatedData["status_kawin"],
+            "pekerjaan"             => $validatedData["pekerjaan"],
+            "alamat_lengkap"        => $validatedData["alamat_lengkap"],
+            "no_ktp"                => $validatedData["no_ktp"],
+            "no_passport"           => $request->no_passport,
+            "no_kitaskitap"         => $request->no_kitaskitap,
+            "no_telepon"            => $validatedData["no_telepon"],
+            "status_hubungan"       => $validatedData["status_hubungan"],
+            "nama_pasangan"         => $validatedData["nama_pasangan"],
+            "umur_pasangan"         => $validatedData["umur_pasangan"],
+            "agama_pasangan"        => $validatedData["agama_pasangan"],
+            "kebangsaan_pasangan"   => $validatedData["kebangsaan_pasangan"],
+            "pekerjaan_pasangan"    => $validatedData["pekerjaan_pasangan"],
+            "alamat_pasangan"       => $validatedData["alamat_pasangan"],
+            "nama_ayah"             => $validatedData["nama_ayah"],
+            "umur_ayah"             => $validatedData["umur_ayah"],
+            "agama_ayah"            => $validatedData["agama_ayah"],
+            "created_at"            => now(),
+            "updated_at"            => now()
+        ]);
+    }
 }
