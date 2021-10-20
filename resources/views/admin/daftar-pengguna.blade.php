@@ -49,11 +49,21 @@
                             <td>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
-                                        <a class="btn btn-sm btn-info mr-1 rounded" href="#">Lihat</a>
-                                        <a class="btn btn-sm btn-primary mr-1 rounded" href="#">Ubah</a>
-                                        {{-- <a class="btn btn-sm btn-danger mr-1" href="#">Hapus</a> --}}
 
-                                        <a href="#" class="btn btn-danger rounded btn-sm" data-toggle="modal" data-target="#ModalDelete{{$pengguna->id}}" >Hapus</a>
+                                        <a class="btn btn-sm btn-info mr-1 rounded" href="#">
+                                            
+                                            Lihat
+                                        </a>
+
+                                        <a class="btn btn-sm btn-primary mr-1 rounded" href="#">
+                                            
+                                            Ubah
+                                        </a>
+
+                                        <a href="#" class="btn btn-danger rounded btn-sm" data-toggle="modal" data-target="#ModalDelete{{$pengguna->id}}" >
+                                            <i class="fas fa-trash"></i>    
+                                            Hapus
+                                        </a>
 
                                         {{-- @include('admin.delete-user') --}}
                                         {{-- <button class="btn btn-sm btn-danger" data-toggle="modal" data-id="{{ $pengguna->id }}" data-target="#deleteModal" >Hapus {{ $pengguna->id }}</button> --}} 
@@ -82,7 +92,9 @@
                                         @csrf
                                         <div class="modal-footer">
                                             <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                Delete
+                                            </button>
                                         </div>
                                     </form>
                     

@@ -74,17 +74,29 @@
                             <div class="container">
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center btn-group">
-                                        <a class="btn btn-info btn-sm mr-1 rounded" href="#" role="button">Lihat</a>
+                                        <a class="btn btn-info btn-sm mr-1 rounded" href="#" role="button">
+                                            <i class="fas fa-info-circle"></i>
+                                            Lihat
+                                        </a>
 
                                         <form action="{{ route('print-skck-baru') }}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $skck->id }}" name="skck">
-                                            <button class="btn btn-success btn-sm mr-1 rounded" type="submit" role="button">Cetak</button>
+                                            <button class="btn btn-success btn-sm mr-1 rounded" type="submit" role="button">
+                                                <i class="fas fa-print"></i>
+                                                Cetak
+                                            </button>
                                         </form>
 
-                                        <a class="btn btn-primary btn-sm rounded mr-1" href="#" value="{{ $skck->id }}" role="button">Edit</a>
+                                        <a class="btn btn-primary btn-sm rounded mr-1" href="#" value="{{ $skck->id }}" role="button">
+                                            <i class="fas fa-cog"></i>
+                                            Edit
+                                        </a>
 
-                                        <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >Hapus</a>
+                                        <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >
+                                            <i class="fas fa-trash"></i>
+                                            Hapus
+                                        </a>
 
                                     </div>
                                 </div>
