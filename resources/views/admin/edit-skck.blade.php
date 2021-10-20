@@ -177,7 +177,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap" required autofocus>
+                                <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap" required autofocus value="{{ $skck->nama_lengkap }}">
                                 <small class="form-text text-muted">contoh : Risky Yatno</small>
                             </div>
                         </div>
