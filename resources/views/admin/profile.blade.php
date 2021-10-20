@@ -15,7 +15,7 @@
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <form action="{{ route('dashboard') }}" method="GET">
                         @csrf
-                        <button type="submit" class="btn btn-danger float-right">Kembali</button>
+                        <button type="submit" class="btn btn-danger float-right rounded">Kembali</button>
                     </form>
                 </div>
             </div>
