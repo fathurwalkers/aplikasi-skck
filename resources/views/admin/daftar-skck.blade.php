@@ -88,9 +88,9 @@
                                             </button>
                                         </form>
 
-                                        <a class="btn btn-primary btn-sm rounded mr-1" href="#" value="{{ $skck->id }}" role="button">
+                                        <a href="#" class="btn btn-sm btn-info rounded mr-1" data-toggle="modal" data-target="#ModalEdit{{$skck->id}}" >
                                             <i class="fas fa-cog"></i>
-                                            Edit
+                                            Edit {{ $skck->id }}
                                         </a>
 
                                         <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >
@@ -104,7 +104,7 @@
                         </td>
                     </tr>
 
-                    {{-- MODAL --}}
+                    {{-- MODAL Delete --}}
                     <div class="modal fade" id="ModalDelete{{ $skck->id }}" tabindex="1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -122,6 +122,32 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                    </div>
+                                </form>
+                
+                            </div>
+                        </div>
+                    </div>
+                    {{-- End MODAL --}}
+
+                    {{-- MODAL Edit --}}
+                    <div class="modal fade" id="ModalEdit{{ $skck->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Konfirmasi Tindakan</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $skck->id }} </b> ? </div>
+                                <form action="{{ route('edit-skck', $skck->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-outline-info">Ubah</button>
                                     </div>
                                 </form>
                 

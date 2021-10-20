@@ -39,7 +39,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <h4>Pembuatan SKCK</h4>
+                    <h4>Perubahan SKCK</h4>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <a href="{{ route('dashboard') }}" class="btn btn-primary float-right">Kembali</a>
@@ -61,7 +61,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap">
+                            <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap" value="{{ $skck->nama_lengkap }}">
                             <small class="form-text text-muted">contoh : Risky Yatno</small>
                         </div>
                     </div>
@@ -73,52 +73,54 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Foto : </label>
-                            <input type="file" class="form-control-file" onchange="preview_image(event)">
+                            <input type="file" class="form-control-file" onchange="preview_image(event)"  value="{{ $skck->foto }}">
                             <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row">
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat Sekarang : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan alamat tempat tinggal anda..." name="alamat_lengkap">
+                            <input type="text" class="form-control" placeholder="Masukkan alamat tempat tinggal anda..." name="alamat_lengkap"  value="{{ $skck->alamat_lengkap }}">
                             <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
                         </div>
                     </div>
+
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan anda..." name="pekerjaan">
+                            <input type="text" class="form-control" placeholder="Masukkan Pekerjaan anda..." name="pekerjaan" value="{{ $skck->pekerjaan }}">
                             <small class="form-text text-muted">contoh : PNS</small>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Kebangsaan : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="kebangsaan">
+                            <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="kebangsaan" value="{{ $skck->kebangsaan }}">
                             <small class="form-text text-muted">contoh : INDONESIA</small>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>No. Telepon : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon">
+                            <input type="text" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon" value="{{ $skck->no_telepon }}">
                             <small class="form-text text-muted">contoh : 085932219482</small>
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan agama anda... " name="agama">
+                            <input type="text" class="form-control" placeholder="Masukkan agama anda... " name="agama" value="{{ $skck->agama }}">
                             {{-- <small class="form-text text-muted"></small> --}}
                         </div>
                     </div>
@@ -128,7 +130,7 @@
                     <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="form-group">
                             <label for="exampleInputEmail1"><span style="color:red;">* </span>Tempat/Tanggal Lahir : </label>
-                            <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl">
+                            <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl" value="{{ $skck->ttl }}">
                             <small class="form-text text-muted">contoh : BAUBAU, 18 Desember 1997</small>
                         </div>
                     </div>

@@ -166,9 +166,13 @@ class BackController extends Controller
         return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
     }
 
-    public function edit_skck()
+    public function edit_skck(Request $request, $id)
     {
-        return view('admin.edit-skck');
+        $skck_id = $id;
+        $skck = Detail::findOrFail($skck_id);
+        return view('admin.edit-skck', [
+            'skck' => $skck
+        ]);
     }
 
     public function laporan_masuk()

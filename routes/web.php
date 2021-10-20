@@ -35,7 +35,7 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     Route::post('/tambah-skck/post', [BackController::class, 'post_tambah_skck'])->name('post-tambah-skck');
     Route::get('/perpanjangan-skck', [BackController::class, 'perpanjangan_skck'])->name('perpanjangan-skck');
     Route::post('/batalkan/post', [BackController::class, 'batalkan'])->name('batalkan');
-    Route::get('/edit-skck', [BackController::class, 'edit_skck'])->name('edit-skck');
+    Route::post('/edit-skck/{id}', [BackController::class, 'edit_skck'])->name('edit-skck');
     Route::post('/hapus-skck/{id}', [BackController::class, 'hapus_skck'])->name('hapus-skck');
 
     // Laporan Route

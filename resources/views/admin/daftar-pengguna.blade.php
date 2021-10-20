@@ -51,12 +51,12 @@
                                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
 
                                         <a class="btn btn-sm btn-info mr-1 rounded" href="#">
-                                            
+                                            <i class="fas fa-info-circle"></i>
                                             Lihat
                                         </a>
 
                                         <a class="btn btn-sm btn-primary mr-1 rounded" href="#">
-                                            
+                                            <i class="fas fa-cog"></i>
                                             Ubah
                                         </a>
 
