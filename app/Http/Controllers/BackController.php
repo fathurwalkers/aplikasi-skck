@@ -314,13 +314,6 @@ class BackController extends Controller
         return view('admin.print-skck-perpanjang');
     }
 
-    public function hapus_skck(Request $request, $id)
-    {
-        $id_skck = $id;
-        $id2 = $request->skckid;
-        dd($id2);
-    }
-
     public function lihat_skck()
     {
         $users = session('data_login');
@@ -343,6 +336,14 @@ class BackController extends Controller
     public function hapus_pengguna(Request $request, $id)
     {
         $pengguna_id = $id;
-        dd($pengguna_id);
+        $findUser = Login::where('id', $pengguna_id)->first();
+        //
+    }
+
+    public function hapus_skck(Request $request, $id)
+    {
+        $id_skck = $id;
+        $id2 = $request->skckid;
+        dd($id2);
     }
 }
