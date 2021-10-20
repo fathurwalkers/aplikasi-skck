@@ -336,14 +336,16 @@ class BackController extends Controller
     public function hapus_pengguna(Request $request, $id)
     {
         $pengguna_id = $id;
-        $findUser = Login::where('id', $pengguna_id)->first();
-        //
+        $findUser = Login::findOrFail($pengguna_id);
+        $findUser->forceDelete();
+        return redirect()->route('daftar-pengguna')->with('status_delete', 'Data telah dihapus!');
     }
 
     public function hapus_skck(Request $request, $id)
     {
-        $id_skck = $id;
-        $id2 = $request->skckid;
-        dd($id2);
+        $pengguna_id = $id;
+        $findSkck = Detail::findOrFail($pengguna_id);
+        $findSkck->forceDelete();
+        return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
     }
 }

@@ -9,6 +9,13 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
         <div class="card-body">
+
+            @if (session('status_delete'))
+                <div class="alert alert-info">
+                    {{ session('status_delete') }}
+                </div>
+            @endif
+
             <table id="example1" class="table table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr class="text-center">
@@ -57,6 +64,8 @@
                             </td>
 
                         </tr>
+
+                        {{-- MODAL --}}
                         <div class="modal fade" id="ModalDelete{{ $pengguna->id }}" tabindex="1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -80,6 +89,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- End MODAL --}}
+
                     @endforeach
 
                 </tbody>

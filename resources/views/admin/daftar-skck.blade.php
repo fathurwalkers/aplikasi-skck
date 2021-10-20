@@ -8,6 +8,11 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
         <div class="card-body">
+            @if (session('status_delete'))
+                <div class="alert alert-info">
+                    {{ session('status_delete') }}
+                </div>
+            @endif
             <table id="example1" class="table table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr class="text-center">
@@ -79,47 +84,40 @@
 
                                         <a class="btn btn-primary btn-sm mr-1" href="#" value="{{ $skck->id }}" role="button">Edit</a>
 
-                                        <button class="btn btn-sm btn-danger" data-href="{{ route('hapus-skck', $skck->id) }}"
-                                            data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-btn fa-trash-o"></i>Remove
-                                        </button>
-
-                                        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title" id="deleteModal">Confirm Remove</h4>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <p>You are about to remove a team member.</p>
-
-                                                        <p>Do you want to proceed?</p>
-                                                        <p>{{ $users->id }}</p>
-
-                                                        <p class="debug-url"></p>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                                        <form action="{{ route('hapus-skck', $skck->id) }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" value="{{ $skck->id }}" name="skckid">
-                                                            <button class="btn btn-success btn-sm mr-1" type="submit" class="btn btn-danger btn-ok"><i class="fa fa-btn fa-trash-o"></i>Remove</button>
-                                                        </form>
-                                                        {{-- <button type="submit" class="btn btn-danger btn-ok"><i class="fa fa-btn fa-trash-o"></i>Remove
-                                                        </button> --}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >Hapus {{ $skck->id }}</a>
 
                                     </div>
                                 </div>
                             </div>
                         </td>
                     </tr>
+
+                    {{-- MODAL --}}
+                    <div class="modal fade" id="ModalDelete{{ $skck->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Konfirmasi Tindakan</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $skck->id }} </b> ? </div>
+                                <form action="{{ route('hapus-skck', $skck->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                    </div>
+                                </form>
+                
+                            </div>
+                        </div>
+                    </div>
+                    {{-- End MODAL --}}
+
                     @endforeach
 
                 </tbody>
