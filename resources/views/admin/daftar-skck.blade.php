@@ -52,7 +52,7 @@
                         @if ($skck->nama_lengkap == null)
                             <td> TIDAK ADA DATA</td>
                         @else
-                            <td>{{ $skck->nama_lengkap }}</td>
+                            <td>{{ Str::limit($skck->nama_lengkap, 10, '...') }}</td>
                         @endif
                         {{-- <td>{{ $skck->nama_lengkap }}</td> --}}
 
@@ -143,7 +143,7 @@
                                 </div>
                                 
                                 <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $skck->id }} </b> ? </div>
-                                <form action="{{ route('edit-skck', $skck->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('edit-skck', $skck->id) }}" method="GET" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-footer">
                                         <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>

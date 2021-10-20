@@ -359,6 +359,7 @@ class BackController extends Controller
         $users = session('data_login');
         $laporan_id = session('laporan_id');
         $data_skck = Detail::findOrFail($skck_id);
+        // dd($data_skck);
         $validatedData = $request->validate([
             "nama_lengkap"          => 'required',
             "ttl"                   => 'required',
@@ -381,9 +382,8 @@ class BackController extends Controller
             "umur_ayah"             => 'required',
             "agama_ayah"            => 'required',
         ]);
-        $saveDataSkck = $data_skck->create([
-            "foto"                  => $gambar->getFileName(),
-            "status_skck"           => "unverified",
+        $saveDataSkck = $data_skck->update([
+            "status_skck"           => "verified",
             "nama_lengkap"          => $validatedData["nama_lengkap"],
             "ttl"                   => $validatedData["ttl"],
             "agama"                 => $validatedData["agama"],
@@ -406,8 +406,8 @@ class BackController extends Controller
             "nama_ayah"             => $validatedData["nama_ayah"],
             "umur_ayah"             => $validatedData["umur_ayah"],
             "agama_ayah"            => $validatedData["agama_ayah"],
-            "created_at"            => now(),
             "updated_at"            => now()
         ]);
+        return redirect()->route('daftar-skck')->with('berhasil_update', 'Data telah di-perbarui!');
     }
 }

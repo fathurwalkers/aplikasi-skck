@@ -14,7 +14,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <h4>Pembuatan SKCK</h4>
+                    <h4>Pengubahan SKCK</h4>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <form action="{{ route('batalkan') }}" method="POST">
@@ -160,8 +160,6 @@
                     </div>
                 </div>
 
-                {{ dump($skck) }}
-
                 <form action="{{ route('post-update-skck', $skck->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -183,9 +181,9 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <img id="output_image" class="border border-1"/>
+                            <img id="output_image" class="border border-1" value="{{ asset('foto/') }}/{{ $skck->foto }}"/>
                         </div>
                     </div>
 
@@ -197,20 +195,20 @@
                                 <small class="form-text text-muted">Upload Pas Foto ekstensi .jpg</small>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat Sekarang : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan alamat tempat tinggal anda..." name="alamat_lengkap">
+                                <input type="text" class="form-control" placeholder="Masukkan alamat tempat tinggal anda..." name="alamat_lengkap" value="{{ $skck->alamat_lengkap }}">
                                 <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Pekerjaan anda..." name="pekerjaan">
+                                <input type="text" class="form-control" placeholder="Masukkan Pekerjaan anda..." name="pekerjaan" value="{{ $skck->pekerjaan }}">
                                 <small class="form-text text-muted">contoh : PNS</small>
                             </div>
                         </div>
@@ -220,21 +218,21 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Kebangsaan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="kebangsaan">
+                                <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="kebangsaan" value="{{ $skck->kebangsaan }}">
                                 <small class="form-text text-muted">contoh : INDONESIA</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>No. Telepon : </label>
-                                <input type="number" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon">
+                                <input type="number" class="form-control" placeholder="Masukkan No. Telepon / Handphone anda..." name="no_telepon" value="{{ $skck->no_telepon }}">
                                 <small class="form-text text-muted">contoh : 085932219482</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan agama anda... " name="agama">
+                                <input type="text" class="form-control" placeholder="Masukkan agama anda... " name="agama" value="{{ $skck->agama }}">
                                 {{-- <small class="form-text text-muted"></small> --}}
                             </div>
                         </div>
@@ -244,15 +242,15 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Tempat/Tanggal Lahir : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl">
+                                <input type="text" class="form-control" placeholder="Masukkan tempat dan tanggal lahir anda... " name="ttl" value="{{ $skck->ttl }}">
                                 <small class="form-text text-muted">contoh : BAUBAU, 18 Desember 1997</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Jenis Kelamin : </label>
-                                <select id="inputState" class="form-control" name="jenis_kelamin">
-                                    <option selected="null" disabled>Pilih jenis Kelamin...</option>
+                                <select id="inputState" class="form-control" name="jenis_kelamin" value="{{ $skck->jenis_kelamin }}">
+                                    <option selected="{{ $skck->jenis_kelamin }}">{{ $skck->jenis_kelamin }}</option>
                                     <option value="Laki - laki">LAKI - LAKI</option>
                                     <option value="Perempuan">PEREMPUAN</option>
                                 </select>
@@ -262,8 +260,8 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Kawin : </label>
-                                <select id="inputState" class="form-control" name="status_kawin">
-                                    <option selected="null" disabled>Pilih status...</option>
+                                <select id="inputState" class="form-control" name="status_kawin" value="{{ $skck->status_kawin }}">
+                                    <option selected="{{ $skck->status_kawin }}">{{ $skck->status_kawin }}</option>
                                     <option value="Kawin">KAWIN</option>
                                     <option value="Tidak Kawin">TIDAK KAWIN</option>
                                 </select>
@@ -276,21 +274,21 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nomor Kartu Penduduk : </label>
-                                <input type="number" class="form-control" placeholder="Masukkan No. KTP anda..." name="no_ktp">
+                                <input type="number" class="form-control" placeholder="Masukkan No. KTP anda..." name="no_ktp" value="{{ $skck->no_ktp }}">
                                 <small class="form-text text-muted">No. KTP Wajib di Masukkan</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor Passport : </label>
-                                <input type="number" class="form-control" placeholder="Masukkan No. Passport anda... " name="no_passport" value="-">
+                                <input type="number" class="form-control" placeholder="Masukkan No. Passport anda... " name="no_passport" value="{{ $skck->no_passport }}">
                                 <small class="form-text text-muted">Kosongkan jika tidak ada </small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>No. KITAS/KITAP : </label>
-                                <input type="number" class="form-control" placeholder="Masukkan No. KITAS / KITAP anda... " name="no_kitaskitap" value="-">
+                                <input type="number" class="form-control" placeholder="Masukkan No. KITAS / KITAP anda... " name="no_kitaskitap" value="{{ $skck->no_kitaskitap }}">
                                 <small class="form-text text-muted">Kosongkan jika tidak ada </small>
                             </div>
                         </div>
@@ -314,15 +312,15 @@
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="nama_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="nama_pasangan" value="{{ $skck->nama_pasangan }}">
                                 {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Hubungan : </label>
-                                <select id="inputState" class="form-control" name="status_hubungan">
-                                    <option selected="null" disabled>Pilih status...</option>
+                                <select id="inputState" class="form-control" name="status_hubungan" value="{{ $skck->status_hubungan }}">
+                                    <option selected="null">Pilih status...</option>
                                     <option value="Suami">Suami (Husband)</option>
                                     <option value="Istri">Istri (Wife)</option>
                                 </select>
@@ -335,14 +333,14 @@
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan alamat..." name="alamat_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan alamat..." name="alamat_pasangan" value="{{ $skck->alamat_pasangan }}">
                                 <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Pekerjaan..." name="pekerjaan_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan Pekerjaan..." name="pekerjaan_pasangan" value="{{ $skck->pekerjaan_pasangan }}">
                                 <small class="form-text text-muted">contoh : PNS</small>
                             </div>
                         </div>
@@ -352,21 +350,21 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Umur : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="umur_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="umur_pasangan" value="{{ $skck->umur_pasangan }}">
                                 <small class="form-text text-muted">contoh : 35 TAHUN </small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Kebangsaan : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Kebangsaan..." name="kebangsaan_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan Kebangsaan..." name="kebangsaan_pasangan" value="{{ $skck->kebangsaan_pasangan }}">
                                 <small class="form-text text-muted">contoh : Indonesia</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_pasangan">
+                                <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_pasangan" value="{{ $skck->agama_pasangan }}">
                                 {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
                             </div>
                         </div>
@@ -390,21 +388,21 @@
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="nama_ayah">
+                                <input type="text" class="form-control" placeholder="Masukkan Nama..." name="nama_ayah" value="{{ $skck->nama_ayah }}">
                                 <small class="form-text text-muted">contoh : Muh. Ismail </small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Umur : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan umur..." name="umur_ayah">
+                                <input type="text" class="form-control" placeholder="Masukkan umur..." name="umur_ayah" value="{{ $skck->umur_ayah }}">
                                 <small class="form-text text-muted">contoh : 35 Tahun</small>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Agama : </label>
-                                <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_ayah">
+                                <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_ayah" value="{{ $skck->agama_ayah }}">
                                 {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
                             </div>
                         </div>
@@ -428,7 +426,7 @@
 </div>
 @endsection
 
-@push('js')
+{{-- @push('js')
     <script type='text/javascript'>
         function preview_image(event) {
             var reader = new FileReader();
@@ -439,4 +437,4 @@
             reader.readAsDataURL(event.target.files[0]);
         }
     </script>
-@endpush
+@endpush --}}
