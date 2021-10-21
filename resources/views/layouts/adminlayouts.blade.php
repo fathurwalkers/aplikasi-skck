@@ -68,6 +68,10 @@ $users = session('data_login');
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Profile</span>
                 </a>
+                <a class="nav-link py-2" href="{{ route('lihat-skck') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Data SKCK</span>
+                </a>
                 <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -111,10 +115,10 @@ $users = session('data_login');
                 </a>
                 @endif --}}
                 
-                <a class="nav-link py-2" href="{{ route('dashboard') }}">
+                {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Ganti Password</span>
-                </a>
+                </a> --}}
                 {{-- <a class="nav-link py-2" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Logout</span>

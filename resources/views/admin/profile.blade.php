@@ -26,9 +26,9 @@
                 <div class="row">
 
                     <div class="col-sm-2 col-md-2 col-lg-2">
-                        <p>
+                        {{-- <p>
                             <img class="img-fluid d-flex mr-3" src="{{ asset('foto') }}/{{ $data_skck->foto }}" alt="" width="400px">
-                        </p>
+                        </p> --}}
                     </div>
 
                     <div class="col-sm-2 col-md-2 col-lg-2">

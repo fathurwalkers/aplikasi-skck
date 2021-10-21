@@ -17,6 +17,11 @@
                     {{ session('batalkan_pembuatan') }}
                 </div>
             @endif
+            @if (session('request_error'))
+                <div class="alert alert-info">
+                    {{ session('request_error') }}
+                </div>
+            @endif
         </div>
     </div>
 </div>

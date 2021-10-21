@@ -19,7 +19,7 @@ class Detail extends Model
 
     public function login()
     {
-        return $this->hasMany(Login::class);
+        return $this->hasOne(Login::class);
     }
 
     public function laporan()

@@ -74,7 +74,7 @@
                             <div class="container">
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center btn-group">
-                                        <a class="btn btn-info btn-sm mr-1 rounded" href="#" role="button">
+                                        <a class="btn btn-info btn-sm mr-1 rounded" href="{{ route('lihat-skck') }}" role="button">
                                             <i class="fas fa-info-circle"></i>
                                             Lihat
                                         </a>
@@ -90,7 +90,7 @@
 
                                         <a href="#" class="btn btn-sm btn-info rounded mr-1" data-toggle="modal" data-target="#ModalEdit{{$skck->id}}" >
                                             <i class="fas fa-cog"></i>
-                                            Edit {{ $skck->id }}
+                                            Edit
                                         </a>
 
                                         <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >

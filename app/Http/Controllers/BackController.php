@@ -310,23 +310,32 @@ class BackController extends Controller
     public function lihat_skck()
     {
         $users = session('data_login');
-        $checkId = $users->id;
-        $data_skck = Detail::where('id', $checkId)->first();
-        return view('admin.lihat-skck', [
-            'users' => $users,
-            'data_skck' => $data_skck
-        ]);
+        $findUser = Login::findOrFail($users->id);
+        $data_skck = Detail::findOrFail($findUser->skck_id);
+        if (!$data_skck) {
+            return redirect()->route()->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
+        } else {
+            return view('admin.profile', [
+                'users' => $users,
+                'data_skck' => $data_skck
+            ]);
+        }
     }
 
     public function profile()
     {
         $users = session('data_login');
-        $checkId = $users->id;
-        $data_skck = Detail::where('id', $checkId)->first();
-        return view('admin.profile', [
-            'users' => $users,
-            'data_skck' => $data_skck
-        ]);
+        $findUser = Login::findOrFail($users->id);
+        $data_skck = Detail::where('id', $findUser->skck_id)->get();
+        dd($data_skck);
+        if ($data_skck) {
+            return redirect()->route()->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
+        } else {
+            return view('admin.profile', [
+                'users' => $users,
+                'data_skck' => $data_skck
+            ]);
+        }
     }
 
     public function daftar_pengguna()
