@@ -28,6 +28,7 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
 
     // SKCK Route
     Route::get('/lihat-skck', [BackController::class, 'lihat_skck'])->name('lihat-skck');
+    Route::get('/admin-lihat-skck/lihat/{id}', [BackController::class, 'admin_lihat_skck'])->name('admin-lihat-skck');
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');
     Route::get('/verifikasi-pengguna', [BackController::class, 'verifikasi_pengguna'])->name('verifikasi-pengguna');
     Route::post('/verifikasi-pengguna/post', [BackController::class, 'post_verifikasi_pengguna'])->name('post-verifikasi-pengguna');

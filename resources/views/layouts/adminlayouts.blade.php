@@ -68,10 +68,12 @@ $users = session('data_login');
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Profile</span>
                 </a>
+                @if($users->login_level == 'user')
                 <a class="nav-link py-2" href="{{ route('lihat-skck') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Data SKCK</span>
                 </a>
+                @endif
                 <a class="nav-link collapsed py-2" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>

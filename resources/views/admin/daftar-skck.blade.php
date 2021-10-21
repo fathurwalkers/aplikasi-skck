@@ -74,7 +74,7 @@
                             <div class="container">
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center btn-group">
-                                        <a class="btn btn-info btn-sm mr-1 rounded" href="{{ route('lihat-skck') }}" role="button">
+                                        <a class="btn btn-info btn-sm mr-1 rounded" href="{{ route('admin-lihat-skck', $skck->id) }}" role="button">
                                             <i class="fas fa-info-circle"></i>
                                             Lihat
                                         </a>

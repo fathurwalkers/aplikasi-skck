@@ -10,7 +10,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <h4>Profile Pengguna</h4>
+                    <h4>Detail Lengkap SKCK - (Administrator)</h4>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <form action="{{ route('dashboard') }}" method="GET">
@@ -22,38 +22,6 @@
         </div>
         <div class="card-body">
             <div class="container">
-
-                <div class="row">
-
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-                        <p>
-                            <img class="img-fluid d-flex mr-3" src="{{ asset('foto') }}/{{ $data_skck->foto }}" alt="" width="400px">
-                        </p>
-                    </div>
-
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-                        <p>
-                            Nama <br>
-                            Username <br>
-                            Email <br>
-                            Status Pengguna <br>
-                            No. Telepon <br>
-                        </p>
-                    </div>
-
-                    <div class="col-sm-8 col-md-8 col-lg-8">
-                        <p>
-                            : {{ $users->login_nama }} <br>
-                            : {{ $users->login_username }} <br>
-                            : {{ $users->login_email }} <br>
-                            : <button class="btn btn-sm btn-success">{{ strtoupper($users->login_status) }}</button> <br>
-                            : {{ $data_skck->no_telepon }} <br>
-                        </p>
-                    </div>
-
-                </div> 
-
-                <hr> 
 
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -129,6 +97,23 @@
                     
                 </div>
 
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
+                        <form action="{{ route('print-skck-baru') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ $data_skck->id }}" name="skck">
+                            <button type="submit" class="btn btn-md btn-info rounded">
+                                <i class="fas fa-print"></i>
+                                Cetak SKCK
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
+                        <p class="text-info mt-1">Klik tombol "Cetak SKCK" untuk mencetak Informasi SKCK Anda</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
