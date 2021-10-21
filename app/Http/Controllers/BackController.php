@@ -36,17 +36,6 @@ class BackController extends Controller
         return view('register');
     }
 
-    public function profile()
-    {
-        $users = session('data_login');
-        $checkId = $users->id;
-        $data_skck = Detail::where('id', $checkId)->first();
-        return view('admin.profile', [
-            'users' => $users,
-            'data_skck' => $data_skck
-        ]);
-    }
-
     public function daftar_skck()
     {
         $laporanDetail = LaporanDetail::all();
@@ -324,6 +313,17 @@ class BackController extends Controller
         $checkId = $users->id;
         $data_skck = Detail::where('id', $checkId)->first();
         return view('admin.lihat-skck', [
+            'users' => $users,
+            'data_skck' => $data_skck
+        ]);
+    }
+
+    public function profile()
+    {
+        $users = session('data_login');
+        $checkId = $users->id;
+        $data_skck = Detail::where('id', $checkId)->first();
+        return view('admin.profile', [
             'users' => $users,
             'data_skck' => $data_skck
         ]);
