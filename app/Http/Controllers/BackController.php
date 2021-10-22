@@ -393,8 +393,7 @@ class BackController extends Controller
         //     ]);
         // }
         return view('admin.profile', [
-            'users' => $users,
-            'data_skck' => $data_skck
+            'users' => $users
         ]);
     }
 
