@@ -383,15 +383,19 @@ class BackController extends Controller
     {
         $users = session('data_login');
         $findUser = Login::find($users->id);
-        $data_skck = Detail::find($findUser->skck_id);
-        if ($data_skck == null) {
-            return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
-        } else {
-            return view('admin.profile', [
-                'users' => $users,
-                'data_skck' => $data_skck
-            ]);
-        }
+        // $data_skck = Detail::find($findUser->skck_id);
+        // if ($data_skck == null) {
+        //     return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
+        // } else {
+        //     return view('admin.profile', [
+        //         'users' => $users,
+        //         'data_skck' => $data_skck
+        //     ]);
+        // }
+        return view('admin.profile', [
+            'users' => $users,
+            'data_skck' => $data_skck
+        ]);
     }
 
     public function daftar_pengguna()
