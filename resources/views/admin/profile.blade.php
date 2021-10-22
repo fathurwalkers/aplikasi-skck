@@ -51,11 +51,9 @@
                         </p>
                     </div>
 
-                </div> 
+                </div>
 
-                <hr> 
-
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h4>Data SKCK</h4>
                     </div>
@@ -127,7 +125,7 @@
                         </p>
                     </div>
                     
-                </div>
+                </div> --}}
 
             </div>
         </div>
