@@ -15,28 +15,40 @@ class BackController extends Controller
 {
     public function index()
     {
-        $skck = Detail::all();
-        // dd($skck);
-
-        // $skck_perpanjangan = Detail::whereHas('laporan', 'laporan_jeniskeperluan', 'Pendaftaran')->get();
-        // $skck_perpanjangan = Detail::whereRelation('laporan', 'laporan_jeniskeperluan', 'Pendaftaran')->get();
-        // $skck_perpanjangan = $skck->laporan()->where('laporan_jeniskeperluan')->get();
-
-        // $arrayKosong = [];
-        // foreach ($skck->laporan->laporan_jeniskeperluan as $item) {
-        //     echo $item;
-        //     $arrayKosong = [$item];
-        // }
-        
-        dd($skck_perpanjangan);
-        // dd($arrayKosong);
-
+        $skck = Detail::all()->count();
         $pengguna = Login::all()->count();
         $laporan = Laporan::all()->count();
-        dump($skck);
-        dump($pengguna);
-        dd($laporan);
-        return view('admin.index');
+        $skck_pendaftaran   = Detail::has('laporan')->get();
+        $skck_perpanjangan  = Detail::has('laporan')->get();
+
+        $arrayPendaftaran = [];
+        $arrayPerpanjangan = [];
+        foreach ($skck_pendaftaran as $skck_data1) {
+            foreach ($skck_data1->laporan as $item1) {
+                if ($item1->laporan_jeniskeperluan === 'PENDAFTARAN') {
+                    $arrayPendaftaran = collect([$item1]);
+                } else {
+                    $arrayPendaftaran = null;
+                }
+            }
+        }
+
+        foreach ($skck_perpanjangan as $skck_data2) {
+            foreach ($skck_data2->laporan as $item2) {
+                if ($item2->laporan_jeniskeperluan === 'PERPANJANGAN') {
+                    $arrayPerpanjangan = collect([$item2]);
+                } else {
+                    $arrayPerpanjangan = null;
+                }
+            }
+        }
+        return view('admin.index', [
+            'pengguna' => $pengguna,
+            'laporan' => $laporan,
+            'pendaftaran' => $arrayPendaftaran,
+            'perpanjangan' => $arrayPerpanjangan,
+            'total_skck' => $skck
+        ]);
     }
 
     public function login()
