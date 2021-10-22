@@ -15,6 +15,27 @@ class BackController extends Controller
 {
     public function index()
     {
+        $skck = Detail::all();
+        // dd($skck);
+
+        // $skck_perpanjangan = Detail::whereHas('laporan', 'laporan_jeniskeperluan', 'Pendaftaran')->get();
+        // $skck_perpanjangan = Detail::whereRelation('laporan', 'laporan_jeniskeperluan', 'Pendaftaran')->get();
+        // $skck_perpanjangan = $skck->laporan()->where('laporan_jeniskeperluan')->get();
+
+        // $arrayKosong = [];
+        // foreach ($skck->laporan->laporan_jeniskeperluan as $item) {
+        //     echo $item;
+        //     $arrayKosong = [$item];
+        // }
+        
+        dd($skck_perpanjangan);
+        // dd($arrayKosong);
+
+        $pengguna = Login::all()->count();
+        $laporan = Laporan::all()->count();
+        dump($skck);
+        dump($pengguna);
+        dd($laporan);
         return view('admin.index');
     }
 

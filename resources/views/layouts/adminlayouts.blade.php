@@ -9,10 +9,10 @@ $users = session('data_login');
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="{{ env('APP_NAME') }}">
+    <meta name="author" content="{{ env('APP_NAME') }}">
 
-    <title>Aplikasi SKCK - {{ strtoupper($users->login_level) }}</title>
+    <title>{{ env('APP_NAME') }} - {{ strtoupper($users->login_level) }}</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/sbadmin/') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -193,7 +193,7 @@ $users = session('data_login');
 
                     <div class="col-lg-12 col-sm-12 col-md-12">
                         <h4 class="">
-                            APLIKASI SKCK
+                            {{ env('APP_NAME') }} 
                         </h4>
                     </div>
 
