@@ -209,12 +209,17 @@ class BackController extends Controller
     {
         $users = session('data_login');
         $laporan_id = session('laporan_id');
+
+        // $cariuser = Login::find($users->id);
+        // dd($cariuser->id);
+        // $data_skck = Detail::find($cariuser->skck_id);
         
         if ($laporan_id) {
             return redirect()->route('tambah-skck')->with('laporan_telah_ada', 'Laporan telah dibuat, silahkan selesaikan pembuatan skck.');
         } else {
-            $findUser = Login::find($users->id);
-            $data_skck = Detail::find($findUser->skck_id);
+            $cariuser = Login::find($users->id);
+            // dd($cariuser->id);
+            $data_skck = Detail::find($cariuser->skck_id);
             if ($data_skck == null) {
                 return view('admin.buat-laporan');
             } else {

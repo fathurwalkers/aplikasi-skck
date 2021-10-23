@@ -14,7 +14,7 @@ class CreateLaporanDetailsTable extends Migration
             $table->unsignedBigInteger('laporan_id');
             $table->foreign('laporan_id')->references('id')->on('laporan')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('detail_id');
-            $table->foreign('detail_id')->references('id')->on('data_skck')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('detail_id')->references('id')->on('data_skck')->onUpdate('cascade');
 
             $table->timestamps();
         });
