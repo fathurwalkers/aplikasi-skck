@@ -182,8 +182,6 @@ class BackController extends Controller
         $usersInfo = Login::where('id', $users->id)->first();
         $saveDataSkck->save();
         $saveDataSkck->laporan()->attach($laporan_id);
-        // $usersInfo->detail()->associate($saveDataSkck->id);
-        // $usersInfo->save();
         $saveDataSkck->login()->associate($usersInfo->id);
         $saveDataSkck->save();
         $request->session()->forget(['laporan_id']);
