@@ -417,10 +417,30 @@ class BackController extends Controller
 
     public function hapus_skck(Request $request, $id)
     {
-        $pengguna_id = $id;
-        $findSkck = Detail::findOrFail($pengguna_id);
-        $findSkck->forceDelete();
-        return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
+        $users = session('data_login');
+        $skck_id = $id;
+        $findskck = Detail::find($skck_id);
+        $finduser = Login::findOrFail($users->id);
+        // die;
+        switch ($finduser->login_level) {
+            case 'admin':
+                // $finduser->detail()->dissociate($findskck->id);
+                
+                $findskck->delete();
+                return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
+                break;
+            
+            case 'user':
+                // $findusers->detail()->detach([$findskck->id]);
+                $finduser->detail()->dissociate($findskck->id);
+                $findskck->delete();
+                return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
+                break;
+        }
+        // $finduser->detail()->dissociate($findskck->id);
+
+        // $findskck->delete();
+        // return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
     }
 
     public function update_skck(Request $request, $id)
