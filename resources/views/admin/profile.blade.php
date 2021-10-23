@@ -27,7 +27,7 @@
 
                     <div class="col-sm-2 col-md-2 col-lg-2">
                         <p>
-                            @if ($data_skck->no_telepon == null)
+                            @if (empty($data_skck))
                                 <img class="img-fluid d-flex mr-3" src="#" alt="" width="400px">
                             @else
                                 <img class="img-fluid d-flex mr-3" src="{{ asset('foto') }}/{{ $data_skck->foto }}" alt="" width="400px">
@@ -51,11 +51,10 @@
                             : {{ $users->login_username }} <br>
                             : {{ $users->login_email }} <br>
                             : <button class="btn btn-sm btn-success">{{ strtoupper($users->login_status) }}</button> <br>
-                            {{ dd($data_skck) }}
                             @if ($data_skck == null)
                                 : SKCK Belum dibuat <br>
                             @else
-                                : {{ $data_skck->no_telepon }} <br>
+                                {{-- : {{ $data_skck->no_telepon }} <br> --}}
                             @endif
 
                         </p>
