@@ -37,6 +37,9 @@ class CreateDetailsTable extends Migration
             $table->string('umur_ayah');
             $table->string('agama_ayah');
 
+            $table->unsignedBigInteger('login_id')->nullable()->default(null);
+            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
+
             $table->unsignedBigInteger('laporan_id')->nullable();
             $table->foreign('laporan_id')->references('id')->on('laporan')->onDelete('cascade');
 

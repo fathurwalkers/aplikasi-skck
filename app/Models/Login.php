@@ -16,6 +16,6 @@ class Login extends Model
 
     public function detail()
     {
-        return $this->belongsTo(Detail::class, 'skck_id')->withDefault();
+        return $this->hasOne(Detail::class, 'login_id')->withDefault();
     }
 }

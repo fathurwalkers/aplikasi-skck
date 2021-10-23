@@ -182,8 +182,10 @@ class BackController extends Controller
         $usersInfo = Login::where('id', $users->id)->first();
         $saveDataSkck->save();
         $saveDataSkck->laporan()->attach($laporan_id);
-        $usersInfo->detail()->associate($saveDataSkck->id);
-        $usersInfo->save();
+        // $usersInfo->detail()->associate($saveDataSkck->id);
+        // $usersInfo->save();
+        $saveDataSkck->login()->associate($usersInfo->id);
+        $saveDataSkck->save();
         $request->session()->forget(['laporan_id']);
         return redirect()->route('dashboard')->with('berhasil_buat_skck', 'Selamat! SKCK Telah berhasil dibuat!');
     }
@@ -371,9 +373,22 @@ class BackController extends Controller
 
     public function lihat_skck()
     {
+        // $users = session('data_login');
+        // $findUser = Login::find($users->id);
+        // $data_skck = Detail::find($findUser->skck_id);
+        // if ($data_skck == null) {
+        //     return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
+        // } else {
+        //     return view('admin.lihat-skck', [
+        //         'users' => $users,
+        //         'data_skck' => $data_skck
+        //     ]);
+        // }
+
         $users = session('data_login');
         $findUser = Login::find($users->id);
-        $data_skck = Detail::find($findUser->skck_id);
+        $data_skck = Detail::where('login_id', $findUser->id)->first();
+        // dd($data_skck);
         if ($data_skck == null) {
             return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
         } else {
@@ -386,13 +401,26 @@ class BackController extends Controller
 
     public function profile()
     {
+        // $users = session('data_login');
+        // $findUser = Login::find($users->id);
+        // $data_skck = Detail::find($findUser->skck_id);
+        // if ($data_skck == null) {
+        //     return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
+        // } else {
+        //     return view('admin.profile', [
+        //         'users' => $users,
+        //         'data_skck' => $data_skck
+        //     ]);
+        // }
+
         $users = session('data_login');
         $findUser = Login::find($users->id);
-        $data_skck = Detail::find($findUser->skck_id);
+        $data_skck = Detail::where('login_id', $findUser->id)->first();
+        // dd($data_skck);
         if ($data_skck == null) {
             return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
         } else {
-            return view('admin.profile', [
+            return view('admin.lihat-skck', [
                 'users' => $users,
                 'data_skck' => $data_skck
             ]);
