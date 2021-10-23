@@ -371,18 +371,6 @@ class BackController extends Controller
 
     public function lihat_skck()
     {
-        // $users = session('data_login');
-        // $findUser = Login::find($users->id);
-        // $data_skck = Detail::find($findUser->skck_id);
-        // if ($data_skck == null) {
-        //     return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
-        // } else {
-        //     return view('admin.lihat-skck', [
-        //         'users' => $users,
-        //         'data_skck' => $data_skck
-        //     ]);
-        // }
-
         $users = session('data_login');
         $findUser = Login::find($users->id);
         $data_skck = Detail::where('login_id', $findUser->id)->first();
@@ -399,18 +387,6 @@ class BackController extends Controller
 
     public function profile()
     {
-        // $users = session('data_login');
-        // $findUser = Login::find($users->id);
-        // $data_skck = Detail::find($findUser->skck_id);
-        // if ($data_skck == null) {
-        //     return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
-        // } else {
-        //     return view('admin.profile', [
-        //         'users' => $users,
-        //         'data_skck' => $data_skck
-        //     ]);
-        // }
-
         $users = session('data_login');
         $findUser = Login::find($users->id);
         $data_skck = Detail::where('login_id', $findUser->id)->first();
