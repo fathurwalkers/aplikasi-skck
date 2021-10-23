@@ -258,7 +258,6 @@ class BackController extends Controller
         ]);
         $saveLaporan->save();
         $laporan_id = session(['laporan_id' => $saveLaporan->id]);
-
         switch ($saveLaporan->laporan_jeniskeperluan) {
             case "PENDAFTARAN":
                 return redirect()->route('tambah-skck');
