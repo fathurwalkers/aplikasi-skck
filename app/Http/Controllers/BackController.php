@@ -213,21 +213,34 @@ class BackController extends Controller
         $laporan_id = session('laporan_id');
         $skck = Detail::where('login_id', $users->id)->first();
         // dd($skck);
-        if ($skck->count() == null) {
-            return redirect()->route('dashboard')->with('laporan_telah_ada', 'SKCK Sudah pernah dibuat!');
-        }
-        if ($laporan_id) {
-            return redirect()->route('tambah-skck')->with('laporan_telah_ada', 'Laporan telah dibuat, silahkan selesaikan pembuatan skck.');
+        if (!empty($skck)) {
+            return redirect()->route('dashboard')->with('skck_telah_ada', 'SKCK Sudah pernah dibuat!');
         } else {
-            $cariuser = Login::find($users->id);
-            // dd($cariuser->id);
-            $data_skck = Detail::where('login_id', $cariuser->id)->first();
-            if ($data_skck == null) {
-                return view('admin.buat-laporan');
+            if ($laporan_id) {
+                return redirect()->route('tambah-skck')->with('laporan_telah_ada', 'Laporan telah dibuat, silahkan selesaikan pembuatan skck.');
             } else {
-                return redirect()->route('dashboard')->with('request_error', 'SKCK sudah pernah dibuat. anda tidak dapat membuat skck baru lagi!');
+                $cariuser = Login::find($users->id);
+                // dd($cariuser->id);
+                $data_skck = Detail::where('login_id', $cariuser->id)->first();
+                if ($data_skck == null) {
+                    return view('admin.buat-laporan');
+                } else {
+                    return redirect()->route('dashboard')->with('request_error', 'SKCK sudah pernah dibuat. anda tidak dapat membuat skck baru lagi!');
+                }
             }
         }
+        // if ($laporan_id) {
+        //     return redirect()->route('tambah-skck')->with('laporan_telah_ada', 'Laporan telah dibuat, silahkan selesaikan pembuatan skck.');
+        // } else {
+        //     $cariuser = Login::find($users->id);
+        //     // dd($cariuser->id);
+        //     $data_skck = Detail::where('login_id', $cariuser->id)->first();
+        //     if ($data_skck == null) {
+        //         return view('admin.buat-laporan');
+        //     } else {
+        //         return redirect()->route('dashboard')->with('request_error', 'SKCK sudah pernah dibuat. anda tidak dapat membuat skck baru lagi!');
+        //     }
+        // }
     }
 
     public function logout(Request $request)
@@ -420,7 +433,7 @@ class BackController extends Controller
         if ($data_skck == null) {
             return redirect()->route('dashboard')->with('request_error', 'Maaf, data skck anda tidak ditemukan!');
         } else {
-            return view('admin.lihat-skck', [
+            return view('admin.profile', [
                 'users' => $users,
                 'data_skck' => $data_skck
             ]);

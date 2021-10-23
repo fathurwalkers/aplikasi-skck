@@ -22,6 +22,11 @@
                     {{ session('request_error') }}
                 </div>
             @endif
+            @if (session('skck_telah_ada'))
+                <div class="alert alert-info">
+                    {{ session('skck_telah_ada') }}
+                </div>
+            @endif
 
         </div>
     </div>
