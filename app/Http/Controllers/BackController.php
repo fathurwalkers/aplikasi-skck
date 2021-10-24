@@ -505,4 +505,14 @@ class BackController extends Controller
         ]);
         return redirect()->route('daftar-skck')->with('berhasil_update', 'Data telah di-perbarui!');
     }
+
+    public function laporan_detail(Request $request, $id)
+    {
+        $users = session('data_login');
+    }
+
+    public function laporan_hapus(Request $request, $id)
+    {
+        $users = session('data_login');
+    }
 }

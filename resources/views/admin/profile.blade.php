@@ -54,7 +54,7 @@
                             @if ($data_skck == null)
                                 : SKCK Belum dibuat <br>
                             @else
-                                {{-- : {{ $data_skck->no_telepon }} <br> --}}
+                                : {{ $data_skck->no_telepon }} <br>
                             @endif
 
                         </p>
