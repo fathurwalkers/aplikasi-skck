@@ -506,19 +506,24 @@ class BackController extends Controller
         return redirect()->route('daftar-skck')->with('berhasil_update', 'Data telah di-perbarui!');
     }
 
-    public function laporan_detail(Request $request, $id)
+    public function laporan_detail(Request $request)
     {
-        $id_laporan = $id;
+        $id_laporan = $request->id;
         $users = session('data_login');
         $laporan = Laporan::find($id_laporan);
-        dd($laporan);
+        return view('admin.laporan-detail', [
+            'users' => $users,
+            'laporan' => $laporan
+        ]);
     }
 
-    public function laporan_hapus(Request $request, $id)
+    public function laporan_hapus(Request $request)
     {
-        $id_laporan = $id;
+        $id_laporan = $request->id;
         $users = session('data_login');
         $laporan = Laporan::find($id_laporan);
-        dd($laporan);
+        $laporan->detail()->detach();
+        $laporan->delete();
+        return redirect()->route('laporan-masuk')->with('laporan_terhapus', 'Laporan telah dihapus');
     }
 }

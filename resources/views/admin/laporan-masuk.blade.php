@@ -8,6 +8,11 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="card">
         <div class="card-body">
+            @if (session('laporan_terhapus'))
+                <div class="alert alert-success">
+                    {{ session('laporan_terhapus') }}
+                </div>
+            @endif
             <table id="example1" class="table table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr class="text-center">
@@ -36,14 +41,18 @@
                         <td>
                             <div class="container">
                                 <div class="row m-0 p-0">
-                                    <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
+                                    <div class="col-sm-12 col-lg-12 col-md-12 d-flex justify-content-center mx-auto">
 
-                                        <form action="{{ route('laporan-detail', $laporan->id) }}">
-                                            <button class="btn btn-info btn-sm" href="{{ route('laporan-detail') }}">Selengkapnya</button>
+                                        <form action="{{ route('laporan-detail') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $laporan->id }}">
+                                            <button class="btn btn-info btn-sm mr-1 rounded" href="{{ route('laporan-detail') }}">Selengkapnya</button>
                                         </form>
 
-                                        <form action="{{ route('laporan-detail', $laporan->id) }}">
-                                            <button class="btn btn-danger btn-sm" href="{{ route('laporan-detail') }}">Hapus</button>
+                                        <form action="{{ route('laporan-hapus') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $laporan->id }}">
+                                            <button class="btn btn-danger btn-sm rounded" href="{{ route('laporan-detail') }}">Hapus</button>
                                         </form>
 
                                     </div>

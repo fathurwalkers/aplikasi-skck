@@ -44,8 +44,8 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     Route::get('/buat-laporan', [BackController::class, 'buat_laporan'])->name('buat-laporan');
     Route::post('/buat-laporan/post', [BackController::class, 'post_buat_laporan'])->name('post-buat-laporan');
     Route::get('/laporan-masuk', [BackController::class, 'laporan_masuk'])->name('laporan-masuk');
-    Route::post('/laporan-detail/detail/{id}', [BackController::class, 'laporan_detail'])->name('laporan-detail');
-    Route::post('/laporan-hapus/hapus/{id}', [BackController::class, 'laporan_hapus'])->name('laporan-hapus');
+    Route::post('/laporan-detail/detail', [BackController::class, 'laporan_detail'])->name('laporan-detail');
+    Route::post('/laporan-hapus/hapus', [BackController::class, 'laporan_hapus'])->name('laporan-hapus');
 
     // Print Route
     Route::post('/print-skck-baru', [BackController::class, 'print_baru'])->name('print-skck-baru');
