@@ -508,11 +508,17 @@ class BackController extends Controller
 
     public function laporan_detail(Request $request, $id)
     {
+        $id_laporan = $id;
         $users = session('data_login');
+        $laporan = Laporan::find($id_laporan);
+        dd($laporan);
     }
 
     public function laporan_hapus(Request $request, $id)
     {
+        $id_laporan = $id;
         $users = session('data_login');
+        $laporan = Laporan::find($id_laporan);
+        dd($laporan);
     }
 }

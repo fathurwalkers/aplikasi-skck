@@ -37,8 +37,15 @@
                             <div class="container">
                                 <div class="row m-0 p-0">
                                     <div class="col-sm-12 col-lg-12 col-md-12 mx-auto text-center">
-                                        <a class="btn btn-info btn-sm disabled" href="#" role="button">Selengkapnya</a>
-                                        <a class="btn btn-danger btn-sm disabled" href="#" role="button">Hapus</a>
+
+                                        <form action="{{ route('laporan-detail', $laporan->id) }}">
+                                            <button class="btn btn-info btn-sm" href="{{ route('laporan-detail') }}">Selengkapnya</button>
+                                        </form>
+
+                                        <form action="{{ route('laporan-detail', $laporan->id) }}">
+                                            <button class="btn btn-danger btn-sm" href="{{ route('laporan-detail') }}">Hapus</button>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
