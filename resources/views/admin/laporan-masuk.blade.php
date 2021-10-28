@@ -28,7 +28,7 @@
                     @foreach ($data_laporan as $laporan)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $laporan->laporan_jeniskeperluan }}</td>
+                        <td class="text-center">{{ strtoupper($laporan->laporan_jeniskeperluan) }}</td>
                         <td>{{ $laporan->laporan_pengirim }}</td>
                         <td>{{ $laporan->laporan_kode }}</td>
                         <td class="text-center">{{ date('d/m/Y', strtotime($laporan->created_at)) }}</td>

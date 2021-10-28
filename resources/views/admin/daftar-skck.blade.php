@@ -79,6 +79,18 @@
                                             Lihat
                                         </a>
 
+                                        @if ($skck->status_skck == 'unverified')
+                                        <form action="{{ route('print-skck-baru') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $skck->id }}" name="skck">
+                                            <button class="btn btn-success btn-sm mr-1 rounded disabled" type="submit" role="button">
+                                                <i class="fas fa-print"></i>
+                                                Cetak
+                                            </button>
+                                        </form>
+                                        @endif
+
+                                        @if ($skck->status_skck == "verified")
                                         <form action="{{ route('print-skck-baru') }}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $skck->id }}" name="skck">
@@ -87,13 +99,14 @@
                                                 Cetak
                                             </button>
                                         </form>
+                                        @endif
 
                                         <a href="#" class="btn btn-sm btn-info rounded mr-1" data-toggle="modal" data-target="#ModalEdit{{$skck->id}}" >
                                             <i class="fas fa-cog"></i>
                                             Edit
                                         </a>
 
-                                        @if ($skck->status_skck == 'unverified')
+                                        {{-- @if ($skck->status_skck == 'unverified')
                                             <form action="{{ route('post-verifikasi-skck') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" value="{{ $skck->id }}" name="id_skck">
@@ -102,14 +115,14 @@
                                                     Verifikasi
                                                 </button>
                                             </form>
-                                        @endif
+                                        @endif --}}
 
-                                        @if ($skck->status_skck == 'verified')
+                                        {{-- @if ($skck->status_skck == 'verified')
                                             <a href='#' class='btn btn-sm btn-primary rounded mr-1 disabled'>
                                                 <i class='fas fa-cog'></i>
                                                 Verifikasi
                                             </a>
-                                        @endif
+                                        @endif --}}
 
                                         <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >
                                             <i class="fas fa-trash"></i>
