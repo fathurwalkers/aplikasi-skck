@@ -75,7 +75,9 @@ class BackController extends Controller
                     
             $mail->Body .= "http://127.0.0.1:5001/verifikasi/";
             $mail->Body .= $pengguna->login_token;
-            $mail->Body .= "/true <br>";
+            $mail->Body .= "/";
+            $mail->Body .= $pengguna->login_username;
+            $mail->Body .= " <br>";
     
             $mail->send();
             // dd($mail);
@@ -85,17 +87,93 @@ class BackController extends Controller
         }
     }
 
-    public function terima_verifikasi($token, $status)
+    public function terima_verifikasi($token, $username)
     {
         $token_user = $token;
-        $status_user = $status;
+        $username_user = $username;
+
         $pengguna = Login::where('login_token', $token_user)->first();
         $findSKCK = Detail::where('login_id', $pengguna->id)->first();
         $findSKCK->update([
             'status_skck' => 'verified',
             'updated_at' => now(),
         ]);
-        return redirect()->route('dashboard')->with('berhasil_konfirmasi', 'SKCK telah di verifikasi!');
+
+        $mail_username  = "siakadtk123@gmail.com";
+        $mail_password  = "Fathur160199Seven";
+
+        try {
+            $mail = new PHPMailer(); // create a new object
+            $mail->IsSMTP(true); // enable SMTP
+            // $mail->IsMAIL(); // enable SMTP
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+            $mail->SMTPAuth = true; // authentication enabled
+            $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465; // or 587 / 465
+            // $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
+            // $mail->Host = "smtp.gmail.com";
+            // $mail->Port = 587; // or 587
+            $mail->Username = $mail_username;
+            $mail->Password = $mail_password;
+
+            // $mail = new PHPMailer(true);
+            // $mail->isSMTP();
+            // $mail->SMTPDebug = 2;
+            // $mail->Debugoutput = 'html';
+            // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            // $mail->Host = 'smtp.gmail.com';
+            // $mail->Port = 587;
+            // // $mail->Port = 465;
+            // $mail->SMTPSecure = 'tls';
+            // $mail->SMTPAuth = true;
+            // $mail->Username = env('MAIL_USERNAME');
+            // $mail->Password = env('MAIL_PASSWORD');
+
+    
+            // $mail->addAddress($pengguna->login_email, "VERIFIKASI SKCK");
+            // $mail->addAddress("fathurwalkers44@gmail.com", "BEM Teknik Unidayan");
+
+            $mail->setFrom($mail_username, "VERIFIKASI SKCK");
+            $mail->addAddress("fathurwalkers44@gmail.com", "STATUS SKCK");
+
+            $mail->isHTML(true);
+            $mail->Subject = "Verifikasi SKCK";
+            $mail->Body = "SKCK anda telah di verifikasi. Silahkan login ke Aplikasi SKCK untuk melakukan proses lanjutan pengurusan SKCK anda.<br>";
+                    
+            // $mail->Body .= "http://127.0.0.1:5001/verifikasi/";
+            // $mail->Body .= $pengguna->login_token;
+            // $mail->Body .= "/";
+            // $mail->Body .= $pengguna->login_username;
+            // $mail->Body .= " <br>";
+    
+            $mail->send();
+            // dd($mail);
+            return redirect()->route('dashboard')->with('berhasil_verifikasi', "Verfikasi SKCK telah dikirim ke email anda, silahkan cek email anda untuk konfirmasi verifikasi skck.");
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+        // return redirect()->route('dashboard')->with('berhasil_konfirmasi', 'SKCK telah di verifikasi!');
+    }
+
+    public function user_request_verifikasi()
+    {
+        $users      = session('data_login');
+        $pengguna   = Login::find($users->id);
+        $laporan_kode = strtoupper(Str::random(5) . "-" . Str::random(5));
+        $laporan = new Laporan;
+        $saveLaporan = $laporan->create([
+            "laporan_header"            => "VERIFIKASI SKCK",
+            "laporan_jeniskeperluan"    => "Verifikasi",
+            "laporan_body"              => $pengguna->login_token,
+            "laporan_kode"              => $laporan_kode,
+            "laporan_pengirim"          => $pengguna->login_username,
+            "created_at"                => now(),
+            "updated_at"                => now()
+        ]);
+        $saveLaporan->save();
+        return redirect()->route('dashboard')->with('laporan_verifikasi', 'Laporan permintaan Verifikasi SKCK Telah terkirim. silahkan menunggu balasan Email dari admin.');
     }
 
     public function index()

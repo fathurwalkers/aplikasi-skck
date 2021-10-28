@@ -10,7 +10,8 @@ Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login', [BackController::class, 'postLogin'])->name('post-login');
 Route::get('/register', [BackController::class, 'register'])->name('register');
 Route::post('/register', [BackController::class, 'postRegister'])->name('post-register');
-Route::get('/verifikasi/{token}/{status}', [BackController::class, 'terima_verifikasi'])->name('terima-verifikasi');
+// Route::get('/verifikasi/{token}/{status}', [BackController::class, 'terima_verifikasi'])->name('terima-verifikasi');
+Route::post('/verifikasi/{token}/{status}', [BackController::class, 'terima_verifikasi'])->name('terima-verifikasi');
 
 // Home Route
 Route::group(['prefix' => '/'], function () {
@@ -30,6 +31,7 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     // SKCK Route
     Route::get('/lihat-skck', [BackController::class, 'lihat_skck'])->name('lihat-skck');
     Route::get('/verifikasi-skck', [BackController::class, 'verifikasi_skck'])->name('verifikasi-skck');
+    Route::post('/kirim-verifikasi', [BackController::class, 'user_request_verifikasi'])->name('kirim-verifikasi');
     Route::post('/post-verifikasi-skck/verifikasi', [BackController::class, 'post_verifikasi_skck'])->name('post-verifikasi-skck');
     Route::get('/admin-lihat-skck/lihat/{id}', [BackController::class, 'admin_lihat_skck'])->name('admin-lihat-skck');
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');

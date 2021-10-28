@@ -49,10 +49,18 @@
                                             <button class="btn btn-info btn-sm mr-1 rounded" href="{{ route('laporan-detail') }}">Selengkapnya</button>
                                         </form>
 
+                                        @if($laporan->laporan_jeniskeperluan == 'Verifikasi')
+                                        <form action="{{ route('terima-verifikasi', [$laporan->laporan_body, $laporan->laporan_pengirim]) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $laporan->id }}">
+                                            <button class="btn btn-primary btn-sm mr-1 rounded">Verifikasi</button>
+                                        </form>
+                                        @endif
+
                                         <form action="{{ route('laporan-hapus') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $laporan->id }}">
-                                            <button class="btn btn-danger btn-sm rounded" href="{{ route('laporan-detail') }}">Hapus</button>
+                                            <button class="btn btn-danger btn-sm rounded">Hapus</button>
                                         </form>
 
                                     </div>

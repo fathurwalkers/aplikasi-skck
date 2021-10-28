@@ -97,23 +97,23 @@
                     
                 </div>
 
-                {{-- <div class="row">
+                <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
-                        <form action="{{ route('print-skck-baru') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('kirim-verifikasi') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ $data_skck->id }}" name="skck">
                             <button type="submit" class="btn btn-md btn-info rounded">
                                 <i class="fas fa-print"></i>
-                                Cetak SKCK
+                                Verifikasi SKCK
                             </button>
                         </form>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
-                        <p class="text-info mt-1">Klik tombol "Cetak SKCK" untuk mencetak Informasi SKCK Anda</p>
+                        <p class="text-info mt-1">Klik tombol "Verifikasi SKCK" untuk mem-verifikasi permintaan pendaftaran / perpanjangan SKCK anda.</p>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
