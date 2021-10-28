@@ -35,15 +35,17 @@ class BackController extends Controller
 
         try {
             $mail = new PHPMailer(); // create a new object
-            // $mail->IsSMTP(); // enable SMTP
-            $mail->SMTPDebug = 2;
+            $mail->IsSMTP(true); // enable SMTP
+            // $mail->IsMAIL(); // enable SMTP
+            $mail->SMTPDebug = 0;
             $mail->Debugoutput = 'html';
             $mail->SMTPAuth = true; // authentication enabled
             $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
             $mail->Host = "smtp.gmail.com";
-            $mail->Port = 465; // or 587
-            // $mail->Host = "localhost";
-            // $mail->Port = 25; // or 587
+            $mail->Port = 465; // or 587 / 465
+            // $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for Gmail
+            // $mail->Host = "smtp.gmail.com";
+            // $mail->Port = 587; // or 587
             $mail->Username = $mail_username;
             $mail->Password = $mail_password;
 
@@ -65,7 +67,7 @@ class BackController extends Controller
             // $mail->addAddress("fathurwalkers44@gmail.com", "BEM Teknik Unidayan");
 
             $mail->setFrom($mail_username, "VERIFIKASI SKCK");
-            $mail->addAddress("fathurwalkers44@gmail.com");
+            $mail->addAddress("fathurwalkers44@gmail.com", "STATUS SKCK");
 
             $mail->isHTML(true);
             $mail->Subject = "Verifikasi SKCK";
@@ -73,7 +75,7 @@ class BackController extends Controller
                     
             $mail->Body .= "http://127.0.0.1:5001/verifikasi/";
             $mail->Body .= $pengguna->login_token;
-            $mail->Body .= ' <br>';
+            $mail->Body .= "/true <br>";
     
             $mail->send();
             // dd($mail);
@@ -83,12 +85,17 @@ class BackController extends Controller
         }
     }
 
-    public function terima_verifikasi($token)
+    public function terima_verifikasi($token, $status)
     {
         $token_user = $token;
-        dump($token_user);
-        $pengguna = Login::where('login_token', $token_user);
-        dd($pengguna);
+        $status_user = $status;
+        $pengguna = Login::where('login_token', $token_user)->first();
+        $findSKCK = Detail::where('login_id', $pengguna->id)->first();
+        $findSKCK->update([
+            'status_skck' => 'verified',
+            'updated_at' => now(),
+        ]);
+        return redirect()->route('dashboard')->with('berhasil_konfirmasi', 'SKCK telah di verifikasi!');
     }
 
     public function index()

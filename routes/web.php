@@ -10,7 +10,7 @@ Route::get('/login', [BackController::class, 'login'])->name('login');
 Route::post('/login', [BackController::class, 'postLogin'])->name('post-login');
 Route::get('/register', [BackController::class, 'register'])->name('register');
 Route::post('/register', [BackController::class, 'postRegister'])->name('post-register');
-Route::get('/verifikasi/{token}', [BackController::class, 'terima_verifikasi'])->name('terima-verifikasi');
+Route::get('/verifikasi/{token}/{status}', [BackController::class, 'terima_verifikasi'])->name('terima-verifikasi');
 
 // Home Route
 Route::group(['prefix' => '/'], function () {
