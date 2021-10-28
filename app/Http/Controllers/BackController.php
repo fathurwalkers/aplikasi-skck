@@ -430,7 +430,7 @@ class BackController extends Controller
         switch ($finduser->login_level) {
             case 'admin':
                 // $finduser->detail()->dissociate($findskck->id);
-                
+                // $findskck->laporan()->detach();
                 $findskck->delete();
                 return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
                 break;

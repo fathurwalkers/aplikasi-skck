@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // ADMIN 
+        // ADMIN
         $token = Str::random(16);
         $role = "admin";
         $hashPassword = Hash::make('jancok', [
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
 
         // ---------------------------------------------------------------------------
 
-        // Petugas 
+        // Petugas
         $token = Str::random(16);
         $role = "petugas";
         $hashPassword = Hash::make('petugas', [
@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
 
         // ---------------------------------------------------------------------------
 
-        // User Pertama 
+        // User Pertama
         $token = Str::random(16);
         $role = "user";
         $hashPassword = Hash::make('user1234', [
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
 
         // ---------------------------------------------------------------------------
 
-        // User Kedua 
+        // User Kedua
         $token = Str::random(16);
         $role = "user";
         $hashPassword = Hash::make('user1234', [
