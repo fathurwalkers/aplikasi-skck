@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 use App\Models\Detail;
 use App\Models\Login;
 use App\Models\LaporanDetail;
@@ -13,10 +15,19 @@ use App\Models\Laporan;
 
 class BackController extends Controller
 {
-    public fuction verifikasi_skck()
+    public function verifikasi_skck()
     {
+        $users = session('data_login');
+        return view('admin.verifikasi-skck', [
+            'users' => $users,
+        ]);
+    }
+
+    public function post_verifikasi_skck(Request $request)
+    {
+        $skck_id = $request->id_skck;
         $users      = session('data_login');
-        $pengguna   = Login::find($pengguna->id);
+        $pengguna   = Login::find($users->id);
         dd($pengguna);
 
         try {

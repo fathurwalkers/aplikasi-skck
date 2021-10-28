@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\HomeController;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 // Misc Route
 Route::post('/logout', [BackController::class, 'logout'])->name('logout');
@@ -31,6 +29,7 @@ Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () 
     // SKCK Route
     Route::get('/lihat-skck', [BackController::class, 'lihat_skck'])->name('lihat-skck');
     Route::get('/verifikasi-skck', [BackController::class, 'verifikasi_skck'])->name('verifikasi-skck');
+    Route::post('/post-verifikasi-skck/verifikasi', [BackController::class, 'post_verifikasi_skck'])->name('post-verifikasi-skck');
     Route::get('/admin-lihat-skck/lihat/{id}', [BackController::class, 'admin_lihat_skck'])->name('admin-lihat-skck');
     Route::get('/daftar-skck', [BackController::class, 'daftar_skck'])->name('daftar-skck');
     Route::get('/verifikasi-pengguna', [BackController::class, 'verifikasi_pengguna'])->name('verifikasi-pengguna');

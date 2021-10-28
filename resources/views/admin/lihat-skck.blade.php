@@ -97,7 +97,7 @@
                     
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
                         <form action="{{ route('print-skck-baru') }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -113,7 +113,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
                         <p class="text-info mt-1">Klik tombol "Cetak SKCK" untuk mencetak Informasi SKCK Anda</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

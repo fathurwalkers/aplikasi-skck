@@ -93,6 +93,24 @@
                                             Edit
                                         </a>
 
+                                        @if ($skck->status_skck == 'unverified')
+                                            <form action="{{ route('post-verifikasi-skck') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" value="{{ $skck->id }}" name="id_skck">
+                                                <button class='btn btn-sm btn-primary rounded mr-1'>
+                                                    <i class='fas fa-cog'></i>
+                                                    Verifikasi
+                                                </button>
+                                            </form>
+                                        @endif
+
+                                        @if ($skck->status_skck == 'verified')
+                                            <a href='#' class='btn btn-sm btn-primary rounded mr-1 disabled'>
+                                                <i class='fas fa-cog'></i>
+                                                Verifikasi
+                                            </a>
+                                        @endif
+
                                         <a href="#" class="btn btn-sm btn-danger rounded" data-toggle="modal" data-target="#ModalDelete{{$skck->id}}" >
                                             <i class="fas fa-trash"></i>
                                             Hapus
