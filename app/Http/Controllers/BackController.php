@@ -13,6 +13,43 @@ use App\Models\Laporan;
 
 class BackController extends Controller
 {
+    public fuction verifikasi_skck()
+    {
+        $users      = session('data_login');
+        $pengguna   = Login::find($pengguna->id);
+        dd($pengguna);
+
+        try {
+            $mail = new PHPMailer(true);
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+            $mail->isSMTP();
+            // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPAuth = true;
+            // $mail->Port = 587;
+            $mail->Port = 465;
+            $mail->Username = 'siakadtk123@gmail.com';
+            $mail->Password = 'Fathur160199Seven';
+    
+            $mail->setFrom('siakadtk123@gmail.com', 'VERIFIKASI SKCK');
+            $mail->addAddress("fathurwalkers44@gmail.com", "VERIFIKASI SKCK");
+            // $mail->addAddress("fathurwalkers44@gmail.com", "BEM Teknik Unidayan");
+            $mail->isHTML(true);
+            $mail->Subject = "Verifikasi SKCK";
+            $mail->Body = "Silahkan klik link dibawah ini untuk mem-verifikasi skck anda.<br>";
+                    
+            $mail->Body .= "Ukuran Baju : ";
+            $mail->Body .= "<br>";
+    
+            $mail->send();
+            return redirect()->route('dashboard')->with('berhasil_verifikasi', "Verfikasi SKCK telah dikirim ke email anda, silahkan cek email anda untuk konfirmasi verifikasi skck.");
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+
     public function index()
     {
         $skck = Detail::all()->count();
