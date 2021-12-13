@@ -62,7 +62,7 @@ class BackController extends Controller
         //     // $mail->Username = env('MAIL_USERNAME');
         //     // $mail->Password = env('MAIL_PASSWORD');
 
-    
+
         //     // $mail->addAddress($pengguna->login_email, "VERIFIKASI SKCK");
         //     // $mail->addAddress("fathurwalkers44@gmail.com", "BEM Teknik Unidayan");
 
@@ -72,13 +72,13 @@ class BackController extends Controller
         //     $mail->isHTML(true);
         //     $mail->Subject = "Verifikasi SKCK";
         //     $mail->Body = "Silahkan klik link dibawah ini untuk mem-verifikasi skck anda.<br>";
-                    
+
         //     $mail->Body .= "http://127.0.0.1:5001/verifikasi/";
         //     $mail->Body .= $pengguna->login_token;
         //     $mail->Body .= "/";
         //     $mail->Body .= $pengguna->login_username;
         //     $mail->Body .= " <br>";
-    
+
         //     $mail->send();
         //     // dd($mail);
         //     return redirect()->route('dashboard')->with('berhasil_verifikasi', "Verfikasi SKCK telah dikirim ke email anda, silahkan cek email anda untuk konfirmasi verifikasi skck.");
@@ -131,7 +131,7 @@ class BackController extends Controller
             // $mail->Username = env('MAIL_USERNAME');
             // $mail->Password = env('MAIL_PASSWORD');
 
-    
+
             // $mail->addAddress($pengguna->login_email, "VERIFIKASI SKCK");
             // $mail->addAddress("fathurwalkers44@gmail.com", "BEM Teknik Unidayan");
 
@@ -142,7 +142,7 @@ class BackController extends Controller
             $mail->Subject = "Verifikasi SKCK";
             $mail->Body = "SKCK Anda telah diverifikasi. <br> 
                             Silahkan lanjutkan Proses Pembuatan / Perpanjangan SKCK ke Loket Pembuatan SKCK Polres Pasarwajo, membawa persyaratan untuk melakukan pencetakan SKCK. <br>";
-    
+
             $mail->send();
             return redirect()->route('dashboard')->with('berhasil_verifikasi', "Verfikasi SKCK telah dikirim ke email pengguna");
         } catch (Exception $e) {
@@ -232,7 +232,7 @@ class BackController extends Controller
         $data_skck = Detail::all();
         return view('admin.daftar-skck', [
             'data_skck' => $data_skck,
-            'laporanDetail' => $laporanDetail 
+            'laporanDetail' => $laporanDetail
         ]);
     }
 
@@ -278,10 +278,13 @@ class BackController extends Controller
         $users = session('data_login');
         $laporan_id = session('laporan_id');
         $validatedData = $request->validate([
+            "foto"                  => 'required',
+            "jenis_keperluan_pembuatan"          => 'required|filled',
             "nama_lengkap"          => 'required',
             "ttl"                   => 'required',
             "agama"                 => 'required',
             "kebangsaan"            => 'required',
+            "kabupaten"             => 'required',
             "jenis_kelamin"         => 'required|filled',
             "status_kawin"          => 'required|filled',
             "pekerjaan"             => 'required',
@@ -298,6 +301,9 @@ class BackController extends Controller
             "nama_ayah"             => 'required',
             "umur_ayah"             => 'required',
             "agama_ayah"            => 'required',
+            "kebangsaan_ayah"       => 'required',
+            "pekerjaan_ayah"        => 'required',
+            "alamat_sekarang_ayah"  => 'required',
         ]);
         $gambar_cek = $request->file('foto');
         if (!$gambar_cek) {
@@ -307,14 +313,18 @@ class BackController extends Controller
             $gambar = $request->file('foto')->move(public_path('foto'), strtolower($randomNamaGambar));
         }
 
+
+
         $data_skck = new Detail;
         $saveDataSkck = $data_skck->create([
             "foto"                  => $gambar->getFileName(),
             "status_skck"           => "unverified",
+            "jenis_keperluan_pembuatan"          => $validatedData["jenis_keperluan_pembuatan"],
             "nama_lengkap"          => $validatedData["nama_lengkap"],
             "ttl"                   => $validatedData["ttl"],
             "agama"                 => $validatedData["agama"],
             "kebangsaan"            => $validatedData["kebangsaan"],
+            "kabupaten"             => $validatedData["kabupaten"],
             "jenis_kelamin"         => $validatedData["jenis_kelamin"],
             "status_kawin"          => $validatedData["status_kawin"],
             "pekerjaan"             => $validatedData["pekerjaan"],
@@ -323,6 +333,7 @@ class BackController extends Controller
             "no_passport"           => $request->no_passport,
             "no_kitaskitap"         => $request->no_kitaskitap,
             "no_telepon"            => $validatedData["no_telepon"],
+            "jenis_pidana"            => $validatedData["jenis_pidana"],
             "status_hubungan"       => $validatedData["status_hubungan"],
             "nama_pasangan"         => $validatedData["nama_pasangan"],
             "umur_pasangan"         => $validatedData["umur_pasangan"],
@@ -333,9 +344,13 @@ class BackController extends Controller
             "nama_ayah"             => $validatedData["nama_ayah"],
             "umur_ayah"             => $validatedData["umur_ayah"],
             "agama_ayah"            => $validatedData["agama_ayah"],
+            "kebangsaan_ayah"       => $validatedData["kebangsaan_ayah"],
+            "pekerjaan_ayah"        => $validatedData["pekerjaan_ayah"],
+            "alamat_sekarang_ayah"  => $validatedData["alamat_sekarang_ayah"],
             "created_at"            => now(),
             "updated_at"            => now()
         ]);
+        // dd($saveDataSkck);
         $usersInfo = Login::where('id', $users->id)->first();
         $saveDataSkck->save();
         $saveDataSkck->laporan()->attach($laporan_id);
@@ -591,7 +606,7 @@ class BackController extends Controller
                 $findskck->delete();
                 return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
                 break;
-            
+
             case 'user':
                 // $findusers->detail()->detach([$findskck->id]);
                 $finduser->detail()->dissociate($findskck->id);

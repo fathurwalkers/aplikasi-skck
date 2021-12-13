@@ -20,7 +20,7 @@ Route::group(['prefix' => '/'], function () {
 });
 
 // Dashboard Route
-Route::group(['prefix' =>'/dashboard', 'middleware' => 'ceklogin'], function () {
+Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
     Route::get('/profile', [BackController::class, 'profile'])->name('profile');
 

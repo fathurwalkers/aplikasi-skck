@@ -32,7 +32,11 @@ class CreateDetailsTable extends Migration
             $table->string('no_kitaskitap')->nullable();
             $table->string('no_telepon')->nullable();
 
-            $table->text('jenis_pidana')->nullable();
+            $table->text('jenis_pidana_value_a')->nullable()->default("TIDAK ADA");
+            $table->text('jenis_pidana_value_b')->nullable()->default("TIDAK ADA");
+            $table->text('jenis_pidana_value_c')->nullable()->default("TIDAK ADA");
+            $table->text('jenis_pidana_value_d')->nullable()->default("TIDAK ADA");
+            $table->text('jenis_pidana_value_e')->nullable()->default("TIDAK ADA");
 
             $table->string('status_hubungan')->nullable(); // Suami - Istri 
             $table->string('nama_pasangan')->nullable();
