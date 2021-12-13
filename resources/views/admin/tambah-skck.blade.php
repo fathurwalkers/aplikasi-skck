@@ -194,10 +194,10 @@
 
                     <div class="row mt-2 mb-2">
                         <div class="col-sm-12 col-md-12 col-lg-12 mt-2 mb-2">
-                            <label for="">Pilih salah satu Jenis Perkara Pidana dan tuliskan Jawaban anda di Box Input "Jawaban" (Pilih "Tidak ada" jika anda tidak pernah mempunyai Perkara Pidana, dan Kosongkan box "Jawaban")</label>
+                            <label for="">Isi jawaban anda pada kotak "Jawaban" (Masukkan jawaban "TIDAK ADA" jika tidak punya jawaban.)</label>
                             <div class="form-check">
                                 {{-- <input class="form-check-input" type="radio" id="gridRadios1" value="option1" name="jenis_pidana_type"> --}}
-                                <label class="form-check-label" for="gridRadios1">
+                                <label class="" for="gridRadios1">
                                   a. Apakah Saudara pernah tersangkut perkara pidana? <i>(Have you ever caught in a criminal case?)</i>
                                 </label>
                                 <div class="form-group">
@@ -208,7 +208,7 @@
                             </div>
                             <div class="form-check">
                                 {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
-                                <label class="form-check-label" for="gridRadios2">
+                                <label class="" for="gridRadios2">
                                   b. Dalam perkara apa? <i>(in what kind of case?)</i>
                                 </label>
                                 <div class="form-group">
@@ -219,7 +219,7 @@
                             </div>
                             <div class="form-check">
                                 {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
-                                <label class="form-check-label" for="gridRadios2">
+                                <label class="" for="gridRadios2">
                                   c. Bagaimana putusannya dan Vonis hakim ? <i>(What is the decision of the judge and verdict?)</i>
                                 </label>
                                 <div class="form-group">
@@ -230,7 +230,7 @@
                             </div>
                             <div class="form-check">
                                 {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
-                                <label class="form-check-label" for="gridRadios2">
+                                <label class="" for="gridRadios2">
                                   d. Apakah Saudara sedang dalam proses perkara pidana ? Kasus apa ? <i>(Are you currently in the process of a criminal case? What kind of case?)</i>
                                 </label>
                                 <div class="form-group">
@@ -241,7 +241,7 @@
                             </div>
                             <div class="form-check">
                                 {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
-                                <label class="form-check-label" for="gridRadios2">
+                                <label class="" for="gridRadios2">
                                   e. Sampai sejauh mana proses hukumnya ? <i>(To what extent is the legal process?)</i>
                                 </label>
                                 <div class="form-group">

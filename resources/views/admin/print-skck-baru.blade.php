@@ -205,6 +205,17 @@
                 </tr>
                 <tr>
                     <td class="list">e.</td>
+                    <td class="question">Kabupaten</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->kabupaten }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">District</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="list">f.</td>
                     <td class="question">Jenis Kelamin</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->jenis_kelamin }}</td>
@@ -215,7 +226,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">f.</td>
+                    <td class="list">g.</td>
                     <td class="question">Kawin/Tidak kawin</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->status_kawin }}</td>
@@ -226,7 +237,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">g.</td>
+                    <td class="list">h.</td>
                     <td class="question">Pekerjaan</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->pekerjaan }}</td>
@@ -237,7 +248,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">h.</td>
+                    <td class="list">i.</td>
                     <td class="question">Alamat</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->alamat_lengkap }}</td>
@@ -248,7 +259,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">i.</td>
+                    <td class="list">j.</td>
                     <td class="question">No.Kartu Penduduk</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->no_ktp }}</td>
@@ -259,7 +270,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">j.</td>
+                    <td class="list">k.</td>
                     <td class="question">Nomor Passport</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->no_passport }}</td>
@@ -270,7 +281,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">k.</td>
+                    <td class="list">l.</td>
                     <td class="question">No KITAS/KITAP</td>
                     <td class="titik">:</td>
                     <td class="jawaban">{{ $detail->no_kitaskitap }}</td>
@@ -281,7 +292,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="list">l.</td>
+                    <td class="list">m.</td>
                     <td class="question">Nomor Telp/ HP</td>
                     <td class="titik">:</td>
                     <td  class="jawaban">{{ $detail->no_telepon }}</td>
@@ -291,7 +302,86 @@
                     <td class="inggris">Phone Number</td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td class="list">n.</td>
+                    <td class="question">Jenis Keperluan</td>
+                    <td class="titik">:</td>
+                    <td  class="jawaban">{{ $detail->jenis_keperluan_pembuatan }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Type of Requirement</td>
+                    <td></td>
+                </tr>
             </table>
+
+            {{-- <ol> --}}
+            <p class="daftar mt-4">Perkara Pidana <i>(Criminal case)</i> : </p>
+            {{-- </ol> --}}
+            <table class="ayah">
+                
+                <tr>
+                    <td class="list">a.</td>
+                    <td class="question">Apakah Saudara pernah tersangkut perkara pidana?</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->jenis_pidana_value_b }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Have you ever caught in a criminal case?</td>
+                    <td></td>
+                </tr>               
+
+                <tr>
+                    <td class="list">b.</td>
+                    <td class="question">Dalam perkara apa?</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->jenis_pidana_value_b }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">in what kind of case?</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="list">c.</td>
+                    <td class="question">Bagaimana putusannya dan Vonis hakim ?</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->jenis_pidana_value_c }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">What is the decision of the judge and verdict?</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="list">d.</td>
+                    <td class="question">Apakah Saudara sedang dalam proses perkara pidana ? Kasus apa ?</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->jenis_pidana_value_d }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Are you currently in the process of a criminal case? What kind of case?</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="list">e.</td>
+                    <td class="question">Sampai sejauh mana proses hukumnya ?</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->jenis_pidana_value_e }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">To what extent is the legal process?</td>
+                    <td></td>
+                </tr>
+                
+            </table>
+
         </div>
         <div class="section">
             <p>Menerangkan hal-hal sebagai jawaban / keteranganan atas pernyataan pernyataan diajukan sebagai berikut : </p>
@@ -413,7 +503,42 @@
                     <td class="inggris">Religion</td>
                     <td></td>
                 </tr>
+
                 <tr>
+                    <td class="list">d.</td>
+                    <td class="question">Kebangsaan</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->kebangsaan_ayah }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Nationality</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="list">e.</td>
+                    <td class="question">Pekerjaan</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->pekerjaan_ayah }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Occupation</td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td class="list">f.</td>
+                    <td class="question">Alamat</td>
+                    <td class="titik">:</td>
+                    <td class="jawaban">{{ $detail->alamat_sekarang_ayah }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="inggris">Address</td>
+                    <td></td>
+                </tr>
             </table>
         </div>
     </div>
@@ -421,34 +546,34 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
-      var myState = {
-          pdf: null,
-          currentPage: 1,
-          zoom: 1
-      }
+    //   var myState = {
+    //       pdf: null,
+    //       currentPage: 1,
+    //       zoom: 1
+    //   }
     
-      pdfjsLib.getDocument('./my_document.pdf').then((pdf) => {
+    //   pdfjsLib.getDocument('./my_document.pdf').then((pdf) => {
     
-          myState.pdf = pdf;
-          render();
-      });
-      function render() {
-          myState.pdf.getPage(myState.currentPage).then((page) => {
+    //       myState.pdf = pdf;
+    //       render();
+    //   });
+    //   function render() {
+    //       myState.pdf.getPage(myState.currentPage).then((page) => {
         
-              var canvas = document.getElementById("pdf_renderer");
-              var ctx = canvas.getContext('2d');
+    //           var canvas = document.getElementById("pdf_renderer");
+    //           var ctx = canvas.getContext('2d');
     
-              var viewport = page.getViewport(myState.zoom);
-              canvas.width = viewport.width;
-              canvas.height = viewport.height;
+    //           var viewport = page.getViewport(myState.zoom);
+    //           canvas.width = viewport.width;
+    //           canvas.height = viewport.height;
         
-              page.render({
-                  canvasContext: ctx,
-                  viewport: viewport
-              });
-          });
-      }
-      window.print()
+    //           page.render({
+    //               canvasContext: ctx,
+    //               viewport: viewport
+    //           });
+    //       });
+    //   }
+    //   window.print()
   </script>
   </body>
   </html>

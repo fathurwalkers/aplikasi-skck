@@ -174,6 +174,89 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Jenis Keperluan Pembuatan SKCK : </label>
+                                <select id="inputState" class="form-control" name="jenis_keperluan_pembuatan">
+                                    <option selected="{{ $skck->jenis_keperluan_pembuatan }}">{{ $skck->jenis_keperluan_pembuatan }}</option>
+                                    <option value="Pencalonan Anggota Legislatif Tingkat Kabupaten / Kota ">Pencalonan Anggota Legislatif Tingkat Kabupaten / Kota</option>
+                                    <option value="Melamar Sebagai PNS">Melamar Sebagai PNS</option>
+                                    <option value="Melamar Sebagai Anggota TNI / POLRI">Melamar Sebagai Anggota TNI / POLRI</option>
+                                    <option value="Pencalonan Pejabat Publik">Pencalonan Pejabat Publik</option>
+                                    <option value="Kepemilikan Senjata Api">Kepemilikan Senjata Api</option>
+                                    <option value="PerempuanMelamar Pekerjaan Swasta dan BUMN di Tingkat Kabupaten / Kota">Melamar Pekerjaan Swasta dan BUMN di Tingkat Kabupaten / Kota </option>
+                                    <option value="Pencalonan Kepala Daerah Tingkat Kabupaten / Kota">Pencalonan Kepala Daerah Tingkat Kabupaten / Kota </option>
+                                    <option value="Pass Bandara Soetta">Pass Bandara Soetta </option>
+                                    <option value="Melanjutkan Pendidikan Kedinasan dan di Luar Kabupaten / Kota">Melanjutkan Pendidikan Kedinasan dan di Luar Kabupaten / Kota </option>
+                                    <option value="Calon Penerima Penghargaan">Calon Penerima Penghargaan </option>
+                                    <option value="Keperluan Lain di Tingkat Kabupaten">Keperluan Lain di Tingkat Kabupaten </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2 mb-2">
+                        <div class="col-sm-12 col-md-12 col-lg-12 mt-2 mb-2">
+                            <label for="">Isi jawaban anda pada kotak "Jawaban" (Masukkan jawaban "TIDAK ADA" jika tidak punya jawaban.)</label>
+                            <div class="form-check">
+                                {{-- <input class="form-check-input" type="radio" id="gridRadios1" value="option1" name="jenis_pidana_type"> --}}
+                                <label class="" for="gridRadios1">
+                                  a. Apakah Saudara pernah tersangkut perkara pidana? <i>(Have you ever caught in a criminal case?)</i>
+                                </label>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span style="color:red;">* </span>Jawaban : </label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jawaban anda... " name="jenis_pidana_value_a" value="{{ $skck->jenis_pidana_value_a }}">
+                                    {{-- <small class="form-text text-muted">contoh : Risky Yatno</small> --}}
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
+                                <label class="" for="gridRadios2">
+                                  b. Dalam perkara apa? <i>(in what kind of case?)</i>
+                                </label>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span style="color:red;">* </span>Jawaban : </label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jawaban anda... " name="jenis_pidana_value_b" value="{{ $skck->jenis_pidana_value_b }}">
+                                    {{-- <small class="form-text text-muted">contoh : Risky Yatno</small> --}}
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
+                                <label class="" for="gridRadios2">
+                                  c. Bagaimana putusannya dan Vonis hakim ? <i>(What is the decision of the judge and verdict?)</i>
+                                </label>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span style="color:red;">* </span>Jawaban : </label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jawaban anda... " name="jenis_pidana_value_c" value="{{ $skck->jenis_pidana_value_c }}">
+                                    {{-- <small class="form-text text-muted">contoh : Risky Yatno</small> --}}
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
+                                <label class="" for="gridRadios2">
+                                  d. Apakah Saudara sedang dalam proses perkara pidana ? Kasus apa ? <i>(Are you currently in the process of a criminal case? What kind of case?)</i>
+                                </label>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span style="color:red;">* </span>Jawaban : </label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jawaban anda... " name="jenis_pidana_value_d" value="{{ $skck->jenis_pidana_value_d }}">
+                                    {{-- <small class="form-text text-muted">contoh : Risky Yatno</small> --}}
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                {{-- <input class="form-check-input" type="radio" id="gridRadios2" value="option2" name="jenis_pidana_type"> --}}
+                                <label class="" for="gridRadios2">
+                                  e. Sampai sejauh mana proses hukumnya ? <i>(To what extent is the legal process?)</i>
+                                </label>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1"><span style="color:red;">* </span>Jawaban : </label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jawaban anda... " name="jenis_pidana_value_e" value="{{ $skck->jenis_pidana_value_e }}">
+                                    {{-- <small class="form-text text-muted">contoh : Risky Yatno</small> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Nama Lengkap : </label>
                                 <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap anda... " name="nama_lengkap" required autofocus value="{{ $skck->nama_lengkap }}">
                                 <small class="form-text text-muted">contoh : Risky Yatno</small>
@@ -198,18 +281,25 @@
                     </div> --}}
 
                     <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat Sekarang : </label>
                                 <input type="text" class="form-control" placeholder="Masukkan alamat tempat tinggal anda..." name="alamat_lengkap" value="{{ $skck->alamat_lengkap }}">
                                 <small class="form-text text-muted">contoh : Jl. Bakti Abri, Kel. Bukit Wolio Indah, Kec. Wolio. Kota baubau, Sulawesi Tenggara</small>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
                                 <input type="text" class="form-control" placeholder="Masukkan Pekerjaan anda..." name="pekerjaan" value="{{ $skck->pekerjaan }}">
                                 <small class="form-text text-muted">contoh : PNS</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Kabupaten : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Kabupaten..." name="kabupaten" value="{{ $skck->kabupaten }}">
+                                <small class="form-text text-muted">contoh : Buton</small>
                             </div>
                         </div>
                     </div>
@@ -407,6 +497,31 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Kebangsaan : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Kebangsaan..." name="kebangsaan_ayah" value="{{ $skck->kebangsaan_ayah }}">
+                                <small class="form-text text-muted">contoh : INDONESIA </small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Pekerjaan : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Pekerjaan..." name="pekerjaan_ayah" value="{{ $skck->pekerjaan_ayah }}">
+                                <small class="form-text text-muted">contoh : PNS</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"><span style="color:red;">* </span>Alamat : </label>
+                                <input type="text" class="form-control" placeholder="Masukkan Alamat Sekarang..." name="alamat_sekarang_ayah" value="{{ $skck->alamat_sekarang_ayah }}">
+                                <small class="form-text text-muted">contoh : Jl. Bakti Abri, Bukit Wolio Indah </small>
+                            </div>
+                        </div>
+                    </div>
+
                     {{-- END DATA AYAH  --}}
 
                     <div class="row mt-3 mb-4">

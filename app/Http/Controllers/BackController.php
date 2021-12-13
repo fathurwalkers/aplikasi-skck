@@ -273,6 +273,86 @@ class BackController extends Controller
         }
     }
 
+    public function update_skck(Request $request, $id)
+    {
+        $skck_id = $id;
+        $users = session('data_login');
+        $laporan_id = session('laporan_id');
+        $data_skck = Detail::findOrFail($skck_id);
+        // dd($data_skck);
+        $validatedData = $request->validate([
+            "jenis_keperluan_pembuatan"          => 'required|filled',
+            "nama_lengkap"          => 'required',
+            "ttl"                   => 'required',
+            "agama"                 => 'required',
+            "kebangsaan"            => 'required',
+            "kabupaten"             => 'required',
+            "jenis_kelamin"         => 'required|filled',
+            "status_kawin"          => 'required|filled',
+            "pekerjaan"             => 'required',
+            "alamat_lengkap"        => 'required',
+            "no_ktp"                => 'required',
+            "no_telepon"            => 'required',
+            "jenis_pidana_value_a"            => 'required',
+            "jenis_pidana_value_b"            => 'required',
+            "jenis_pidana_value_c"            => 'required',
+            "jenis_pidana_value_d"            => 'required',
+            "jenis_pidana_value_e"            => 'required',
+            "status_hubungan"       => 'required|filled',
+            "nama_pasangan"         => 'required',
+            "umur_pasangan"         => 'required',
+            "agama_pasangan"        => 'required',
+            "kebangsaan_pasangan"   => 'required',
+            "pekerjaan_pasangan"    => 'required',
+            "alamat_pasangan"       => 'required',
+            "nama_ayah"             => 'required',
+            "umur_ayah"             => 'required',
+            "agama_ayah"            => 'required',
+            "kebangsaan_ayah"       => 'required',
+            "pekerjaan_ayah"        => 'required',
+            "alamat_sekarang_ayah"  => 'required',
+        ]);
+        $saveDataSkck = $data_skck->update([
+            "jenis_keperluan_pembuatan"          => $validatedData["jenis_keperluan_pembuatan"],
+            "nama_lengkap"          => $validatedData["nama_lengkap"],
+            "ttl"                   => $validatedData["ttl"],
+            "agama"                 => $validatedData["agama"],
+            "kebangsaan"            => $validatedData["kebangsaan"],
+            "kabupaten"            => $validatedData["kabupaten"],
+            "jenis_kelamin"         => $validatedData["jenis_kelamin"],
+            "status_kawin"          => $validatedData["status_kawin"],
+            "pekerjaan"             => $validatedData["pekerjaan"],
+            "alamat_lengkap"        => $validatedData["alamat_lengkap"],
+            "no_ktp"                => $validatedData["no_ktp"],
+            "no_passport"           => $request->no_passport,
+            "no_kitaskitap"         => $request->no_kitaskitap,
+            "no_telepon"            => $validatedData["no_telepon"],
+            "jenis_pidana_value_a"            => $validatedData["jenis_pidana_value_a"],
+            "jenis_pidana_value_b"            => $validatedData["jenis_pidana_value_b"],
+            "jenis_pidana_value_c"            => $validatedData["jenis_pidana_value_c"],
+            "jenis_pidana_value_d"            => $validatedData["jenis_pidana_value_d"],
+            "jenis_pidana_value_e"            => $validatedData["jenis_pidana_value_e"],
+            "no_telepon"            => $validatedData["no_telepon"],
+            "no_telepon"            => $validatedData["no_telepon"],
+            "no_telepon"            => $validatedData["no_telepon"],
+            "status_hubungan"       => $validatedData["status_hubungan"],
+            "nama_pasangan"         => $validatedData["nama_pasangan"],
+            "umur_pasangan"         => $validatedData["umur_pasangan"],
+            "agama_pasangan"        => $validatedData["agama_pasangan"],
+            "kebangsaan_pasangan"   => $validatedData["kebangsaan_pasangan"],
+            "pekerjaan_pasangan"    => $validatedData["pekerjaan_pasangan"],
+            "alamat_pasangan"       => $validatedData["alamat_pasangan"],
+            "nama_ayah"             => $validatedData["nama_ayah"],
+            "umur_ayah"             => $validatedData["umur_ayah"],
+            "agama_ayah"            => $validatedData["agama_ayah"],
+            "kebangsaan_ayah"            => $validatedData["kebangsaan_ayah"],
+            "pekerjaan_ayah"            => $validatedData["pekerjaan_ayah"],
+            "alamat_sekarang_ayah"            => $validatedData["alamat_sekarang_ayah"],
+            "updated_at"            => now()
+        ]);
+        return redirect()->route('daftar-skck')->with('berhasil_update', 'Data telah di-perbarui!');
+    }
+
     public function post_tambah_skck(Request $request)
     {
         $users = session('data_login');
@@ -291,6 +371,11 @@ class BackController extends Controller
             "alamat_lengkap"        => 'required',
             "no_ktp"                => 'required',
             "no_telepon"            => 'required',
+            "jenis_pidana_value_a"            => 'required',
+            "jenis_pidana_value_b"            => 'required',
+            "jenis_pidana_value_c"            => 'required',
+            "jenis_pidana_value_d"            => 'required',
+            "jenis_pidana_value_e"            => 'required',
             "status_hubungan"       => 'required|filled',
             "nama_pasangan"         => 'required',
             "umur_pasangan"         => 'required',
@@ -333,7 +418,11 @@ class BackController extends Controller
             "no_passport"           => $request->no_passport,
             "no_kitaskitap"         => $request->no_kitaskitap,
             "no_telepon"            => $validatedData["no_telepon"],
-            "jenis_pidana"            => $validatedData["jenis_pidana"],
+            "jenis_pidana_value_a"            => $validatedData["jenis_pidana_value_a"],
+            "jenis_pidana_value_b"            => $validatedData["jenis_pidana_value_b"],
+            "jenis_pidana_value_c"            => $validatedData["jenis_pidana_value_c"],
+            "jenis_pidana_value_d"            => $validatedData["jenis_pidana_value_d"],
+            "jenis_pidana_value_e"            => $validatedData["jenis_pidana_value_e"],
             "status_hubungan"       => $validatedData["status_hubungan"],
             "nama_pasangan"         => $validatedData["nama_pasangan"],
             "umur_pasangan"         => $validatedData["umur_pasangan"],
@@ -618,64 +707,6 @@ class BackController extends Controller
 
         // $findskck->delete();
         // return redirect()->route('daftar-skck')->with('status_delete', 'Data telah dihapus!');
-    }
-
-    public function update_skck(Request $request, $id)
-    {
-        $skck_id = $id;
-        $users = session('data_login');
-        $laporan_id = session('laporan_id');
-        $data_skck = Detail::findOrFail($skck_id);
-        // dd($data_skck);
-        $validatedData = $request->validate([
-            "nama_lengkap"          => 'required',
-            "ttl"                   => 'required',
-            "agama"                 => 'required',
-            "kebangsaan"            => 'required',
-            "jenis_kelamin"         => 'required|filled',
-            "status_kawin"          => 'required|filled',
-            "pekerjaan"             => 'required',
-            "alamat_lengkap"        => 'required',
-            "no_ktp"                => 'required',
-            "no_telepon"            => 'required',
-            "status_hubungan"       => 'required|filled',
-            "nama_pasangan"         => 'required',
-            "umur_pasangan"         => 'required',
-            "agama_pasangan"        => 'required',
-            "kebangsaan_pasangan"   => 'required',
-            "pekerjaan_pasangan"    => 'required',
-            "alamat_pasangan"       => 'required',
-            "nama_ayah"             => 'required',
-            "umur_ayah"             => 'required',
-            "agama_ayah"            => 'required',
-        ]);
-        $saveDataSkck = $data_skck->update([
-            "status_skck"           => "verified",
-            "nama_lengkap"          => $validatedData["nama_lengkap"],
-            "ttl"                   => $validatedData["ttl"],
-            "agama"                 => $validatedData["agama"],
-            "kebangsaan"            => $validatedData["kebangsaan"],
-            "jenis_kelamin"         => $validatedData["jenis_kelamin"],
-            "status_kawin"          => $validatedData["status_kawin"],
-            "pekerjaan"             => $validatedData["pekerjaan"],
-            "alamat_lengkap"        => $validatedData["alamat_lengkap"],
-            "no_ktp"                => $validatedData["no_ktp"],
-            "no_passport"           => $request->no_passport,
-            "no_kitaskitap"         => $request->no_kitaskitap,
-            "no_telepon"            => $validatedData["no_telepon"],
-            "status_hubungan"       => $validatedData["status_hubungan"],
-            "nama_pasangan"         => $validatedData["nama_pasangan"],
-            "umur_pasangan"         => $validatedData["umur_pasangan"],
-            "agama_pasangan"        => $validatedData["agama_pasangan"],
-            "kebangsaan_pasangan"   => $validatedData["kebangsaan_pasangan"],
-            "pekerjaan_pasangan"    => $validatedData["pekerjaan_pasangan"],
-            "alamat_pasangan"       => $validatedData["alamat_pasangan"],
-            "nama_ayah"             => $validatedData["nama_ayah"],
-            "umur_ayah"             => $validatedData["umur_ayah"],
-            "agama_ayah"            => $validatedData["agama_ayah"],
-            "updated_at"            => now()
-        ]);
-        return redirect()->route('daftar-skck')->with('berhasil_update', 'Data telah di-perbarui!');
     }
 
     public function laporan_detail(Request $request)
