@@ -60,6 +60,8 @@
                             Nama Ayah <br> 
                             Umur Ayah <br> 
                             Agama Ayah <br>
+                            <br>
+
                         </p>
                     </div>
 
@@ -97,6 +99,7 @@
                     
                 </div>
 
+                @if($data_skck->status_skck == 'unverified')
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 mx-auto d-flex justify-content-center">
                         <form action="{{ route('kirim-verifikasi') }}" method="POST" enctype="multipart/form-data">
@@ -114,6 +117,9 @@
                         <p class="text-info mt-1">Klik tombol "Verifikasi SKCK" untuk mem-verifikasi permintaan pendaftaran / perpanjangan SKCK anda.</p>
                     </div>
                 </div>
+                @endif
+
+                
             </div>
         </div>
     </div>

@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
             'login_nama' => 'User 1',
             'login_username' => 'user1',
             'login_password' => $hashPassword,
-            'login_email' => 'user1@gmail.com',
+            'login_email' => 'fathurwalkers@gmail.com',
             'login_token' => $hashToken,
             'login_level' => $role,
             'login_status' => "verified",

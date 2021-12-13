@@ -160,7 +160,7 @@
                     </div>
                 </div>
 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('post-tambah-skck') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Start DATA DIRI PENDAFTAR  --}}
@@ -321,6 +321,7 @@
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Hubungan : </label>
                                 <select id="inputState" class="form-control" name="status_hubungan">
                                     <option selected="null" disabled>Pilih status...</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
                                     <option value="Suami">Suami (Husband)</option>
                                     <option value="Istri">Istri (Wife)</option>
                                 </select>

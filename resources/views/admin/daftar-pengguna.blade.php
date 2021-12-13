@@ -87,13 +87,13 @@
                                         </button>
                                     </div>
                                     
-                                    <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $pengguna->id }} </b> ? </div>
+                                    <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
                                     <form action="{{ route('hapus-pengguna', $pengguna->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-footer">
                                             <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
                                             <button type="submit" class="btn btn-outline-danger">
-                                                Delete
+                                                Delete  
                                             </button>
                                         </div>
                                     </form>

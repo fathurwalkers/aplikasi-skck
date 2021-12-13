@@ -149,7 +149,6 @@
                             {{ $message }} 
                         </div>
                         @enderror
-                      
 
                         @if (session('laporan_telah_ada'))
                             <div class="alert alert-success">
@@ -321,6 +320,7 @@
                                 <label for="exampleInputEmail1"><span style="color:red;">* </span>Status Hubungan : </label>
                                 <select id="inputState" class="form-control" name="status_hubungan">
                                     <option selected="null" disabled>Pilih status...</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
                                     <option value="Suami">Suami (Husband)</option>
                                     <option value="Istri">Istri (Wife)</option>
                                 </select>
@@ -405,7 +405,6 @@
                                 <input type="text" class="form-control" placeholder="Masukkan Agama..." name="agama_ayah">
                                 {{-- <small class="form-text text-muted">Kosongkan jika tidak ada </small> --}}
                             </div>
-                        </div>
                     </div>
                     {{-- END DATA AYAH  --}}
 

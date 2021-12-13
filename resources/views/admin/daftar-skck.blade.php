@@ -80,14 +80,18 @@
                                         </a>
 
                                         @if ($skck->status_skck == 'unverified')
-                                        <form action="{{ route('print-skck-baru') }}" method="POST">
+                                        {{-- <form action="#" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{ $skck->id }}" name="skck">
                                             <button class="btn btn-success btn-sm mr-1 rounded disabled" type="submit" role="button">
                                                 <i class="fas fa-print"></i>
                                                 Cetak
                                             </button>
-                                        </form>
+                                        </form> --}}
+                                            <button class="btn btn-danger btn-sm mr-1 rounded disabled" type="submit" role="button">
+                                                <i class="fas fa-print"></i>
+                                                Cetak
+                                            </button>
                                         @endif
 
                                         @if ($skck->status_skck == "verified")
@@ -147,7 +151,7 @@
                                     </button>
                                 </div>
                                 
-                                <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $skck->id }} </b> ? </div>
+                                <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
                                 <form action="{{ route('hapus-skck', $skck->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-footer">
@@ -173,7 +177,7 @@
                                     </button>
                                 </div>
                                 
-                                <div class="modal-body">Apakah anda yakin ingin menghapus item ini? <b> {{ $skck->id }} </b> ? </div>
+                                <div class="modal-body">Apakah anda yakin ingin mengubah item ini? </div>
                                 <form action="{{ route('edit-skck', $skck->id) }}" method="GET" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-footer">

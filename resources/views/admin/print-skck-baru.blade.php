@@ -413,6 +413,7 @@
                     <td class="inggris">Religion</td>
                     <td></td>
                 </tr>
+                <tr>
             </table>
         </div>
     </div>

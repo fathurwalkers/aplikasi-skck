@@ -18,7 +18,7 @@
                     <tr class="text-center">
                         <th>No</th>
                         <th>Jenis Keperluan</th>
-                        <th>Pengirim</th>
+                        <th>Username</th>
                         <th>Kode Laporan</th>
                         <th>Tanggal dibuat</th>
                         <th>Aksi</th>
@@ -29,7 +29,9 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td class="text-center">{{ strtoupper($laporan->laporan_jeniskeperluan) }}</td>
+
                         <td>{{ $laporan->laporan_pengirim }}</td>
+
                         <td>{{ $laporan->laporan_kode }}</td>
                         <td class="text-center">{{ date('d/m/Y', strtotime($laporan->created_at)) }}</td>
 
@@ -50,7 +52,7 @@
                                         </form>
 
                                         @if($laporan->laporan_jeniskeperluan == 'Verifikasi')
-                                        <form action="{{ route('terima-verifikasi', [$laporan->laporan_body, $laporan->laporan_pengirim]) }}" method="POST">
+                                        <form action="{{ route('terima-verifikasi', $laporan->laporan_body) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $laporan->id }}">
                                             <button class="btn btn-primary btn-sm mr-1 rounded">Verifikasi</button>

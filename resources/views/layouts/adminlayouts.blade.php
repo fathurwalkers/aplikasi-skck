@@ -86,7 +86,7 @@ $users = session('data_login');
                         @if ($users->login_level == 'admin')
                         <h6 class="collapse-header">Kelola SKCK : </h6>
                         <a class="collapse-item" href="{{ route('daftar-skck') }}">- Daftar SKCK</a>
-                        <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a>
+                        {{-- <a class="collapse-item" href="{{ route('buat-laporan') }}">- Pengurusan SKCK</a> --}}
                         
                         <h6 class="collapse-header">Kelola Pengguna : </h6>
                         <a class="collapse-item" href="{{ route('daftar-pengguna') }}">- Daftar Pengguna</a>

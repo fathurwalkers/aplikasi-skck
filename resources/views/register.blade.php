@@ -40,26 +40,36 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Halaman Registerasi</h1>
                                     </div>
+
+                                    {{-- @error('login_nama') --}}
+                                    {{-- <div class="row"> --}}
+                                        {{-- <div class="alert alert-danger">
+                                            Nama lengkap tidak boleh kosong!
+                                        </div> --}}
+                                    {{-- </div> --}}
+                                    {{-- @enderror --}}
+
+
                                     <form class="user" action="{{ route('post-register') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user @error('login_nama') is-invalid @enderror" aria-describedby="emailHelp"
                                                 placeholder="Nama lengkap..." name="login_nama">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user @error('login_username') is-invalid @enderror" aria-describedby="emailHelp"
                                                 placeholder="Username..." name="login_username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user @error('login_password') is-invalid @enderror"
                                                 id="exampleInputPassword" placeholder="Password" name="login_password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user @error('login_email') is-invalid @enderror" aria-describedby="emailHelp"
                                                 placeholder="Email" name="login_email">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            REGISTER
                                         </button>
                                     </form>
                                     <hr>
